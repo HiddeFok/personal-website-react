@@ -1,7 +1,42 @@
-import React, { Component } from 'react'
-import "./navbar.css"
+import React from 'react'
+import { AppBar } from '@mui/material'
+import { Toolbar } from '@mui/material'
+import { Typography } from '@mui/material'
+import { Grid } from '@mui/material'
+import { Button } from '@mui/material'
 
-export class Navbar extends Component {
+const Navbar: React.FC = () => {
+  return (
+  <div>
+  <AppBar position="static">
+    <Toolbar>
+      <Grid container spacing={4}>
+        <Grid item xs={4}>
+          <Typography variant="h4" color="inherit" align='left'>
+            Hidde Fokkema
+          </Typography>
+          <Typography variant='subtitle1' color="inherit" align='left'>
+            PhD candidate in Mathematical machine learning
+          </Typography>
+        </Grid>
+        <Grid item xs={4}></Grid>
+        <Grid item xs={1}>
+          <Button color="inherit">About</Button>
+        </Grid>
+          <Grid item xs={1}>
+        <Button color="inherit">Research</Button>
+          </Grid>
+        <Grid item xs={1}>
+          <Button color="inherit">Teaching</Button>
+        </Grid>
+          <Grid item xs={1}>
+            <Button color="inherit">Blog</Button>
+          </Grid>
+        </Grid> 
+      </Toolbar>
+    </AppBar>
+    </div>
+  )
 }
 
 export default Navbar;
