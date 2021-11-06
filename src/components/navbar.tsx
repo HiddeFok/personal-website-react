@@ -21,16 +21,16 @@ const Navbar: React.FC = () => {
         </Grid>
         <Grid item xs={4}></Grid>
         <Grid item xs={1}>
-          <Button color="inherit">About</Button>
+          <Button color="inherit" href="/">About</Button>
         </Grid>
           <Grid item xs={1}>
-        <Button color="inherit">Research</Button>
+        <Button color="inherit" href="/research">Research</Button>
           </Grid>
         <Grid item xs={1}>
-          <Button color="inherit">Teaching</Button>
+          <Button color="inherit" href="/teaching">Teaching</Button>
         </Grid>
           <Grid item xs={1}>
-            <Button color="inherit">Blog</Button>
+            <Button color="inherit" href="/blog">Blog</Button>
           </Grid>
         </Grid> 
       </Toolbar>

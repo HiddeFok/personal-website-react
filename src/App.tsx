@@ -1,14 +1,16 @@
 import React from 'react';
 import { Box } from '@mui/system';
-// import { BrowserRouter, Route, Link } from 'react-router-dom'; 
+import { BrowserRouter, Route, Switch } from 'react-router-dom'; 
 import './App.css';
 
 // import { ThemeProvider } from '@mui/material';
 
-import About from './components/about';
 import Navbar from './components/navbar';
-import Research from './components/research';
-import Contact from './components/contact';
+
+import About from './pages/about';
+import Research from './pages/research';
+import Blog from './pages/blog';
+import Teaching from './pages/teaching';
 
 
 function App() {
@@ -17,9 +19,22 @@ function App() {
       <Box mb={10}>
         <Navbar/>
       </Box>
-      <About></About>
-      <Research></Research>
-      <Contact></Contact>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <About/>
+          </Route>
+          <Route path="/research">
+            <Research/>
+          </Route>
+          <Route path={"/blog"}>
+            <Blog/>
+          </Route>
+          <Route path={"/teaching"}>
+            <Teaching/>
+          </Route>
+        </Switch>  
+      </BrowserRouter>
     </div>
   );
 }
