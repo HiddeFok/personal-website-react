@@ -17,10 +17,10 @@ import IntroCard from "../components/introCard";
 const About: React.FC = () => {
   const profilePic: string = personalInfo.profilePic
     return (
-      <Grid container spacing={4}>
+      <Grid container spacing={0}>
         <Grid item xs={1}/>
         <Grid item xs={3}>
-          <Card sx={{ margin: "2% 5%"}}>
+          <Card sx={{ margin: "0% 2%"}}>
             <Avatar 
               src={profilePic}
               sx={{ height: 200, width: 200}}
@@ -37,6 +37,7 @@ const About: React.FC = () => {
                     href={item.href}
                     key={contactItems.indexOf(item)}
                     aria-label={item.text}
+                    sx={{margin: "0% 2%"}}
                   >
                     <Icon className={item.icon} color="inherit" fontSize="small"/>
                   </Button>

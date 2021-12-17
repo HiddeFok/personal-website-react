@@ -34,7 +34,7 @@ function createItems(text: string){
 
 const IntroCard: React.FC = () => {
   return (
-    <Card sx={{ margin: "2% 5%"}}>
+    <Card sx={{ margin: "0% 5%"}}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Welcome to my personal webpage!
@@ -45,13 +45,14 @@ const IntroCard: React.FC = () => {
         <Typography variant="body2">
           I am a PhD candidate at the Korteweg de Vries instituut of the University of Amsterdam
             and I am part of the group of dr. Tim van Erven. In general I have a broad interest in 
-            Mathematics and machine learning. My current research will focus: 
+            Mathematics and machine learning. My current research will focus on: 
           {/* Interested in Stochastics, Machine Learning, Explainable AI */}
         </Typography>
         <List>
           <ListItem>
             <ListItemText>
-              Mathematical Explainable AI
+              Formal Explainable AI: In the last years, many models and methods were invented to explain decisions made by ML and DL models. 
+              However, there is still a lot unknown about these methods mathematically speaking. 
             </ListItemText>
           </ListItem>
         </List>
@@ -62,10 +63,10 @@ const IntroCard: React.FC = () => {
           </List>
         </Typography>
       </CardContent>
-      <CardActions>
+      {/* <CardActions>
         <Button size="small">Work with me</Button>
         <Button size="small">Projects</Button>
-      </CardActions>
+      </CardActions> */}
     </Card>   
   )
 }
