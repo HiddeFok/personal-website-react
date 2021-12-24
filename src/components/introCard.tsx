@@ -9,15 +9,14 @@ import ListItemText from '@mui/material/ListItemText';
 
 import { Card } from "@mui/material";
 import { CardContent } from "@mui/material";
-import { CardActions } from "@mui/material";
-import { Button } from "@mui/material";
+// import { CardActions } from "@mui/material";
+// import { Button } from "@mui/material";
 import { Typography } from "@mui/material";
 
 const interests: string[] = [
   "Mathematical foundations of Machine learning and Deep Learning",
-  "Stochastic calculus", 
-  "(Martingale/Causal) optimal transport", 
-  "Financial Mathematics"
+  "Stochastic calculus", // Add applications to the description
+  "(Martingale/Causal) optimal transport"
 ]
 
 function createItems(text: string){
@@ -43,7 +42,7 @@ const IntroCard: React.FC = () => {
           I like Mathematics
         </Typography> */}
         <Typography variant="body2">
-          I am a PhD candidate at the Korteweg de Vries instituut of the University of Amsterdam
+          To introduce myself, I am a PhD candidate at the Korteweg de Vries instituut of the University of Amsterdam
             and I am part of the group of dr. Tim van Erven. In general I have a broad interest in 
             Mathematics and machine learning. My current research will focus on: 
           {/* Interested in Stochastics, Machine Learning, Explainable AI */}

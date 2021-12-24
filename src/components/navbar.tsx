@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
             Hidde Fokkema
           </Typography>
           <Typography variant='subtitle1' color="inherit" align='left'>
-            PhD candidate in Mathematical machine learning
+            PhD Candidate in Mathematical Machine Learning
           </Typography>
         </Grid>
         <Grid item xs={4}></Grid>

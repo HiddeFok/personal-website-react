@@ -16,7 +16,7 @@ import Teaching from './pages/teaching';
 function App() {
   return (
     <div className="App">
-      <Box mb={10}>
+      <Box mb={5}>
         <Navbar/>
       </Box>
       <BrowserRouter>

@@ -16,23 +16,23 @@ interface ContactItem {
 
 export const contactItems: ContactItem[] = [
     {
-		href: personalInfo.linkedin,
-		icon: "fa fa-linkedin",
-		text: "LinkedIn",
+      href: personalInfo.linkedin,
+      icon: "fa fa-linkedin",
+      text: "LinkedIn",
     },
     {
-		href: personalInfo.twitter,
-		icon: "fa fa-twitter",
-		text: "Twitter",
+      href: personalInfo.twitter,
+      icon: "fa fa-twitter",
+      text: "Twitter",
     }, 
     {
-		href: personalInfo.github,
-		icon: "fa fa-github",
-		text: "Github",
+      href: personalInfo.github,
+      icon: "fa fa-github",
+      text: "Github",
     },
     {
-		href: personalInfo.bitbucket,
-		icon: "fa fa-bitbucket",
-		text: "Bitbucket",
+      href: personalInfo.bitbucket,
+      icon: "fa fa-bitbucket",
+      text: "Bitbucket",
     }
 ]
