@@ -27,19 +27,19 @@ const Research: React.FC = () => {
           />
           <Divider variant='middle'/>
           <CardContent>
-            <Typography variant="h6" align="left">
+            <Typography variant="h6" align="left" sx={{margin: "0px 15px"}}>
               Articles and preprints 
             </Typography>
-            <Typography variant="body1" align="left">
+            <Typography variant="body1" align="left" sx={{margin: "0px 15px"}}>
               Work in progress, hopefully soon!
             </Typography>
             <Divider variant='middle'/>
-            <Typography variant="h6" align="left">
+            <Typography variant="h6" align="left" sx={{margin: "0px 15px"}}>
               Theses 
             </Typography>
             <ThesisList/>
             <Divider variant='middle'/>
-            <Typography variant="h6" align="left">
+            <Typography variant="h6" align="left" sx={{margin: "0px 15px"}}>
               Talks
             </Typography>
           </CardContent>
