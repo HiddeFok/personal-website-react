@@ -9,6 +9,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import theme from './theme';
 
 import Navbar from './components/navbar';
+import Footer from './components/footer';
 
 import About from './pages/about';
 import Research from './pages/research';
@@ -40,6 +41,9 @@ function App() {
             </Route>
           </Switch>  
         </BrowserRouter>
+        <Box position="absolute" bottom="0px" width="100vw">
+          <Footer/>
+        </Box>
       </div>
     </ThemeProvider>
   );

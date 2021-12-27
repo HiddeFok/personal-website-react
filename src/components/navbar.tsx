@@ -1,16 +1,24 @@
 import React from 'react'
+
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 
+import { useTheme } from '@mui/material'
+
 const Navbar: React.FC = () => {
+  const theme = useTheme();
   return (
   <div>
-  <AppBar position="static" color="primary">
+  <AppBar position="static" sx={{backgroundColor: theme.palette.primary.main}}>
     <Toolbar>
-      <Grid container spacing={4}>
+      <Grid 
+        container 
+        spacing={4}
+        alignItems="center"
+      >
         <Grid item xs={4}>
           <Typography variant="h4" color="inherit" align='left'>
             Hidde Fokkema
@@ -19,7 +27,7 @@ const Navbar: React.FC = () => {
             PhD Candidate in Mathematical Machine Learning
           </Typography>
         </Grid>
-        <Grid item xs={4}></Grid>
+        <Grid item xs={3}></Grid>
         <Grid item xs={1}>
           <Button color="inherit" href="/">About</Button>
         </Grid>
@@ -29,13 +37,13 @@ const Navbar: React.FC = () => {
         <Grid item xs={1}>
           <Button color="inherit" href="/teaching">Teaching</Button>
         </Grid>
-          <Grid item xs={1}>
-            <Button color="inherit" href="/blog">Blog</Button>
-          </Grid>
-        </Grid> 
-      </Toolbar>
-    </AppBar>
-    </div>
+        <Grid item xs={1}>
+          <Button color="inherit" href="/blog">Blog</Button>
+        </Grid>
+      </Grid> 
+    </Toolbar>
+  </AppBar>
+  </div>
   )
 }
 
