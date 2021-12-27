@@ -66,17 +66,19 @@ const IntroCard: React.FC = () => {
   return (
     <Card sx={{ margin: "0% 5%"}}>
       <CardContent>
-        <Typography variant="h6" color="text.secondary" gutterBottom align="left">
+        <Typography variant="h5" color="text.secondary" gutterBottom align="left">
           Welcome to my personal webpage!
         </Typography>
         <Typography variant="body1" align="left">
-          To introduce myself, I am a PhD candidate at the Korteweg de Vries instituut of the University of Amsterdam
-            and I am part of the group of
-            &nbsp;
-            <a href="http://www.timvanerven.nl/">
-              Tim van Erven
-            </a>
-            . In general I have a broad interest in Mathematics and machine learning. My current research will focus on: 
+          To introduce myself, I am a PhD candidate at the&nbsp;
+          <a href="https://kdvi.uva.nl/">
+            Korteweg de Vries instituut
+          </a>
+          &nbsp;of the University of Amsterdam and I am part of the group of&nbsp;
+          <a href="http://www.timvanerven.nl/">
+            Tim van Erven
+          </a>
+          . In general I have a broad interest in Mathematics and machine learning. My current research will focus on: 
           {/* Interested in Stochastics, Machine Learning, Explainable AI */}
         </Typography>
         <List>
@@ -93,7 +95,10 @@ const IntroCard: React.FC = () => {
           &nbsp;<a href="https://amsterdamdatacollective.com/">
             Amsterdam Data Collective
           </a>&nbsp; 
-          as a data analyst. My full CV can be found
+          as a data analyst.
+        </Typography>
+        <Typography variant="body1" align="left">
+          My full CV can be found
           &nbsp;<a href="CV.pdf" download>
             Here
           </a>

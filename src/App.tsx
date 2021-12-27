@@ -41,10 +41,10 @@ function App() {
             </Route>
           </Switch>  
         </BrowserRouter>
-        <Box position="absolute" bottom="0px" width="100vw">
-          <Footer/>
-        </Box>
       </div>
+      <Box /*position="fixed" bottom="0px" */width="100vw">
+        <Footer/>
+      </Box>
     </ThemeProvider>
   );
 }

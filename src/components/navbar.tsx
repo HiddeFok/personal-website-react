@@ -29,16 +29,16 @@ const Navbar: React.FC = () => {
         </Grid>
         <Grid item xs={3}></Grid>
         <Grid item xs={1}>
-          <Button color="inherit" href="/">About</Button>
+          <Button color="inherit" href="/" sx={{fontSize:"1rem"}}>About</Button>
         </Grid>
           <Grid item xs={1}>
-        <Button color="inherit" href="/research">Research</Button>
+        <Button color="inherit" href="/research" sx={{fontSize:"1rem"}}>Research</Button>
           </Grid>
         <Grid item xs={1}>
-          <Button color="inherit" href="/teaching">Teaching</Button>
+          <Button color="inherit" href="/teaching" sx={{fontSize:"1rem"}}>Teaching</Button>
         </Grid>
         <Grid item xs={1}>
-          <Button color="inherit" href="/blog">Blog</Button>
+          <Button color="inherit" href="/blog" sx={{fontSize:"1rem"}}>Blog</Button>
         </Grid>
       </Grid> 
     </Toolbar>
