@@ -16,7 +16,7 @@ const Teaching: React.FC = () => {
       <Grid item xs={10}>
         <Card sx={{margin: "0% 2%", minHeight: "50vh"} }>
           <CardHeader
-            title="Teaching"
+            title="Education"
             align="left"
           />
           <Divider variant='middle'/> 

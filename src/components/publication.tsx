@@ -46,7 +46,7 @@ function createThesisItem(thesis: Thesis){
         <ArticleIcon/>
       </ListItemIcon>
       <ListItemText>
-        <Link variant="body1" href={thesis.link}>
+        <Link variant="body1" href={thesis.link} download>
           {thesis.title}
         </Link>
         <Typography variant="body1">

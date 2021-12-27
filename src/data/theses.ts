@@ -12,13 +12,13 @@ export const Theses: Thesis[] = [
     supervisors: "dr. Sonja Cox, Prof. dr. Peter Spreij",
     type: "Master thesis, Mathematics",
     date: "June 2021",
-    link: "Add"
+    link: "MSc_thesis.pdf"
   },
   {
     title: "Learning and thermodynamics",
     supervisors: "dr. Bas Kleijn, dr. Greg Stephens",
     type: "Dubble Bachelor thesis, Mathematics and Physics",
     date: "July 2019",
-    link: "add"
+    link: "BSc_thesis.pdf"
   }
 ]
