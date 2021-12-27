@@ -33,7 +33,7 @@ const About: React.FC = () => {
                 {contactItems.map((item) => (
                   <Button
                     variant="contained"
-                    color="inherit"
+                    color="error"
                     href={item.href}
                     key={contactItems.indexOf(item)}
                     aria-label={item.text}

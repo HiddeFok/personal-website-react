@@ -1,14 +1,14 @@
 import React from 'react'
-import { AppBar } from '@mui/material'
-import { Toolbar } from '@mui/material'
-import { Typography } from '@mui/material'
-import { Grid } from '@mui/material'
-import { Button } from '@mui/material'
+import AppBar from '@mui/material/AppBar'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
+import Grid from '@mui/material/Grid'
+import Button from '@mui/material/Button'
 
 const Navbar: React.FC = () => {
   return (
   <div>
-  <AppBar position="static">
+  <AppBar position="static" color="primary">
     <Toolbar>
       <Grid container spacing={4}>
         <Grid item xs={4}>

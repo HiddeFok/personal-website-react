@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ThesisList, PublicationList } from "../components/publication";
+import { ThesisList/*, PublicationList*/ } from "../components/publication";
 
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'

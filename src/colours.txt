@@ -1,5 +1,89 @@
+First color theme
 #EAE7DC
 #D8C3A5
 #8E8D8A
 #E98074
 #E85A4F
+
+
+Color Theme code:
+import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
+
+export const themeOptions: ThemeOptions = {
+  palette: {
+    type: 'light',
+    primary: {
+      main: '#e85a4f',
+    },
+    secondary: {
+      main: '#e98074',
+    },
+    error: {
+      main: '#8e8d8a',
+    },
+    warning: {
+      main: '#d8c3a5',
+    },
+    info: {
+      main: '#eae7dc',
+    },
+    success: {
+      main: '#5a4fe8',
+    },
+  },
+  typography: {
+    fontFamily: 'Raleway',
+    fontSize: 12,
+  },
+  spacing: 8,
+  shape: {
+    borderRadius: 4,
+  },
+  props: {
+    MuiAppBar: {
+      color: 'transparent',
+    },
+  },
+};
+
+
+Second color theme
+
+import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
+
+export const themeOptions: ThemeOptions = {
+  palette: {
+    type: 'light',
+    primary: {
+      main: '#d79922',
+    },
+    secondary: {
+      main: '#efe2ba',
+    },
+    error: {
+      main: '#4056a1',
+    },
+    warning: {
+      main: '#f13c20',
+    },
+    info: {
+      main: '#c5cbe3',
+    },
+    success: {
+      main: '#efc8ba',
+    },
+  },
+  typography: {
+    fontFamily: 'Raleway',
+    fontSize: 12,
+  },
+  spacing: 8,
+  shape: {
+    borderRadius: 4,
+  },
+  props: {
+    MuiAppBar: {
+      color: 'transparent',
+    },
+  },
+};
