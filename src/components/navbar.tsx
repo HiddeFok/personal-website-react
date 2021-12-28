@@ -11,7 +11,6 @@ import { useTheme } from '@mui/material'
 const Navbar: React.FC = () => {
   const theme = useTheme();
   return (
-  <div>
   <AppBar position="static" sx={{backgroundColor: theme.palette.primary.main}}>
     <Toolbar>
       <Grid 
@@ -43,7 +42,6 @@ const Navbar: React.FC = () => {
       </Grid> 
     </Toolbar>
   </AppBar>
-  </div>
   )
 }
 

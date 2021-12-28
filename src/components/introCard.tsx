@@ -64,7 +64,7 @@ export const InterestItem: React.FC<interest> = ({subject, text}) => {
 
 const IntroCard: React.FC = () => {
   return (
-    <Card sx={{ margin: "0% 5%"}}>
+    <Card sx={{ margin: "0% 2%"}}>
       <CardContent>
         <Typography variant="h5" color="text.secondary" gutterBottom align="left">
           Welcome to my personal webpage!

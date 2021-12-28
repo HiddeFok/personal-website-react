@@ -14,12 +14,17 @@ const ContactCard: React.FC = () => {
   const profilePic: string = personalInfo.profilePic
 
   return (
-    <Card sx={{ margin: "0% 0% 10% 0%"}}>
+    <Card sx={{ margin: "0% 5% 10% 5%"}}>
       <Avatar 
         src={profilePic}
-        sx={{ height: 200, width: 200}}
-        style={{margin: '5% auto 0 auto'}}/>
-      <CardContent>
+        sx={{
+          height: 200, width: 200,
+          margin: '5% auto 0 auto'
+        }}/>
+      <CardContent 
+        sx={{
+          padding: "8px"
+        }}>
         <Typography variant="subtitle1">PhD candidate</Typography>
         <Typography variant="subtitle1">Korteweg de Vries Intituut</Typography>
         <Typography variant="subtitle1" gutterBottom>University of Amsterdam</Typography>

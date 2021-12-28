@@ -10,15 +10,15 @@ import TwitterCard from "../components/TwitterCard";
 const About: React.FC = () => {
     return (
       <Grid container spacing={0}>
-        <Grid item xs={1}/>
-        <Grid item xs={3}>
+        <Grid item md={1}/>
+        <Grid item xs={12} md={3}>
           <ContactCard/>
           <TwitterCard/>
         </Grid>
-        <Grid item xs={7}>
+        <Grid item xs={12} md={7}>
           <IntroCard/>
         </Grid>
-        <Grid item xs={1}/>
+        <Grid item md={1}/>
       </Grid>
     )
 }

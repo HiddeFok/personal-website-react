@@ -8,7 +8,8 @@ const TwitterCard: React.FC = () => {
     <Card sx={{
       // height: "50vh",
       maxHeight: "35vh",
-      padding: "10px 0 10px 0"
+      padding: "10px 0 10px 0",
+      margin: "0 5% 10% 5%"
     }}>
       <CardContent sx={{
         maxHeight: "30vh",
