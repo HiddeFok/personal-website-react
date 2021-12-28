@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build -f Dockerfile.prod --tag personal-website:prod
+      run: docker build -f Dockerfile.prod -t personal-website:prod . 
