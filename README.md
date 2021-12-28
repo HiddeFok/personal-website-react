@@ -1,8 +1,44 @@
-# Getting Started with Create React App
+# Personal website
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Docker specific commands
+
+### Developement
+
+To build the development docker image run the command
+
+```
+docker build -t personal-website:dev . 
+```
+
+To run the container based on this image, run 
+```
+docker run \             
+    -it \
+    --rm \
+    -v ${PWD}:/app \
+    -v /app/node_modules \
+    -p 3001:3000 \
+    personal-website:dev
+```
+
+### Production
+
+To build the production docker image run the command
+
+```
+docker build -f Dockerfile.prod -t personal-website:prod . 
+```
+
+To run the container based on this image, run 
+```
+docker run -it --rm -p 1337:80 personal-website:prod
+```
+
+These commands and files are based on [this blog post](https://mherman.org/blog/dockerizing-a-react-app/) by Michael Herman.
+
+## React specific scripts descriptions
 
 In the project directory, you can run:
 

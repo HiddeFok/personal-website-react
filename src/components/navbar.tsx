@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
       >
         <Grid item xs={4}>
           <Typography variant="h4" color="inherit" align='left'>
-            Hidde Fokkema
+            Hidde Fokkema 
           </Typography>
           <Typography variant='subtitle1' color="inherit" align='left'>
             PhD Candidate in Mathematical Machine Learning
