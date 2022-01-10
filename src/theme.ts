@@ -17,46 +17,26 @@ declare module '@mui/material/styles' {
 const theme = createTheme({
   palette: {
     type: 'light',
-    // Theme 1
-    // primary: {
-    //   main: '#e85a4f',
-    // },
-    // secondary: {
-    //   main: '#e98074',
-    // },
-    // error: {
-    //   main: '#8e8d8a',
-    // },
-    // warning: {
-    //   main: '#d8c3a5',
-    // },
-    // info: {
-    //   main: '#eae7dc',
-    // },
-    // success: {
-    //   main: '#5a4fe8',
-    // },
-    // Theme 2
     primary: {
-      main: '#d79922',
+      main: '#619196',
     },
     secondary: {
-      main: '#efe2ba',
+      main: '#84B4C8',
     },
     error: {
-      main: '#4056a1',
+      main: '#C5998F',
     },
     warning: {
-      main: '#f13c20',
+      main: '#DFC7C1',
     },
     info: {
-      main: '#c5cbe3',
+      main: '#F4DCD6',
     },
     success: {
-      main: '#efc8ba',
+      main: '#B2D9EA',
     },
     background: {
-      default: '#d7d1bc',
+      default: '#e6e6e6',
     },
   },
   typography: {

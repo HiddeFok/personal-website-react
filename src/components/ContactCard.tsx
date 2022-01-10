@@ -32,7 +32,7 @@ const ContactCard: React.FC = () => {
           {contactItems.map((item) => (
             <Button
               variant="contained"
-              color="error"
+              color="success"
               href={item.href}
               key={contactItems.indexOf(item)}
               aria-label={item.text}
