@@ -36,7 +36,7 @@ const ContactCard: React.FC = () => {
               href={item.href}
               key={contactItems.indexOf(item)}
               aria-label={item.text}
-              sx={{margin: "0% 2%"}}
+              sx={{margin: "0% 2%", minWidth: "30px"}}
             >
               <Icon className={item.icon} color="inherit" fontSize="small"/>
             </Button>
