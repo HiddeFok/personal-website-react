@@ -2,18 +2,19 @@
 import React from "react";
 
 import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent"
+// import Card from "@mui/material/Card";
+// import CardContent from "@mui/material/CardContent"
 
 import IntroCard from "../components/introCard";
 import ContactCard from "../components/ContactCard";
 import TwitterCard from "../components/TwitterCard";
+import NewsCard from "../components/NewsCard";
 
-import { useTheme } from '@mui/material'
+// import { useTheme } from '@mui/material'
 
 
 const About: React.FC = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
 
   return (
     <Grid container spacing={0}>
@@ -24,7 +25,16 @@ const About: React.FC = () => {
       </Grid>
       <Grid item xs={12} md={7}>
         <IntroCard/>
-        <Card sx={{marginTop: "20px"}}>
+        <NewsCard/>
+      </Grid>
+      <Grid item md={1}/>
+    </Grid>
+  )
+}
+
+export default About
+
+/* <Card sx={{marginTop: "20px"}}>
           <CardContent>
             <Grid container spacing={0}>
               <Grid item xs={2} sx={{backgroundColor: theme.palette.primary.main, height: "50px"}}>
@@ -47,11 +57,4 @@ const About: React.FC = () => {
               </Grid>
             </Grid>
           </CardContent>
-        </Card>
-      </Grid>
-      <Grid item md={1}/>
-    </Grid>
-  )
-}
-
-export default About
+        </Card> */
