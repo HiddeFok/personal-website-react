@@ -7,15 +7,16 @@ export interface Talk {
 // object should be removed
 export const listTalks: Talk[] = [
   {
-    title: "NeurIPS Debriefing...", 
-    location: "UvA", 
-    date: 'March 2022'
-  },
-  {
     title: 'Attribution-based Explenations that Provide ecourse Cannot be Robust', 
     location: 'CWI Amsterdam, Machine Learning Seminar', 
     date: 'July 2022'
   }, 
+  {
+    title: `NeurIPS 2021 Debriefing Seminar, Presented my favourite paper from NeurIPS 2021, called 
+            Framing RNN as a kernel method: A neural ODE approach, by Fermanian, Marion, Vert, Biau.`, 
+    location: "University of Amsterdam, online meeting", 
+    date: 'March 2022'
+  },
   {
     title: 'Poster presentation 1st Workshop Mathematics & Artificial Intelligence', 
     location: 'CWI Amsterdam', 
