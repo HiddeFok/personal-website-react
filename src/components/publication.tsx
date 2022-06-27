@@ -51,7 +51,9 @@ function createTalkItem(talk: Talk) {
           {talk.title}
         </Typography>
         <Typography variant="body2">
-          {talk.location}, {talk.date}, {talk.additional}
+          {talk.additional} 
+          
+          {talk.location}, {talk.date}
         </Typography>
       </ListItemText>
     </ListItem>

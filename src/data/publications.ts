@@ -9,7 +9,7 @@ export interface Publication {
 // object should be removed
 export const listPublications: Publication[] = [
   {
-    title: 'Attribution-based Explenations that Provide ecourse Cannot be Robust', 
+    title: 'Attribution-based Explenations that Provide Recourse Cannot be Robust', 
     authors: ['H. Fokkema', 'R. de Heide', 'T. van Erven'],
     journal: 'Arxiv', 
     date: '2022', 

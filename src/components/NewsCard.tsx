@@ -23,6 +23,9 @@ function createNewsItem(newsItem: newsItem){
         <Typography variant="body1">
           {newsItem.title}
         </Typography>
+        <Typography variant="body2">
+          {newsItem.additional}
+        </Typography>
       </ListItemText>
     </ListItem>
   )
