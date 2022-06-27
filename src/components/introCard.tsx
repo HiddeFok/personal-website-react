@@ -13,42 +13,48 @@ import Typography from "@mui/material/Typography";
 
 interface interest {
   subject: string, 
-  text: string
+  text: string,
+  style?: {[key: string]: string}
 }
 
 const interests: interest[] = [
   {
-    subject: "Formal Explainable AI", 
+    subject: "Formal Explainable AI:", 
     text: `In the last years, many models and methods were invented to 
-           explain decisions made by ML and DL models. However, there is 
-           still a lot unknown about these methods mathematically speaking.`
+           explain decisions made by Machine Learning and Deep Learning models. 
+           However, most of these models are invented based on heuristics and verified 
+           empirically. In this research project I will try to approach these models from 
+           a formal mathimatical point of view.`
   },
   {
-    subject: "Mathematical foundations of Machine learning and Deep Learning",
-    text: ""
+    subject: "Mathematical foundations of Machine Learning",
+    text: "",
+    style: {paddingBottom: "0", paddingTop: "0"}
   }, 
   {
-    subject: "Stochastic calculus", // Add applications to the description
-    text: ""
+    subject: "(Martingale/Causal) Optimal Transport",
+    text: "",
+    style: {paddingBottom: "0", paddingTop: "0"}
   }, 
   {
-    subject: "(Martingale/Causal) optimal transport",
-    text: ""
+    subject: "Stochastic Calculus", // Add applications to the description
+    text: "",
+    style: {paddingBottom: "0", paddingTop: "0"}
   }
 ]
 
-export const InterestItem: React.FC<interest> = ({subject, text}) => {
+export const InterestItem: React.FC<interest> = ({subject, text, style}) => {
   const theme = useTheme();
 
   return (
-    <ListItem>
+    <ListItem sx={style}>
       <ListItemText>
         <Typography 
           display="inline"
           fontWeight={theme.typography.fontWeightBold}
           sx={{textDecoration: "underline"}}
         >
-          {subject}:
+          {subject}
         </Typography>
         <Typography
           display="inline"
@@ -72,13 +78,13 @@ const IntroCard: React.FC = () => {
         <Typography variant="body1" align="left">
           To introduce myself, I am a PhD candidate at the&nbsp;
           <a href="https://kdvi.uva.nl/">
-            Korteweg de Vries instituut
+            Korteweg de Vries institute
           </a>
           &nbsp;of the University of Amsterdam and I am part of the group of&nbsp;
           <a href="http://www.timvanerven.nl/">
-            Tim van Erven
+            dr. Tim van Erven
           </a>
-          . In general I have a broad interest in Mathematics and machine learning. My current research will focus on: 
+          . In general I have a broad interest in Mathematics and Machine Learning. My current research focusses on: 
           {/* Interested in Stochastics, Machine Learning, Explainable AI */}
         </Typography>
         <List>
@@ -88,7 +94,10 @@ const IntroCard: React.FC = () => {
           Other topics I am interested in are:
           <List>
             {interests.slice(1).map(
-              (interest) => <InterestItem subject={interest.subject} text={interest.text}/>
+              (interest) => <InterestItem 
+                              subject={interest.subject} text={interest.text}
+                              style={interest.style}
+                              />
               )}
           </List>
           Before I started my PhD I worked part-time at
@@ -99,7 +108,7 @@ const IntroCard: React.FC = () => {
         </Typography>
         <Typography variant="body1" align="left">
           My full CV can be found
-          &nbsp;<a href="CV.pdf" download>
+          &nbsp;<a href="CV_Hidde_Fokkema_english.pdf" download>
             Here
           </a>
           . 

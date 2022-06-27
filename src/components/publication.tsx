@@ -3,6 +3,7 @@ import React from "react";
 
 import { Publication, listPublications } from "../data/publications";
 import { Thesis, Theses } from "../data/theses";
+import { Talk, listTalks} from "../data/talks";
 
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link"
@@ -11,7 +12,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ArticleIcon from '@mui/icons-material/Article';
-
+import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 
 function createPublicationItem(publication: Publication){
   return (
@@ -23,8 +24,8 @@ function createPublicationItem(publication: Publication){
         <Link variant="body1" href={publication.link}>
           {publication.title}
         </Link>
-        <Typography variant="body1">
-          {publication.authors.join(", ")}
+        <Typography variant="body2">
+          {publication.authors.join(", ")}, {publication.journal}, {publication.date}, {publication.additional}
         </Typography>
       </ListItemText>
     </ListItem>
@@ -39,6 +40,32 @@ export const PublicationList: React.FC = () => {
   )
 }
 
+function createTalkItem(talk: Talk) {
+  return (
+    <ListItem>
+      <ListItemIcon>
+        <ChatBubbleIcon/>
+      </ListItemIcon>
+      <ListItemText>
+        <Typography variant="body1">
+          {talk.title}
+        </Typography>
+        <Typography variant="body2">
+          {talk.location}, {talk.date}, {talk.additional}
+        </Typography>
+      </ListItemText>
+    </ListItem>
+  )
+}
+
+export const TalkList: React.FC = () => {
+  return (
+    <List>
+      {listTalks.map((talk) => createTalkItem(talk))}
+    </List>
+  )
+}
+
 function createThesisItem(thesis: Thesis){
   return (
     <ListItem>
@@ -49,7 +76,7 @@ function createThesisItem(thesis: Thesis){
         <Link variant="body1" href={thesis.link} download>
           {thesis.title}
         </Link>
-        <Typography variant="body1">
+        <Typography variant="body2">
           Supervisors: {thesis.supervisors}, {thesis.type}, {thesis.date}
         </Typography>
       </ListItemText>

@@ -12,13 +12,13 @@ import CreateIcon from '@mui/icons-material/Create';
 
 function createCourseItem(course: Course){
   return (
-    <ListItem>
+    <ListItem sx={{padding: "4px 8px"}}>
       <ListItemIcon>
         <CreateIcon/>
       </ListItemIcon>
       <ListItemText>
         <Typography variant="body1">
-          {course.year}: {course.title}. ({course.level})
+          {course.title}: ({course.level}), {course.year}
         </Typography>
       </ListItemText>
     </ListItem>
@@ -26,9 +26,10 @@ function createCourseItem(course: Course){
 }
 
 export const CourseList: React.FC = () => {
+  var courseListSorted = courseList.sort((a, b) => (b.year - a.year));
   return (
     <List>
-      {courseList.map((course) => createCourseItem(course))}
+      {courseListSorted.map((course) => createCourseItem(course))}
     </List>
   )
 }
