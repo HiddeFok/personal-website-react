@@ -25,8 +25,8 @@ jobs:
 
     steps:
     - name: Stop currently running container
+      continue-on-error: true
       run: docker container stop personal_website
 
     - name: Run the new container
-      if: always()
       run: docker run -d --rm -p 80:80 --name personal_website personal-website:prod 
