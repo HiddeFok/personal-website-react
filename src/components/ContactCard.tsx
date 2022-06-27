@@ -33,7 +33,7 @@ const ContactCard: React.FC = () => {
           padding: "8px",
         }}>
         <Typography variant="subtitle1">PhD candidate</Typography>
-        <Typography variant="subtitle1">Korteweg de Vries Intituut</Typography>
+        <Typography variant="subtitle1">Korteweg-de Vries Intituut</Typography>
         <Typography variant="subtitle1" gutterBottom>University of Amsterdam</Typography>
         <Typography >
           {contactItems.map((item) => (
