@@ -7,6 +7,11 @@ export interface Talk {
 // object should be removed
 export const listTalks: Talk[] = [
   {
+    title: "NeurIPS Debriefing...", 
+    location: "UvA", 
+    date: 'March 2022'
+  },
+  {
     title: 'Attribution-based Explenations that Provide ecourse Cannot be Robust', 
     location: 'CWI Amsterdam, Machine Learning Seminar', 
     date: 'July 2022'

@@ -76,9 +76,9 @@ const IntroCard: React.FC = () => {
           Welcome to my personal webpage!
         </Typography>
         <Typography variant="body1" align="left">
-          To introduce myself, I am a PhD candidate at the&nbsp;
+          I am a PhD candidate at the&nbsp;
           <a href="https://kdvi.uva.nl/">
-            Korteweg de Vries institute
+            Korteweg-de Vries Institute
           </a>
           &nbsp;of the University of Amsterdam and I am part of the group of&nbsp;
           <a href="http://www.timvanerven.nl/">
