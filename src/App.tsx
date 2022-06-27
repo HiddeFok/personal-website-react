@@ -42,7 +42,7 @@ function App() {
           </Switch>  
         </BrowserRouter>
       </div>
-      <Box /*position="fixed" bottom="0px" */width="100vw">
+      <Box position="relative" bottom="0px" width="100%" >
         <Footer/>
       </Box>
     </ThemeProvider>

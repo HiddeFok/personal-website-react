@@ -1,4 +1,4 @@
-html {
+html, body {
   height: 100%
 }
 
@@ -11,7 +11,7 @@ html {
 .App {
   text-align: center;
   margin-bottom: 2vh;
-  min-height: 91vh;
+  min-height: 93.2vh;
 }
 
 .App-logo {
