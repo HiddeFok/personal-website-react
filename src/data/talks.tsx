@@ -10,6 +10,17 @@ export const listTalks: Talk[] = [
     title: 'Attribution-based Explenations that Provide Recourse Cannot be Robust', 
     location: 'CWI Amsterdam, Machine Learning Seminar', 
     date: 'July 2022'
+  },
+  {
+    title: 'Poster presentation 1st Workshop Mathematics & Artificial Intelligence', 
+    additional: 
+    <div>
+      <a href="Impossibility_poster.pdf" download>
+        Poster file
+      </a>
+    </div>,
+    location: 'CWI Amsterdam', 
+    date: 'June 2022'
   }, 
   {
     title: `NeurIPS 2021 Debriefing Seminar`, 
@@ -22,17 +33,6 @@ export const listTalks: Talk[] = [
     </div>,
     location: "University of Amsterdam, online meeting", 
     date: 'March 2022'
-  },
-  {
-    title: 'Poster presentation 1st Workshop Mathematics & Artificial Intelligence', 
-    additional: 
-    <div>
-      <a href="Impossibility_poster.pdf" download>
-        Poster file
-      </a>
-    </div>,
-    location: 'CWI Amsterdam', 
-    date: 'June 2022'
   }, 
   {
     title: '(Martingale) Optimal Transport: Introduction, Computation and Applications', 

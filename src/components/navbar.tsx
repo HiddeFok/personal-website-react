@@ -112,10 +112,10 @@ const Navbar: React.FC = () => {
             </div>
         </Drawer>
         <div>
-          <Typography variant="h6" color='inherit' align='left' display="block" sx={{fontSize: "0.8rem"}}>
+          <Typography variant="h6" color='inherit' align='left' display="block" sx={{fontSize: "0.9rem"}}>
             Hidde Fokkema
           </Typography>
-          <Typography variant='body2' color="inherit" align='left' display="block" sx={{fontSize: "0.45rem"}}>
+          <Typography variant='body2' color="inherit" align='left' display="block" sx={{fontSize: "0.6rem"}}>
             PhD Candidate in Mathematical Machine Learning
           </Typography>
         </div>
