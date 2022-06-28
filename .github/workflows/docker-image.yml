@@ -26,11 +26,9 @@ jobs:
     steps:
     - name: Stop currently running container
       continue-on-error: true
-      run: docker container stop personal_website
+      run: docker-compose down
 
-    - name: Run the new container
-      run: docker run 
-        -d --rm 
-        -p 80:80 
-        -p 443:443 
-        --name personal_website personal-website:prod 
+    # All settings and certifications are done on the server and the instructions are stored there in 
+    # a docker-compose.yaml file
+    - name: Run the new container 
+      run: docker-compose up -d 
