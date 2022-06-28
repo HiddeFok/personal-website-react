@@ -25,6 +25,12 @@ export const listTalks: Talk[] = [
   },
   {
     title: 'Poster presentation 1st Workshop Mathematics & Artificial Intelligence', 
+    additional: 
+    <div>
+      <a href="Impossibility_poster.pdf" download>
+        Poster file
+      </a>
+    </div>,
     location: 'CWI Amsterdam', 
     date: 'June 2022'
   }, 

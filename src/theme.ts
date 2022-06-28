@@ -49,7 +49,7 @@ const theme = createTheme({
   },
   props: {
     AppBar: {
-      color: 'warning',
+      color: 'primary',
     },
   },
 })
