@@ -29,4 +29,8 @@ jobs:
       run: docker container stop personal_website
 
     - name: Run the new container
-      run: docker run -d --rm -p 80:80 --name personal_website personal-website:prod 
+      run: docker run \
+        -d --rm \
+        -p 80:80 \
+        -p 443:443 \
+        --name personal_website personal-website:prod 
