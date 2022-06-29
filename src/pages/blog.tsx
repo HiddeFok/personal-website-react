@@ -11,8 +11,8 @@ import Divider from "@mui/material/Divider";
 const Blog: React.FC = () => {
   return (
     <Grid container spacing={0}>
-      <Grid item xs={1}/>
-      <Grid item xs={10}>
+      <Grid item md={1}/>
+      <Grid item xs={12} md={10}>
         <Card sx={{margin: "0% 2%", minHeight: "50vh"} }>
           <CardHeader
             title="Blog"

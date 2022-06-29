@@ -8,18 +8,13 @@ import CardContent from '@mui/material/CardContent'
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-// import List from "@mui/material/List"
-// import ListItem from "@mui/material/ListItem"
-// import ListItemText from "@mui/material/ListItemText"
-// import ListItemIcon from "@mui/material/ListItemIcon"
 
-// import ArticleIcon from '@mui/icons-material/Article';
 
 const Research: React.FC = () => {
   return (
     <Grid container spacing={0}>
-      <Grid item xs={1}/>
-      <Grid item xs={10}>
+      <Grid item md={1}/>
+      <Grid item xs={12} md={10}>
         <Card sx={{margin: "0% 2%", minHeight: "50vh"} }>
           <CardHeader
             title="Research"
