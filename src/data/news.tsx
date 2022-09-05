@@ -5,6 +5,9 @@ export interface newsItem {
 
 export const newsItems: newsItem[] = [
   {
+    title: "2022-09: Going to the YES workshop on Optimal Transport, Statistics and Machine Learning."
+  },
+  {
     title: "2022-07: Going to COLT 2022 in London."
   },
   {

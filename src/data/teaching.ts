@@ -6,6 +6,11 @@ export interface Course {
 
 export const courseList: Course[] = [
   {
+    title: "Stochastiek 2: Statistics", 
+    year: 2022, 
+    level: "BSc Mathematics, 2nd year"
+  },
+  {
     title: "Bayesian Statistics", 
     year: 2022, 
     level: 'BSc Mathematics, 3rd year'
