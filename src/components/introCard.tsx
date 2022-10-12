@@ -24,7 +24,7 @@ const interests: interest[] = [
            explain decisions made by Machine Learning and Deep Learning models. 
            However, most of these models are invented based on heuristics and verified 
            empirically. In this research project we will try to approach these models from 
-           a formal mathimatical point of view. Desirable results will be impossibility results, 
+           a formal mathematical point of view. Desirable results will be impossibility results, 
            proving that existing algorithms do what you want, or developping rigorous methods
            ourselves. `
   },
