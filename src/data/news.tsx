@@ -5,6 +5,13 @@ export interface newsItem {
 
 export const newsItems: newsItem[] = [
   {
+    title: "2022-11: I will be speaking at the 1st Nice Workshop on Interpretability!",
+    additional: 
+    <div>
+      <a href="https://sites.google.com/view/nwi2022/home">Information and website</a>
+    </div>
+  },
+  {
     title: "2022-09: Going to the YES workshop on Optimal Transport, Statistics and Machine Learning."
   },
   {

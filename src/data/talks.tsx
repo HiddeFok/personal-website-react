@@ -7,6 +7,15 @@ export interface Talk {
 // object should be removed
 export const listTalks: Talk[] = [
   {
+    title: "Attribution-based Explanations that Provide Recourse Cannot be Robust (Slides will follow)",
+    additional:
+      <div>
+        <a href="https://sites.google.com/view/nwi2022/home">Information and website</a>
+      </div>,
+    location: "1st Nice workshop on Interpretability",
+    date: "November 2022"
+  },
+  {
     title: 'Attribution-based Explenations that Provide Recourse Cannot be Robust', 
     location: 'CWI Amsterdam, Machine Learning Seminar', 
     date: 'July 2022'
