@@ -16,7 +16,7 @@ import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 
 function createPublicationItem(publication: Publication){
   return (
-    <ListItem>
+    <ListItem sx={{padding: "0px 8px"}}>
       <ListItemIcon>
         <ArticleIcon/>
       </ListItemIcon>
@@ -42,7 +42,7 @@ export const PublicationList: React.FC = () => {
 
 function createTalkItem(talk: Talk) {
   return (
-    <ListItem>
+    <ListItem sx={{padding: "0px 8px"}}>
       <ListItemIcon>
         <ChatBubbleIcon/>
       </ListItemIcon>
@@ -70,7 +70,7 @@ export const TalkList: React.FC = () => {
 
 function createThesisItem(thesis: Thesis){
   return (
-    <ListItem>
+    <ListItem sx={{padding: "0px 8px"}}>
       <ListItemIcon>
         <ArticleIcon/>
       </ListItemIcon>
