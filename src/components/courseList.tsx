@@ -1,4 +1,3 @@
-
 import React from "react";
 
 import { Course, courseList } from "../data/teaching";
@@ -12,7 +11,7 @@ import CreateIcon from '@mui/icons-material/Create';
 
 function createCourseItem(course: Course){
   return (
-    <ListItem sx={{padding: "4px 8px"}}>
+    <ListItem sx={{padding: "0px 8px"}}>
       <ListItemIcon>
         <CreateIcon/>
       </ListItemIcon>

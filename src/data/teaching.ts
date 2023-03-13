@@ -6,9 +6,14 @@ export interface Course {
 
 export const courseList: Course[] = [
   {
+    title: "Stochastic Integration",
+    year: 2023, 
+    level: "MSc Mathematics, M2"
+  }, 
+  {
     title: "Machine learning theory",
     year: 2023, 
-    level: "Mastermath M1"
+    level: "MSc Mathematics, M1"
   },
   {
     title: "Stochastiek 2: Statistics", 

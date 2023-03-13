@@ -7,9 +7,10 @@ export interface Talk {
 // object should be removed
 export const listTalks: Talk[] = [
   {
-    title: "Attribution-based Explanations that Provide Recourse Cannot be Robust (Slides will follow)",
+    title: "Attribution-based Explanations that Provide Recourse Cannot be Robust",
     additional:
       <div>
+        <a href="Nice_workshop_attribution.pdf">Slides</a>,&nbsp;
         <a href="https://sites.google.com/view/nwi2022/home">Information and website</a>
       </div>,
     location: "1st Nice workshop on Interpretability",

@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 
 import { CourseList } from "../components/courseList";
+import { SupervisionList } from "../components/supervisionList";
 
 const Teaching: React.FC = () => {
   return (
@@ -26,6 +27,11 @@ const Teaching: React.FC = () => {
             </Typography>
             <Divider variant='middle'/>
             <CourseList/>
+            <Typography variant="h6" align="left" sx={{margin: "0px 15px"}}>
+              Supervision
+            </Typography>
+            <Divider variant='middle'/>
+            <SupervisionList/>
           </CardContent>
         </Card>
       </Grid>
