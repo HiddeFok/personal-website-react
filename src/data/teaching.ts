@@ -2,6 +2,7 @@ export interface Course {
   title: string
   year: number
   level: string
+  url?: string
 }
 
 export const courseList: Course[] = [
@@ -13,7 +14,8 @@ export const courseList: Course[] = [
   {
     title: "Machine learning theory",
     year: 2023, 
-    level: "MSc Mathematics, M1"
+    level: "MSc Mathematics, M1", 
+    url: "https://homepages.cwi.nl/~wmkoolen/MLT_2023/"
   },
   {
     title: "Stochastiek 2: Statistics", 
