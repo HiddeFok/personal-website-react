@@ -13,6 +13,7 @@ function createCourseItem(course: Course){
 
   let title: JSX.Element | string
   title = ("url" in course) ? (<a href={course.url}>{course.title}</a>) : (course.title)
+
   return (
     <ListItem sx={{padding: "0px 8px"}}>
       <ListItemIcon>
