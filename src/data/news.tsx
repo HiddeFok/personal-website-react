@@ -5,6 +5,15 @@ export interface newsItem {
 
 export const newsItems: newsItem[] = [
   {
+    title: `2023-05: A new preprint is out, where we invistigate 
+    the possible consequences on the risk by providing recourse!`,
+    additional: 
+    <div>
+      Title and link:&nbsp;
+      <a href="https://arxiv.org/abs/2306.00497">Risks of Recourse in Binary Classification</a>
+    </div>
+  },
+  {
     title: "2022-11: I will be speaking at the 1st Nice Workshop on Interpretability!",
     additional: 
     <div>
