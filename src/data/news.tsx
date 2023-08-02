@@ -5,6 +5,11 @@ export interface newsItem {
 
 export const newsItems: newsItem[] = [
   {
+    title: `2023-09: Giving 2 talks in September! Both will be about the theoretical limitations of 
+    explainability methods. The first will be for the Amsterdam Business School and the second for
+    Xomnia.`
+  },
+  {
     title: `2023-05: A new preprint is out, where we invistigate 
     the possible consequences on the risk by providing recourse!`,
     additional: 
