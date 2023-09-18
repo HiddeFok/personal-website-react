@@ -21,7 +21,7 @@ function createPublicationItem(publication: Publication){
         <ArticleIcon/>
       </ListItemIcon>
       <ListItemText>
-        <Link variant="body1" href={publication.link}>
+        <Link variant="body1" href={publication.link} target="_blank" rel="noopener">
           {publication.title}
         </Link>
         <Typography variant="body2">

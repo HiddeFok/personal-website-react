@@ -7,11 +7,54 @@ export interface Talk {
 // object should be removed
 export const listTalks: Talk[] = [
   {
+    title: "The Risks of Recourse in Binary Classification",
+    additional:
+      <div>
+        <a
+          href="talks/ABS_talk.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          Slides
+        </a>,
+      </div>,
+    location: "Amsterdam Business School",
+    date: "September 2023"
+  },
+  {
+    title: "The theoretical limitations of Explainability methods",
+    additional:
+      <div>
+        <a 
+          href="talks/xomnia_talk.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          Slides
+        </a>,&nbsp; 
+        General Audience talk,
+      </div>,
+    location: "Xomnia",
+    date: "September 2023"
+  },
+  {
     title: "Attribution-based Explanations that Provide Recourse Cannot be Robust",
     additional:
       <div>
-        <a href="Nice_workshop_attribution.pdf">Slides</a>,&nbsp;
-        <a href="https://sites.google.com/view/nwi2022/home">Information and website</a>
+        <a 
+          href="talks/Nice_workshop_attribution.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          Slides
+        </a>,&nbsp;
+        <a 
+          href="https://sites.google.com/view/nwi2022/home" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          Information and website
+        </a>
       </div>,
     location: "1st Nice workshop on Interpretability",
     date: "November 2022"
