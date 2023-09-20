@@ -7,12 +7,22 @@ export interface Course {
 
 export const courseList: Course[] = [
   {
+    title: "Machine Learning Theory",
+    year: 2024, 
+    level: "MSc Mathematics, M1"
+  },
+  {
+    title: "Stochastiek 2: Statistics",
+    year: 2023, 
+    level: "BSc Mathematics, 2nd year"
+  },
+  {
     title: "Stochastic Integration",
     year: 2023, 
     level: "MSc Mathematics, M2"
   }, 
   {
-    title: "Machine learning theory",
+    title: "Machine Learning Theory",
     year: 2023, 
     level: "MSc Mathematics, M1", 
     url: "https://homepages.cwi.nl/~wmkoolen/MLT_2023/"
@@ -28,7 +38,7 @@ export const courseList: Course[] = [
     level: 'BSc Mathematics, 3rd year'
   },
   {
-    title: "Inleiding numerieke wiskunde", 
+    title: "Inleiding Numerieke Wiskunde", 
     year: 2018, 
     level: "BSc Mathematics, 2nd year"
   },
