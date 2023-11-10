@@ -110,7 +110,7 @@ const IntroCard: React.FC = () => {
         </Typography>
         <Typography variant="body1" align="left">
           My full CV can be found
-          &nbsp;<a href="CV_Hidde_Fokkema_english.pdf" download>
+          &nbsp;<a href="files/CV_Hidde_Fokkema_english.pdf" download>
             Here
           </a>
           . 

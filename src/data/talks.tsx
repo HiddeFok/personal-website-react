@@ -11,6 +11,36 @@ export const listTalks: Talk[] = [
     additional:
       <div>
         <a
+          href="talks/AIM_RoR_talk.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          Slides
+        </a>,
+      </div>,
+    location: "AI & Mathematics PhD/PostDoc Network day",
+    date: "November 2023"
+  },
+  {
+    title: "The Risks of Recourse in Binary Classification",
+    additional:
+      <div>
+        <a
+          href="talks/Saarland_RoR_talk.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          Slides
+        </a>,
+      </div>,
+    location: "Saarland University, Workshop op Interpretabiltiy and Recourse",
+    date: "October 2023"
+  },
+  {
+    title: "The Risks of Recourse in Binary Classification",
+    additional:
+      <div>
+        <a
           href="talks/ABS_talk.pdf" 
           target="_blank" 
           rel="noopener noreferrer"
