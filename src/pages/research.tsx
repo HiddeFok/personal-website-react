@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ThesisList, PublicationList, TalkList } from "../components/publication";
+import { ThesisList, PreprintList, PublishedList, TalkList } from "../components/publication";
 
 import Card from '@mui/material/Card'
 import CardHeader from '@mui/material/CardHeader'
@@ -26,9 +26,13 @@ const Research: React.FC = () => {
               Articles
             </Typography>
             <Typography variant="body1" align="left" sx={{margin: "0px 15px"}}>
+              Published
+            </Typography>
+            <PublishedList/>
+            <Typography variant="body1" align="left" sx={{margin: "0px 15px"}}>
               Preprints
             </Typography>
-            <PublicationList/>
+            <PreprintList/>
             <Divider variant='middle'/>
             <Typography variant="h6" align="left" sx={{margin: "0px 15px"}}>
               Talks

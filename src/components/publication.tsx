@@ -32,10 +32,24 @@ function createPublicationItem(publication: Publication){
   )
 }
 
-export const PublicationList: React.FC = () => {
+export const PublishedList: React.FC = () => {
+  const published = listPublications.filter(
+    (article) => article.status === "published"
+    )
   return (
     <List>
-      {listPublications.map((publication) => createPublicationItem(publication))}
+      {published.map((publication) => createPublicationItem(publication))}
+    </List>
+  )
+}
+
+export const PreprintList: React.FC = () => {
+  const preprints = listPublications.filter(
+    (article) => article.status === "preprint"
+    )
+  return (
+    <List>
+      {preprints.map((publication) => createPublicationItem(publication))}
     </List>
   )
 }

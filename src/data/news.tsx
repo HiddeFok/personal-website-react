@@ -5,6 +5,15 @@ export interface newsItem {
 
 export const newsItems: newsItem[] = [
   {
+    title:`2023-11: My first article has been published in the 
+    Journal of Machine Learning Research!`,
+    additional:
+    <div>
+      JMLR link:&nbsp;
+      <a href="https://jmlr.org/papers/v24/23-0042.html">Attribution-based Explanations that Provide Recourse Cannot be Robust</a>
+    </div>
+  },
+  {
     title:`2023-10:  I will be in Saarbrücken for a workshop on interpretable machine learning`
   },
   {
@@ -17,7 +26,7 @@ export const newsItems: newsItem[] = [
     the possible consequences on the risk by providing recourse!`,
     additional: 
     <div>
-      Title and link:&nbsp;
+      ArXiv link:&nbsp;
       <a href="https://arxiv.org/abs/2306.00497">Risks of Recourse in Binary Classification</a>
     </div>
   },
@@ -38,7 +47,7 @@ export const newsItems: newsItem[] = [
     title: `2022-05: My first paper, authored together with Rianne de Heide and Tim van Erven, is submitted!`,
     additional: 
     <div>
-      Title and link: <a href="https://arxiv.org/abs/2205.15834">Attribution-based Explanations that Provide Recourse Cannot be Robust.</a>
+      ArXiv link: <a href="https://arxiv.org/abs/2205.15834">Attribution-based Explanations that Provide Recourse Cannot be Robust.</a>
     </div>
   },
   {
