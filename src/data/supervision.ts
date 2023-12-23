@@ -16,7 +16,7 @@ export interface Supervision {
     {
       students: ["Finn van Vlaanderen", "Jelle Sipkes"],
       title: "Reinforcement Learning",
-      year: 2023, 
+      year: 2022, 
       level: "BSc Mathematics, 2nd year project"
     }
   ]
