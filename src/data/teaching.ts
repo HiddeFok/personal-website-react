@@ -9,7 +9,8 @@ export const courseList: Course[] = [
   {
     title: "Machine Learning Theory",
     year: 2024, 
-    level: "MSc Mathematics, M1"
+    level: "MSc Mathematics, M1", 
+    url: "https://homepages.cwi.nl/~wmkoolen/MLT_2024/"
   },
   {
     title: "Stochastiek 2: Statistics",
