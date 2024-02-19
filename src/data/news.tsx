@@ -5,6 +5,10 @@ export interface newsItem {
 
 export const newsItems: newsItem[] = [
   {
+    title:`2024-01: My second article of my PhD will be published at the conference
+    on AI and statistics (AISTATS)! (link will follow)`,
+  },
+  {
     title:`2023-11: My first article has been published in the 
     Journal of Machine Learning Research!`,
     additional:
