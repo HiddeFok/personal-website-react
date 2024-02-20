@@ -20,7 +20,7 @@ export const listPublications: Publication[] = [
   {
     title: 'Attribution-based Explanations that Provide Recourse Cannot be Robust', 
     authors: ['HF', 'Rianne de Heide', 'Tim van Erven'],
-    journal: 'Journal of Machine Learning Research (JMLR)', 
+    journal: 'Journal of Machine Learning Research (JMLR), vol. 24, no. 360, pp. 1-37', 
     date: '2023', 
     link: 'https://jmlr.org/papers/v24/23-0042.html', 
     status: "published"

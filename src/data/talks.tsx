@@ -5,7 +5,28 @@ export interface Talk {
   additional?: any
 }
 // object should be removed
+
+// TODO: update
 export const listTalks: Talk[] = [
+  {
+    title: "A new Algorithm for Convex Bandit Optimization",
+    additional:
+      <div>
+        Slides to follow
+      </div>,
+    location: "Stochastics Seminar KdVi, Univeristy of Amsterdam",
+    date: "March 2024"
+  },
+  {
+    title: "Some Theoretical Limitations of Explainability Methods",
+    additional:
+      <div>
+        Slides to follow,&nbsp; 
+        General Audience talk,
+      </div>,
+    location: "Ministry of justice and security",
+    date: "March 2024"
+  },
   {
     title: "The Risks of Recourse in Binary Classification",
     additional:
@@ -52,7 +73,7 @@ export const listTalks: Talk[] = [
     date: "September 2023"
   },
   {
-    title: "The theoretical limitations of Explainability methods",
+    title: "Some Theoretical Limitations of Explainability Methods",
     additional:
       <div>
         <a 
@@ -87,6 +108,21 @@ export const listTalks: Talk[] = [
         </a>
       </div>,
     location: "1st Nice workshop on Interpretability",
+    date: "November 2022"
+  },
+  {
+    title: "Attribution-based Explanations that Provide Recourse Cannot be Robust",
+    additional:
+      <div>
+        <a 
+          href="talks/202211_Statistics_seminar_all_slides.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          Slides
+        </a>,&nbsp;
+      </div>,
+    location: "Statistics seminar KdVi, University of Amsterdam",
     date: "November 2022"
   },
   {
