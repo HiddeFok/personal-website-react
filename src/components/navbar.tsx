@@ -64,9 +64,6 @@ const Navbar: React.FC = () => {
           <Grid item xs={1}>
             <Button color="inherit" href="/teaching" sx={{fontSize:"1rem"}}>Teaching</Button>
           </Grid>
-          <Grid item xs={1}>
-            <Button color="inherit" href="/blog" sx={{fontSize:"1rem"}}>Blog</Button>
-          </Grid>
         </Grid> 
       </Toolbar>
     );
@@ -106,9 +103,6 @@ const Navbar: React.FC = () => {
             </div>
             <div style={{padding: "0px 20px"}}>
               <Button color="inherit" href="/teaching" sx={{fontSize:"1rem"}}>Teaching</Button>
-            </div>
-             <div style={{padding: "0px 20px 30px 20px"}}>
-              <Button color="inherit" href="/blog" sx={{fontSize:"1rem"}}>Blog</Button>
             </div>
         </Drawer>
         <div>

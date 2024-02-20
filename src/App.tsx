@@ -13,7 +13,6 @@ import Footer from './components/footer';
 
 import About from './pages/about';
 import Research from './pages/research';
-import Blog from './pages/blog';
 import Teaching from './pages/teaching';
 
 
@@ -32,9 +31,6 @@ function App() {
             </Route>
             <Route path="/research">
               <Research/>
-            </Route>
-            <Route path={"/blog"}>
-              <Blog/>
             </Route>
             <Route path={"/teaching"}>
               <Teaching/>
