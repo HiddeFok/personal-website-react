@@ -12,10 +12,10 @@ export const listPublications: Publication[] = [
 {
     title: 'Risks of Recourse in Binary Classification', 
     authors: ['HF', 'Damien Garreau', 'Tim van Erven'],
-    journal: 'Conference on Artificial Intelligence & Statistics (AISTATS)', 
+    journal: '[TO APPEAR] Conference on Artificial Intelligence & Statistics (AISTATS)', 
     date: '2024', 
     link: 'https://arxiv.org/abs/2306.00497', 
-    status: "published",
+    status: "preprint",
   },
   {
     title: 'Attribution-based Explanations that Provide Recourse Cannot be Robust', 
