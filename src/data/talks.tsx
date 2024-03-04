@@ -54,7 +54,7 @@ export const listTalks: Talk[] = [
           Slides
         </a>,
       </div>,
-    location: "Saarland University, Workshop op Interpretabiltiy and Recourse",
+    location: "Saarland University, Workshop on Interpretabiltiy and Recourse",
     date: "October 2023"
   },
   {
