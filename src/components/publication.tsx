@@ -83,13 +83,15 @@ export const TalkList: React.FC = () => {
 }
 
 function createThesisItem(thesis: Thesis){
+  const thesis_link:string = `files/${thesis.link}`
+
   return (
     <ListItem sx={{padding: "0px 8px"}}>
       <ListItemIcon>
         <ArticleIcon/>
       </ListItemIcon>
       <ListItemText>
-        <Link variant="body1" href={thesis.link} download>
+        <Link variant="body1" href={thesis_link} target="_blank" rel="noopener" >
           {thesis.title}
         </Link>
         <Typography variant="body2">
