@@ -5,6 +5,16 @@ export interface newsItem {
 
 export const newsItems: newsItem[] = [
   {
+    title:`2024-05: Two Updates in one this time:`,
+    additional:
+    <div>
+      <ul>
+        <li>Our new paper 'Online Newton Method for Bandit Convex Optimisation' will be published at COLT 2024. I will also attend. So see you in Edmonton!</li>
+        <li>I will be present at ICML 2024 to present 'Attribution-based Explanations that Provide Recourse Cannot be Robust' as part of the JMLR-to-conference track!</li>
+      </ul>
+    </div>
+  },
+  {
     title:`2024-01: My second article of my PhD will be published at the conference
     on AI and statistics (AISTATS)! (link will follow)`,
   },

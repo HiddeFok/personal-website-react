@@ -9,10 +9,30 @@ export interface Talk {
 // TODO: update
 export const listTalks: Talk[] = [
   {
+    title: "Attribution-based Explanations that Provide Recourse Cannot be Robust",
+    additional:
+      <div>
+        <a
+          href="talks/202405_theory_of_interpretable_ai.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          [Slides]
+        </a>,
+        <a
+          href="https://www.youtube.com/watch?v=EwwllG40XZM" 
+        >
+          [Video]
+        </a>
+      </div>,
+    location: "Theory of Interpretable AI Seminar",
+    date: "March 2024"
+  },
+  {
     title: "A new Algorithm for Convex Bandit Optimization",
     additional:
       <div>
-        Slides to follow
+        [Slides] to follow
       </div>,
     location: "Stochastics Seminar KdVi, Univeristy of Amsterdam",
     date: "March 2024"
@@ -21,8 +41,15 @@ export const listTalks: Talk[] = [
     title: "Some Theoretical Limitations of Explainability Methods",
     additional:
       <div>
-        Slides to follow,&nbsp; 
-        General Audience talk,
+        <a
+          href="talks/Theoretische_beperkingene_XAI.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          [Slides]
+        </a>,&nbsp; 
+        General Audience talk, 
+        In Dutch,
       </div>,
     location: "Ministry of justice and security",
     date: "March 2024"
@@ -36,7 +63,7 @@ export const listTalks: Talk[] = [
           target="_blank" 
           rel="noopener noreferrer"
         >
-          Slides
+          [Slides]
         </a>,
       </div>,
     location: "AI & Mathematics PhD/PostDoc Network day",
@@ -51,7 +78,7 @@ export const listTalks: Talk[] = [
           target="_blank" 
           rel="noopener noreferrer"
         >
-          Slides
+          [Slides]
         </a>,
       </div>,
     location: "Saarland University, Workshop on Interpretabiltiy and Recourse",
@@ -66,7 +93,7 @@ export const listTalks: Talk[] = [
           target="_blank" 
           rel="noopener noreferrer"
         >
-          Slides
+          [Slides]
         </a>,
       </div>,
     location: "Amsterdam Business School",
@@ -81,7 +108,7 @@ export const listTalks: Talk[] = [
           target="_blank" 
           rel="noopener noreferrer"
         >
-          Slides
+          [Slides]
         </a>,&nbsp; 
         General Audience talk,
       </div>,
@@ -97,7 +124,7 @@ export const listTalks: Talk[] = [
           target="_blank" 
           rel="noopener noreferrer"
         >
-          Slides
+          [Slides]
         </a>,&nbsp;
         <a 
           href="https://sites.google.com/view/nwi2022/home" 
@@ -119,7 +146,7 @@ export const listTalks: Talk[] = [
           target="_blank" 
           rel="noopener noreferrer"
         >
-          Slides
+          [Slides]
         </a>,&nbsp;
       </div>,
     location: "Statistics seminar KdVi, University of Amsterdam",
@@ -135,7 +162,7 @@ export const listTalks: Talk[] = [
     additional: 
     <div>
       <a href="Impossibility_poster.pdf" download>
-        Poster file
+        [Poster]
       </a>
     </div>,
     location: 'CWI Amsterdam', 

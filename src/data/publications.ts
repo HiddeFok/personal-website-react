@@ -10,6 +10,14 @@ export interface Publication {
 // object should be removed
 export const listPublications: Publication[] = [
 {
+    title: 'Online Newton Method for Bandit Convex Optimisation', 
+    authors: ['HF', 'Dirk van der Hoeven', 'Tor Lattimore', 'Jack J. Mayo'],
+    journal: 'International Conference on Learning Theory (COLT) [TO APPEAR]', 
+    date: '2024', 
+    link: '[TO FOLLOW]', 
+    status: "published",
+},
+{
     title: 'Risks of Recourse in Binary Classification', 
     authors: ['HF', 'Damien Garreau', 'Tim van Erven'],
     journal: 'International Conference on Artificial Intelligence & Statistics (AISTATS), PMLR, vol. 238, pp. 550--558', 
