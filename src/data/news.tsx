@@ -9,7 +9,9 @@ export const newsItems: newsItem[] = [
     additional:
     <div>
       <ul>
-        <li>Our new paper 'Online Newton Method for Bandit Convex Optimisation' will be published at COLT 2024. I will also attend. So see you in Edmonton!</li>
+        <li>Our new paper 'Online Newton Method for Bandit Convex Optimisation' will be published at COLT 2024. I will also attend. So see you in Edmonton!
+          <a href="https://arxiv.org/abs/2406.06506">[ArXiv]</a>
+        </li>
         <li>I will be present at ICML 2024 to present 'Attribution-based Explanations that Provide Recourse Cannot be Robust' as part of the JMLR-to-conference track!</li>
       </ul>
     </div>

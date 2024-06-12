@@ -32,7 +32,13 @@ export const listTalks: Talk[] = [
     title: "A new Algorithm for Convex Bandit Optimization",
     additional:
       <div>
-        [Slides] to follow
+        <a
+          href="talks/202403_BCO_stochastics_seminar.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          [Slides]
+        </a>
       </div>,
     location: "Stochastics Seminar KdVi, Univeristy of Amsterdam",
     date: "March 2024"

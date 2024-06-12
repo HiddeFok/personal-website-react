@@ -10,11 +10,11 @@ export interface Publication {
 // object should be removed
 export const listPublications: Publication[] = [
 {
-    title: 'Online Newton Method for Bandit Convex Optimisation', 
+    title: 'Online Newton Method for Bandit Convex Optimisation Extended Abstract', 
     authors: ['HF', 'Dirk van der Hoeven', 'Tor Lattimore', 'Jack J. Mayo'],
-    journal: 'International Conference on Learning Theory (COLT) [TO APPEAR]', 
+    journal: 'International Conference on Learning Theory (COLT), PMLR, vol. 196, pp. 1--28', 
     date: '2024', 
-    link: '[TO FOLLOW]', 
+    link: 'https://www.arxiv.org/abs/2406.06506', 
     status: "published",
 },
 {
