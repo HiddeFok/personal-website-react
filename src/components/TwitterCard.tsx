@@ -15,7 +15,7 @@ const TwitterCard: React.FC = () => {
         maxHeight: "40vh",
         overflow: "auto"
       }}>
-        <a className="twitter-timeline" href="https://twitter.com/Hidde_Fokkema?ref_src=twsrc%5Etfw">
+        <a className="twitter-timeline" href="https://twitter.com/Hidde_Fokkema">
           Tweets by Hidde_Fokkema
         </a>
       </CardContent>
