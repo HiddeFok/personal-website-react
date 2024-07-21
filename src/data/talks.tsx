@@ -13,6 +13,58 @@ export const listTalks: Talk[] = [
     additional:
       <div>
         <a
+          href="posters/ICML_2024_attribution_robustness.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          [Poster]
+        </a>
+      </div>,
+    location: "International Conference on Machine Learning (ICML)",
+    date: "July 2024"
+  },
+  {
+    title: "Online Newton Method for Bandit Convex Optimisation",
+    additional:
+      <div>
+        <a
+          href="talks/2024_COLT_Newton_method_Convex_Bandit_Optimisation.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          [Slides]
+        </a>,
+        <a
+          href="posters/COLT_2024_Online_Newton_Method_for_BCO.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+        >
+          [Poster]
+        </a>
+      </div>,
+    location: "Conference on Learning Theory (COLT)",
+    date: "July 2024"
+  },
+  {
+    title: "The Risks of Recourse in Binary Classification",
+    additional:
+      <div>
+        <a
+          href="posters/AISTATS_2024_risks_of_recourse.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          [Poster]
+        </a>
+      </div>,
+    location: "International Conference on Artificial Intelligence & Statistics (AISTATS)",
+    date: "May 2024"
+  },
+  {
+    title: "Attribution-based Explanations that Provide Recourse Cannot be Robust",
+    additional:
+      <div>
+        <a
           href="talks/202405_theory_of_interpretable_ai.pdf" 
           target="_blank" 
           rel="noopener noreferrer"
@@ -167,7 +219,11 @@ export const listTalks: Talk[] = [
     title: 'Poster presentation 1st Workshop Mathematics & Artificial Intelligence', 
     additional: 
     <div>
-      <a href="Impossibility_poster.pdf" download>
+      <a 
+        href="posters/Impossibility_poster.pdf" 
+        target="_blank"
+        rel="noopener noreferrer"
+        >
         [Poster]
       </a>
     </div>,
