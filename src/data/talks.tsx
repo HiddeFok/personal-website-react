@@ -9,6 +9,15 @@ export interface Talk {
 // TODO: update
 export const listTalks: Talk[] = [
   {
+    title: "Using Causal Representation Learning to formalize concept extraction from learned representations",
+    additional:
+      <div>
+        A work in progress!
+      </div>,
+    location: "University of Tübingen, Research Seminar 'Machine Learning Theory'",
+    date: "November 2024"
+  },
+  {
     title: "Attribution-based Explanations that Provide Recourse Cannot be Robust",
     additional:
       <div>

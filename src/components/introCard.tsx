@@ -24,9 +24,10 @@ const interests: interest[] = [
            explain decisions made by Machine Learning and Deep Learning models. 
            However, most of these models are invented based on heuristics and verified 
            empirically. In this research project we will try to approach these models from 
-           a formal mathematical point of view. Desirable results will be impossibility results, 
-           proving that existing algorithms do what you want, or developping rigorous methods
-           ourselves. `
+           a formal mathematical point of view. We have showed that attribution methods cannot 
+           have all desirable properties at the same time and that recourse might hurt the accuracy 
+           of a deployed classifier. Currently, we are interested in applying ideas from Causal Representation
+           Learning to the extraction of high-level concepts from learned representations. `
   },
   {
     subject: "Mathematical foundations of Machine Learning",
