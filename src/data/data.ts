@@ -4,7 +4,7 @@ export const personalInfo: { [key:string]: string } = {
     profilePic: "Square_Hidde.jpg", 
     github: "https://github.com/HiddeFok", 
     bitbucket: "https://bitbucket.org/hf_uva/", 
-    twitter: "https://twitter.com/Hidde_Fokkema", 
+    bluesky: "https://bsky.app/profile/hiddefokkema.bsky.social", 
     linkedin: "https://www.linkedin.com/in/hidde-fokkema-a1198a12a/",
     scholar: "https://scholar.google.com/citations?user=FkAOYFsAAAAJ",
     email: "mailto:h.j.fokkema@uva.nl"
@@ -23,9 +23,9 @@ export const contactItems: ContactItem[] = [
       text: "Google Scholar"
     },
     {
-      href: personalInfo.twitter,
-      icon: "fa fa-twitter",
-      text: "Twitter",
+      href: personalInfo.bluesky,
+      icon: "fa fa-link",
+      text: "Bluesky",
     }, 
     {
       href: personalInfo.email,
