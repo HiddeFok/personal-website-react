@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 
 import IntroCard from "../components/introCard";
 import ContactCard from "../components/ContactCard";
-import TwitterCard from "../components/TwitterCard";
+import BLueskyCard from "../components/BlueskyCard";
 import NewsCard from "../components/NewsCard";
 
 // import { useTheme } from '@mui/material'
@@ -21,7 +21,7 @@ const About: React.FC = () => {
       <Grid item md={1}/>
       <Grid item xs={12} md={3}>
         <ContactCard/>
-        <TwitterCard/>
+        <BLueskyCard/>
       </Grid>
       <Grid item xs={12} md={7}>
         <IntroCard/>
