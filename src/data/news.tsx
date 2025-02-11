@@ -5,6 +5,17 @@ export interface newsItem {
 
 export const newsItems: newsItem[] = [
   {
+    title: `2025-02: New Preprint online! We construct an estimator that can learn concepts
+    from encodings learned in the Causal Representation Learning framework`,
+    additional: 
+    <div>
+      ArXiv link: &nbsp;
+      <a href="https://arxiv.org/abs/2502.06536">
+        Sample-efficient Learning of Concepts with Theoretical Guarantees: from Data to Concepts without Interventions
+      </a>
+    </div>
+  },
+  {
     title:`2024-05: Two Updates in one this time:`,
     additional:
     <div>

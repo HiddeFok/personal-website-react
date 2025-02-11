@@ -10,6 +10,14 @@ export interface Publication {
 // object should be removed
 export const listPublications: Publication[] = [
 {
+    title: "Sample-efficient Learning of Concepts with Theoretical Guarantees: from Data to Concepts without Interventions", 
+    authors: ['HF', 'Tim van Erven', 'Sara Magliacane'], 
+    journal: 'ArXiv', 
+    date: '2025', 
+    link: 'https://arxiv.org/abs/2502.06536', 
+    status: 'preprint'
+},
+{
     title: 'Online Newton Method for Bandit Convex Optimisation Extended Abstract', 
     authors: ['HF', 'Dirk van der Hoeven', 'Tor Lattimore', 'Jack J. Mayo'],
     journal: 'International Conference on Learning Theory (COLT), PMLR, vol. 196, pp. 1--28', 
