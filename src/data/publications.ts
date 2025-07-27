@@ -11,7 +11,7 @@ export interface Publication {
 export const listPublications: Publication[] = [
 {
     title: "Performative Validity of Recourse Explanations", 
-    authors: ['Gunnar Konig', 'HF', 'Timo Freiesleben', 'Celestine Mendler-Dunner', 'Ulrike von Luxburg'], 
+    authors: ['Gunnar König', 'HF', 'Timo Freiesleben', 'Celestine Mendler-Dunner', 'Ulrike von Luxburg'], 
     journal: 'ArXiv', 
     date: '2025', 
     link: 'https://arxiv.org/abs/2506.15366', 
