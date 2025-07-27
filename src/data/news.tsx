@@ -5,7 +5,7 @@ export interface newsItem {
 
 export const newsItems: newsItem[] = [
   {
-    title: `2025-07: I will be working at Boooking.com the following 3 months as a Machine Learning Scientist. The goal of the project is to put some of the theory we developped for Bandit Optimization problems into practise`,
+    title: `2025-07: I will be working at Booking.com the following 3 months as a Machine Learning Scientist. The goal of the project is to put some of the theory we developped for Bandit Optimization problems into practise`,
   },
   {
     title: `2025-06: New Preprint online! We introduce a new definition: Performative Validity, which measures
