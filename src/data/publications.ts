@@ -10,6 +10,14 @@ export interface Publication {
 // object should be removed
 export const listPublications: Publication[] = [
 {
+    title: "Performative Validity of Recourse Explanations", 
+    authors: ['Gunnar Konig', 'HF', 'Timo Freiesleben', 'Celestine Mendler-Dunner', 'Ulrike von Luxburg'], 
+    journal: 'ArXiv', 
+    date: '2025', 
+    link: 'https://arxiv.org/abs/2506.15366', 
+    status: 'preprint'
+},
+{
     title: "Sample-efficient Learning of Concepts with Theoretical Guarantees: from Data to Concepts without Interventions", 
     authors: ['HF', 'Tim van Erven', 'Sara Magliacane'], 
     journal: 'ArXiv', 

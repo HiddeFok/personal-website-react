@@ -5,6 +5,21 @@ export interface newsItem {
 
 export const newsItems: newsItem[] = [
   {
+    title: `2025-07: I will be working at Boooking.com the following 3 months as a Machine Learning Scientist. The goal of the project is to put some of the theory we developped for Bandit Optimization problems into practise`,
+  },
+  {
+    title: `2025-06: New Preprint online! We introduce a new definition: Performative Validity, which measures
+    the validity of Recourse Explanations after subsequence retrains of the model. We show that only recourse explanations
+    targetting causes of the target labels have this property.`,
+    additional: 
+    <div>
+      ArXiv link: &nbsp;
+      <a href="https://arxiv.org/abs/2506.15366">
+        Performative Validity of Recourse Explanations
+      </a>
+    </div>
+  },
+  {
     title: `2025-02: New Preprint online! We construct an estimator that can learn concepts
     from encodings learned in the Causal Representation Learning framework`,
     additional: 
