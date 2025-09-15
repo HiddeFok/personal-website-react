@@ -9,6 +9,21 @@ export interface Talk {
 // TODO: update
 export const listTalks: Talk[] = [
   {
+    title: "Performativity and Risks of Algorithmic Recourse",
+    additional:
+      <div>
+        <a
+          href="posters/Cardiff_workshop_2025.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          [Slides]
+        </a>
+      </div>,
+    location: "Cardiff University, Explainable Learning & Reasoning Workshop",
+    date: "June 2025"
+  },
+  {
     title: "Using Causal Representation Learning to formalize concept extraction from learned representations",
     additional:
       <div>
