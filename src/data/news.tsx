@@ -5,6 +5,16 @@ export interface newsItem {
 
 export const newsItems: newsItem[] = [
   {
+    title: `2025-09: Both our Concept paper and Performative Validity paper will be published at NeurIPS 2025! Camera-ready versions will follow later in October.`,
+    additional:
+    <div>
+      Links:&nbsp;  
+      <a href="https://arxiv.org/abs/2502.06536">[Concept Paper]</a>
+      &nbsp;
+      <a href="https://arxiv.org/abs/2506.15366">[Validity Paper]</a>
+    </div>
+  },
+  {
     title: `2025-07: I will be working at Booking.com the following 3 months as a Machine Learning Scientist. The goal of the project is to put some of the theory we developped for Bandit Optimization problems into practise`,
   },
   {
