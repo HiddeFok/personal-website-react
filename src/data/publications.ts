@@ -12,7 +12,7 @@ export const listPublications: Publication[] = [
 {
     title: "Performative Validity of Recourse Explanations", 
     authors: ['Gunnar König', 'HF', 'Timo Freiesleben', 'Celestine Mendler-Dunner', 'Ulrike von Luxburg'], 
-    journal: 'To appear at NeurIPS', 
+    journal: 'To appear in the Proceedings of NeurIPS 2025', 
     date: '2025', 
     link: 'https://arxiv.org/abs/2506.15366', 
     status: 'preprint'
@@ -20,7 +20,7 @@ export const listPublications: Publication[] = [
 {
     title: "Sample-efficient Learning of Concepts with Theoretical Guarantees: from Data to Concepts without Interventions", 
     authors: ['HF', 'Tim van Erven', 'Sara Magliacane'], 
-    journal: 'To appear at NeurIPS', 
+    journal: 'To appear in the Proceedings of NeurIPS 2025', 
     date: '2025', 
     link: 'https://arxiv.org/abs/2502.06536', 
     status: 'preprint'

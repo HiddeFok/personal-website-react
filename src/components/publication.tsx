@@ -12,12 +12,13 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ArticleIcon from '@mui/icons-material/Article';
+import BookIcon from '@mui/icons-material/Book';
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 
 function createPublicationItem(publication: Publication){
   return (
-    <ListItem sx={{padding: "0px 8px"}}>
-      <ListItemIcon>
+    <ListItem sx={{padding: "0px 8px", marginLeft: "20px"}}>
+      <ListItemIcon sx={{minWidth: "auto", marginRight: "20px"}}>
         <ArticleIcon/>
       </ListItemIcon>
       <ListItemText>
@@ -56,8 +57,8 @@ export const PreprintList: React.FC = () => {
 
 function createTalkItem(talk: Talk) {
   return (
-    <ListItem sx={{padding: "0px 8px"}}>
-      <ListItemIcon>
+    <ListItem sx={{padding: "0px 8px", marginLeft: "20px"}}>
+      <ListItemIcon sx={{minWidth: "auto", marginRight: "20px"}}>
         <ChatBubbleIcon/>
       </ListItemIcon>
       <ListItemText>
@@ -86,8 +87,8 @@ function createThesisItem(thesis: Thesis){
   const thesis_link:string = `files/${thesis.link}`
 
   return (
-    <ListItem sx={{padding: "0px 8px"}}>
-      <ListItemIcon>
+    <ListItem sx={{padding: "0px 8px", marginLeft: "20px"}}>
+      <ListItemIcon sx={{minWidth: "auto", marginRight: "20px"}}>
         <ArticleIcon/>
       </ListItemIcon>
       <ListItemText>
@@ -106,6 +107,28 @@ export const ThesisList: React.FC = () => {
   return (
     <List>
       {Theses.map((thesis) => createThesisItem(thesis))}
+    </List>
+  )
+}
+
+export const PhDelement: React.FC = () => {
+  const phd_link:string = `https://dare.uva.nl/search?identifier=e0b2c89d-603a-4edc-b9b9-59a6547c1eec`
+  const phd_title:string = `Mathematical Fondations of Explainable AI and Advances in Bandit Optimisation`
+  return (
+    <List>
+      <ListItem sx={{padding: "0px 8px", marginLeft: "20px"}}>
+        <ListItemIcon sx={{minWidth: "auto", marginRight: "20px"}}>
+          <BookIcon/>
+        </ListItemIcon>
+        <ListItemText sx={{ margin: "4px"}}>
+          <Link variant="body1" href={phd_link} target="_blank" rel="noopener">
+            {phd_title}
+          </Link>
+        <Typography variant="body2">
+          Successfully defended in January 2026!
+        </Typography>
+        </ListItemText>
+      </ListItem>
     </List>
   )
 }
