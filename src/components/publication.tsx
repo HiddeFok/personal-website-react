@@ -135,6 +135,12 @@ export const PhDelement: React.FC = () => {
           Successfully defended in January 2026!
         </Typography>
         </ListItemText>
+        <meta name="citation_title" content={phd_title} />
+        <meta name="citation_author" content="Fokkema, Hidde" />
+        <meta name="citation_publication_date" content="2026" />
+        <meta name="citation_dissertation_institution" content="University of Amsterdam" />
+        <meta name="citation_pdf_url" content={phd_pdf_link} />
+        <meta name="citation_isbn" content="978-94-6522-938-6" />
       </ListItem>
     </List>
   )
