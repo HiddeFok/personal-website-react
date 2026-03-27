@@ -5,7 +5,12 @@ export interface newsItem {
 
 export const newsItems: newsItem[] = [
   {
-    title: `2026-02: I successfully defended my PhD in January 2026! This means that I have finished my chapter at the University of Amsterdam. For my next steps, I am looking for industry roles, as I would like to be more practically involved in the current AI developments. Any leads would be very helpful!`
+    title: `2026-02: I successfully defended my PhD in January 2026! This means that I have finished my chapter at the University of Amsterdam. For my next steps, I am looking for industry roles, as I would like to be more practically involved in the current AI developments. Any leads would be very helpful!`, 
+    additional:
+    <div>
+      Link:&nbsp;
+      <a href="https://pure.uva.nl/ws/files/277470997/Thesis.pdf">[Dissertation PDF link]</a>
+    </div>
   },
   {
     title: `2025-09: Both our Concept paper and Performative Validity paper will be published at NeurIPS 2025! Camera-ready versions will follow later in October.`,

@@ -113,6 +113,8 @@ export const ThesisList: React.FC = () => {
 
 export const PhDelement: React.FC = () => {
   const phd_link:string = `https://dare.uva.nl/search?identifier=e0b2c89d-603a-4edc-b9b9-59a6547c1eec`
+  const phd_pdf_link:string = `https://pure.uva.nl/ws/files/277470997/Thesis.pdf`
+
   const phd_title:string = `Mathematical Foundations of Explainable AI and Advances in Bandit Optimisation`
   return (
     <List>
@@ -124,6 +126,11 @@ export const PhDelement: React.FC = () => {
           <Link variant="body1" href={phd_link} target="_blank" rel="noopener">
             {phd_title}
           </Link>
+        <Typography variant="body2">
+          <Link variant="body2" href={phd_pdf_link} target="_blank" rel="noopener">
+            [PDF link]
+          </Link>
+        </Typography>
         <Typography variant="body2">
           Successfully defended in January 2026!
         </Typography>
