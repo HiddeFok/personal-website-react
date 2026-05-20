@@ -38,18 +38,19 @@ const interests: interest[] = [
   },
   {
     subject: "AI4Science/Energy/Physics", 
-    text: `After having done mostly theoretical work, I am now looking forward to applying AI in a more practical sense, and specifically 
-    in domains that have a scientific flavour.`,
+    text: `I find the application of AI in these domains the most interesting, because you can have verifiable 
+    predictions, that drive real impact`,
     style: {paddingBottom: "0", paddingTop: "0"}
   },
   {
     subject: "(Martingale/Causal) Optimal Transport",
-    text: "",
+    text: `As part of my Master Thesis I delved deep into these topics and I still find them very interesting. `,
     style: {paddingBottom: "0", paddingTop: "0"}
   }, 
   {
     subject: "Stochastic Calculus", // Add applications to the description
-    text: "",
+    text: `A large part of my Master's was spent on courses related to Stochastic Calculus, which
+    I find a beautiful area in math, with many cool applications in Finance and also in ML.`,
     style: {paddingBottom: "0", paddingTop: "0"}
   }
 ]
@@ -87,15 +88,19 @@ const IntroCard: React.FC = () => {
           Welcome to my personal webpage!
         </Typography>
         <Typography variant="body1" align="left">
-          I am research in Machine Learning. I completed my PhD at the&nbsp;
+          I am research in Machine Learning, currently working as an AI Research Engineer at&nbsp;
+          <a href="https://www.plumerai.com">
+          Plumerai
+          </a>. 
+          I completed my PhD at the&nbsp;
           <a href="https://kdvi.uva.nl/">
             Korteweg-de Vries Institute
           </a>
-          &nbsp;of the University of Amsterdam and I am part of the group of&nbsp;
+          &nbsp;of the University of Amsterdam, where I was part of the group of&nbsp;
           <a href="http://www.timvanerven.nl/">
             dr. Tim van Erven
           </a>
-          . In general I have a broad interest in Mathematics and Machine Learning. My recent research has focussed on: 
+          . In general I have a broad interest in Mathematics and Machine Learning. My PhD research focussed on: 
           {/* Interested in Stochastics, Machine Learning, Explainable AI */}
         </Typography>
         <List>

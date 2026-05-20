@@ -26,7 +26,8 @@ function createPublicationItem(publication: Publication){
           {publication.title}
         </Link>
         <Typography variant="body2">
-          {publication.authors.join(", ")}, {publication.journal}, {publication.date}, {publication.additional}
+          {publication.authors.join(", ")}, <br></br>
+          {publication.journal}, {publication.date}, {publication.additional}
         </Typography>
       </ListItemText>
     </ListItem>

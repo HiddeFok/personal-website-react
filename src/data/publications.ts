@@ -12,18 +12,18 @@ export const listPublications: Publication[] = [
 {
     title: "Performative Validity of Recourse Explanations", 
     authors: ['Gunnar König', 'HF', 'Timo Freiesleben', 'Celestine Mendler-Dunner', 'Ulrike von Luxburg'], 
-    journal: 'To appear in the Proceedings of NeurIPS 2025', 
+    journal: 'Advances in Neural Information Processing Systems (NeurIPS), vol. 38, pp. 139334--139370', 
     date: '2025', 
-    link: 'https://arxiv.org/abs/2506.15366', 
-    status: 'preprint'
+    link: 'https://proceedings.neurips.cc/paper_files/paper/2025/hash/cbbbd7db0a672d01bdb7313fbb4ae6a9-Abstract-Conference.html', 
+    status: 'published'
 },
 {
     title: "Sample-efficient Learning of Concepts with Theoretical Guarantees: from Data to Concepts without Interventions", 
     authors: ['HF', 'Tim van Erven', 'Sara Magliacane'], 
-    journal: 'To appear in the Proceedings of NeurIPS 2025', 
+    journal: "Advances in Neural Information Processing Systems (NeurIPS), vol. 38, pp. 111783--111843", 
     date: '2025', 
-    link: 'https://arxiv.org/abs/2502.06536', 
-    status: 'preprint'
+    link: 'https://proceedings.neurips.cc/paper_files/paper/2025/hash/a23fa41edb52c314c058fd5ce97217d5-Abstract-Conference.html', 
+    status: 'published'
 },
 {
     title: 'Online Newton Method for Bandit Convex Optimisation Extended Abstract', 
