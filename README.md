@@ -80,3 +80,18 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Server note (2026-08-30)
+
+The Hetzner VM (`ubuntu-2gb-nbg1-1`, x86_64) runs Ubuntu 20.04, which left
+standard support in May 2025: no security updates, and upstream projects
+(e.g. the neovim PPA) no longer build for it. Plan: rebuild on a fresh
+Ubuntu 24.04 LTS server rather than `do-release-upgrade` twice.
+
+Until then, install Neovim from the release tarball instead of apt:
+
+```bash
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
+```
