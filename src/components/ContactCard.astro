@@ -1,0 +1,24 @@
+---
+import { personalInfo, contactItems } from "../data/data.ts";
+---
+
+<section class="card">
+  <img
+    class="portrait"
+    src={`/${personalInfo.profilePic}`}
+    alt="Hidde Fokkema"
+    width="3455"
+    height="4607"
+  />
+  <p class="meta">AI Research Engineer, Plumerai</p>
+  <p class="meta">PhD, University of Amsterdam</p>
+  <ul class="contact-links">
+    {
+      contactItems.map((item) => (
+        <li>
+          <a href={item.href}>{item.text}</a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
