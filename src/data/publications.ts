@@ -5,6 +5,7 @@ export interface Publication {
   date: string,
   link: string,
   status: "published" | "preprint",
+  code?: string,
   additional?: any
 }
 // object should be removed
@@ -23,7 +24,8 @@ export const listPublications: Publication[] = [
     journal: "Advances in Neural Information Processing Systems (NeurIPS), vol. 38, pp. 111783--111843", 
     date: '2025', 
     link: 'https://proceedings.neurips.cc/paper_files/paper/2025/hash/a23fa41edb52c314c058fd5ce97217d5-Abstract-Conference.html', 
-    status: 'published'
+    status: 'published',
+    code: 'https://github.com/HiddeFok/sample-efficient-learning-of-concepts',
 },
 {
     title: 'Online Newton Method for Bandit Convex Optimisation Extended Abstract', 
@@ -40,6 +42,7 @@ export const listPublications: Publication[] = [
     date: '2024', 
     link: 'https://proceedings.mlr.press/v238/fokkema24a', 
     status: "published",
+    code: 'https://github.com/HiddeFok/consequences-of-recourse',
   },
   {
     title: 'Attribution-based Explanations that Provide Recourse Cannot be Robust', 
@@ -47,6 +50,7 @@ export const listPublications: Publication[] = [
     journal: 'Journal of Machine Learning Research (JMLR), vol. 24, no. 360, pp. 1-37', 
     date: '2023', 
     link: 'https://jmlr.org/papers/v24/23-0042.html', 
-    status: "published"
+    status: "published",
+    code: 'https://github.com/HiddeFok/recourse-robust-explanations-impossible',
   }
 ]

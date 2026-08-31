@@ -1,10 +1,27 @@
 ---
 import "../styles/theme.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
 const {
   title,
   description = "Hidde Fokkema - PhD Mathematical Machine Learning | AI Research Engineer",
 } = Astro.props;
-const path = Astro.url.pathname;
+
+// Built URLs carry a trailing slash; strip it so comparisons are stable.
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+
+const navItems = [
+  { href: "/", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/research", label: "Research" },
+];
+
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path === href || path.startsWith(`${href}/`);
 ---
 
 <!doctype html>
@@ -25,4 +42,29 @@ const path = Astro.url.pathname;
     />
     <slot name="head" />
   </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <div>
+          <a class="site-title" href="/">Hidde Fokkema</a>
+          <p class="site-role">AI Research Engineer @ Plumerai &middot; PhD in Machine Learning</p>
+        </div>
+        <nav class="site-nav">
+          {
+            navItems.map((item) => (
+              <a href={item.href} class={isActive(item.href) ? "active" : undefined}>
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <slot />
+    </main>
+
+    <footer class="footer wrap">&copy; 2021&ndash;2026 Hidde Fokkema</footer>
+  </body>
 </html>
