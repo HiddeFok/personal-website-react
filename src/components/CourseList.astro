@@ -1,0 +1,24 @@
+---
+import { courseList } from "../data/teaching.ts";
+
+const sorted = [...courseList].sort((a, b) => b.year - a.year);
+---
+
+<ul class="item-list">
+  {
+    sorted.map((course) => (
+      <li>
+        {course.url ? (
+          <a href={course.url} target="_blank" rel="noopener">
+            {course.title}
+          </a>
+        ) : (
+          course.title
+        )}
+        <p class="meta">
+          {course.level} · {course.year}
+        </p>
+      </li>
+    ))
+  }
+</ul>

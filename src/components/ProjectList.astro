@@ -1,0 +1,29 @@
+---
+import { projects } from "../data/projects.ts";
+---
+
+<ul class="item-list">
+  {
+    projects.map((project) => (
+      <li>
+        <a href={project.repo} target="_blank" rel="noopener">
+          {project.name}
+        </a>
+        <p class="meta">{project.blurb}</p>
+        <p>{project.detail}</p>
+        <p class="meta">
+          {project.tags.join(" · ")}
+          {project.paper && (
+            <>
+              {" "}
+              ·{" "}
+              <a href={project.paper} target="_blank" rel="noopener">
+                [Paper]
+              </a>
+            </>
+          )}
+        </p>
+      </li>
+    ))
+  }
+</ul>

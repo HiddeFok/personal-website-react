@@ -1,11 +1,29 @@
 ---
 import Base from "../layouts/Base.astro";
 import ContactCard from "../components/ContactCard.astro";
+import IntroCard from "../components/IntroCard.astro";
 import NewsList from "../components/NewsList.astro";
 ---
 
 <Base title="Hidde Fokkema -- AI Research Engineer">
   <h1>About</h1>
-  <ContactCard />
-  <NewsList />
+  <div class="about-grid">
+    <ContactCard />
+    <div>
+      <IntroCard />
+      <h2>Experience</h2>
+      <dl class="timeline">
+        <dt>2026&ndash;</dt>
+        <dd>Plumerai &mdash; AI Research Engineer</dd>
+        <dt>2025</dt>
+        <dd>Booking.com &mdash; ML Scientist (3 months)</dd>
+        <dt>2021&ndash;2026</dt>
+        <dd>University of Amsterdam &mdash; PhD</dd>
+        <dt>pre-PhD</dt>
+        <dd>Amsterdam Data Collective &mdash; Data Science Consultant (part-time)</dd>
+      </dl>
+      <h2>News</h2>
+      <NewsList />
+    </div>
+  </div>
 </Base>

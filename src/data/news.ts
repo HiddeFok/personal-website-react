@@ -30,11 +30,11 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: "2025-07",
-    text: "I will be working at Booking.com the following 3 months as a Machine Learning Scientist. The goal of the project is to put some of the theory we developped for Bandit Optimization problems into practise.",
+    text: "I will be working at Booking.com the following 3 months as a Machine Learning Scientist. The goal of the project is to put some of the theory we developed for Bandit Optimization problems into practice.",
   },
   {
     date: "2025-06",
-    text: "New Preprint online! We introduce a new definition: Performative Validity, which measures the validity of Recourse Explanations after subsequence retrains of the model. We show that only recourse explanations targetting causes of the target labels have this property.",
+    text: "New Preprint online! We introduce a new definition: Performative Validity, which measures the validity of Recourse Explanations after subsequence retrains of the model. We show that only recourse explanations targeting causes of the target labels have this property.",
     links: [{ label: "arXiv", href: "https://arxiv.org/abs/2506.15366" }],
   },
   {
@@ -67,7 +67,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: "2023-05",
-    text: "A new preprint is out, where we invistigate the possible consequences on the risk by providing recourse!",
+    text: "A new preprint is out, where we investigate the possible consequences on the risk by providing recourse!",
     links: [{ label: "arXiv", href: "https://arxiv.org/abs/2306.00497" }],
   },
   {

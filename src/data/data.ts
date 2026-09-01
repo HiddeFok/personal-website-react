@@ -3,49 +3,45 @@ export const personalInfo: { [key: string]: string } = {
   LastName: "Fokkema",
   profilePic: "HF_1_18032026.jpeg",
   github: "https://github.com/HiddeFok",
-  bitbucket: "https://bitbucket.org/hf_uva/",
   bluesky: "https://bsky.app/profile/hiddefokkema.bsky.social",
   linkedin: "https://www.linkedin.com/in/hidde-fokkema-a1198a12a/",
   scholar: "https://scholar.google.com/citations?user=FkAOYFsAAAAJ",
   email: "mailto:h.j.fokkema@uva.nl",
 };
 
+export type ContactIcon = "scholar" | "bluesky" | "email" | "linkedin" | "github";
+
 interface ContactItem {
   href: string;
-  icon: string;
   text: string;
+  icon: ContactIcon;
 }
 
 export const contactItems: ContactItem[] = [
   {
     href: personalInfo.scholar,
-    icon: "fa fa-user",
     text: "Google Scholar",
+    icon: "scholar",
   },
   {
     href: personalInfo.bluesky,
-    icon: "fa fa-link",
     text: "Bluesky",
+    icon: "bluesky",
   },
   {
     href: personalInfo.email,
-    icon: "fa fa-envelope",
     text: "E-mail",
+    icon: "email",
   },
   {
     href: personalInfo.linkedin,
-    icon: "fa fa-linkedin",
     text: "LinkedIn",
+    icon: "linkedin",
   },
   {
     href: personalInfo.github,
-    icon: "fa fa-github",
     text: "Github",
-  },
-  {
-    href: personalInfo.bitbucket,
-    icon: "fa fa-bitbucket",
-    text: "Bitbucket",
+    icon: "github",
   },
 ];
 

@@ -58,7 +58,7 @@ export const listTalks: Talk[] = [
   },
   {
     title: "A new Algorithm for Convex Bandit Optimization",
-    location: "Stochastics Seminar KdVi, Univeristy of Amsterdam",
+    location: "Stochastics Seminar KdVi, University of Amsterdam",
     date: "March 2024",
     links: [{ label: "Slides", href: "/talks/202403_BCO_stochastics_seminar.pdf" }],
   },
@@ -77,7 +77,7 @@ export const listTalks: Talk[] = [
   },
   {
     title: "The Risks of Recourse in Binary Classification",
-    location: "Saarland University, Workshop on Interpretabiltiy and Recourse",
+    location: "Saarland University, Workshop on Interpretability and Recourse",
     date: "October 2023",
     links: [{ label: "Slides", href: "/talks/Saarland_RoR_talk.pdf" }],
   },

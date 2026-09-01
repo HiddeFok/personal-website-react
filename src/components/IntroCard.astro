@@ -1,0 +1,53 @@
+---
+interface Interest {
+  subject: string;
+  text: string;
+}
+
+const interests: Interest[] = [
+  {
+    subject: "Mathematical Foundations of Explainable AI",
+    text: "We showed that attribution-based explanations that provide recourse cannot be robust, and that offering recourse can hurt the accuracy of a deployed classifier. We also introduced a framework combining causal representation learning and concept learning to build concept-based models with formal guarantees on the concepts they learn.",
+  },
+  {
+    subject: "Bandit Optimisation",
+    text: "I worked on improving the best known regret bounds for bandit convex optimisation, in both the stochastic and adversarial case. meta-grad-pytorch, on the Projects page, is a PyTorch implementation of one of the resulting algorithms.",
+  },
+];
+---
+
+<p>
+  I am a researcher in Machine Learning, currently working as an AI Research Engineer at
+  <a href="https://www.plumerai.com" target="_blank" rel="noopener">Plumerai</a>, where I work on
+  efficient deep learning for embedded hardware &mdash; taking the same optimisation and
+  learning-theory questions from my PhD and applying them under real deployment constraints.
+</p>
+<p>
+  Between finishing my PhD and joining Plumerai, I spent three months at Booking.com as a Machine
+  Learning Scientist, putting some of the bandit optimisation theory from my PhD into production.
+</p>
+<p>
+  I completed my PhD at the
+  <a href="https://kdvi.uva.nl/" target="_blank" rel="noopener">Korteweg-de Vries Institute</a>
+  of the University of Amsterdam, supervised by
+  <a href="http://www.timvanerven.nl/" target="_blank" rel="noopener">dr. Tim van Erven</a>. My
+  research focussed on:
+</p>
+<ul class="item-list">
+  {
+    interests.map((interest) => (
+      <li>
+        <strong>{interest.subject}</strong>
+        <p>{interest.text}</p>
+      </li>
+    ))
+  }
+</ul>
+<p>
+  I'm also interested in the intersection of AI and the physical sciences, and in optimal
+  transport and stochastic calculus more broadly, from my Master's research.
+</p>
+<p>
+  My full CV is available
+  <a href="/files/CV_Hidde_Fokkema_public.pdf" target="_blank" rel="noopener">here</a>.
+</p>

@@ -8,48 +8,151 @@ const preprints = listPublications.filter((a) => a.status === "preprint");
 
 const groupedTalks = Object.groupBy(listTalks, (t) => t.title);
 const talkGroups = Object.entries(groupedTalks)
-.map(([title, talks]) => ({ title, talks: talks! }))
-    .sort((a, b) => {
-    const latest = (talks: typeof a.talks) => 
-        Math.max(...talks.map((t) => new Date(t.date).getTime()));
+  .map(([title, talks]) => ({ title, talks: talks! }))
+  .sort((a, b) => {
+    const latest = (talks: typeof a.talks) =>
+      Math.max(...talks.map((t) => new Date(t.date).getTime()));
     return latest(b.talks) - latest(a.talks);
-});
+  });
 ---
 
-<section class="meta">
-  <h2>Published</h2>
-  <ul class="item-list">
-    {published.map((pub) => (
-        <a href={pub.link} target="_blank" rel="noopener">
-          {pub.title}
-        </a>
-        <p class="meta">
-            {pub.authors.join(", ")} · {pub.journal}, {pub.date}
-            {pub.code && <> · 
-            <a href={pub.code} 
-                target="_blank" rel="noopener">[Code] 
-            </a></>}
-            {pub.additional}
-        </p>
-      ))
-    }
-  </ul>
-</section>
-{preprints.length > 0 && <section class="meta">
 <h2>Published</h2>
-  <ul class="item-list">
-    {published.map((pub) => (
+<ul class="item-list">
+  {
+    published.map((pub) => (
+      <li>
         <a href={pub.link} target="_blank" rel="noopener">
           {pub.title}
         </a>
         <p class="meta">
-            {pub.authors.join(", ")} · {pub.journal}, {pub.date}
-            {pub.code && <> · 
-            <a href={pub.code} 
-                target="_blank" rel="noopener">[Code] 
-            </a></>}
+          {pub.authors.map((author, i) => (
+            <>
+              {i > 0 && ", "}
+              {author === "HF" ? <strong>H. Fokkema</strong> : author}
+            </>
+          ))}
+          {" · "}
+          {pub.journal}, {pub.date}
+          {pub.additional && <> · {pub.additional}</>}
+          {pub.code && (
+            <>
+              {" · "}
+              <a href={pub.code} target="_blank" rel="noopener">
+                [Code]
+              </a>
+            </>
+          )}
         </p>
-      ))
-    }
-  </ul>
-</section>}
+      </li>
+    ))
+  }
+</ul>
+
+{
+  preprints.length > 0 && (
+    <>
+      <h2>Preprints</h2>
+      <ul class="item-list">
+        {preprints.map((pub) => (
+          <li>
+            <a href={pub.link} target="_blank" rel="noopener">
+              {pub.title}
+            </a>
+            <p class="meta">
+              {pub.authors.map((author, i) => (
+                <>
+                  {i > 0 && ", "}
+                  {author === "HF" ? <strong>H. Fokkema</strong> : author}
+                </>
+              ))}
+              {" · "}
+              {pub.journal}, {pub.date}
+              {pub.additional && <> · {pub.additional}</>}
+              {pub.code && (
+                <>
+                  {" · "}
+                  <a href={pub.code} target="_blank" rel="noopener">
+                    [Code]
+                  </a>
+                </>
+              )}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}
+
+<h2>PhD Thesis</h2>
+<ul class="item-list">
+  <li>
+    <a
+      href="https://dare.uva.nl/search?identifier=e0b2c89d-603a-4edc-b9b9-59a6547c1eec"
+      target="_blank"
+      rel="noopener"
+    >
+      Mathematical Foundations of Explainable AI and Advances in Bandit Optimisation
+    </a>
+    <p class="meta">
+      Defended January 2026 ·
+      <a href="https://pure.uva.nl/ws/files/277470997/Thesis.pdf" target="_blank" rel="noopener">
+        [PDF]
+      </a>
+    </p>
+    <p>
+      This thesis shows that two properties people want from explainability methods work against
+      each other: attribution-based explanations that provide recourse cannot always be robust,
+      and acting on recourse can lower a model's accuracy. It also develops methods that combine
+      causal representation learning with concept learning, and improves the best known regret
+      bounds for bandit convex optimisation in both the stochastic and adversarial case.
+      Throughout, the aim is to be explicit about where these methods can be trusted, and where
+      they can't.
+    </p>
+  </li>
+</ul>
+
+<h2>Talks</h2>
+<ul class="item-list">
+  {
+    talkGroups.map((group) => (
+      <li>
+        <h3>{group.title}</h3>
+        <ul class="sub-list">
+          {group.talks.map((talk) => (
+            <li>
+              <p class="meta">
+                {talk.location}, {talk.date}
+                {talk.links?.map((link) => (
+                  <>
+                    {" · "}
+                    <a href={link.href} target="_blank" rel="noopener">
+                      [{link.label}]
+                    </a>
+                  </>
+                ))}
+              </p>
+              {talk.note && <p class="meta">{talk.note}</p>}
+            </li>
+          ))}
+        </ul>
+      </li>
+    ))
+  }
+</ul>
+
+<h2>Theses</h2>
+<ul class="item-list">
+  {
+    Theses.map((thesis) => (
+      <li>
+        <a href={`/files/${thesis.link}`} target="_blank" rel="noopener">
+          {thesis.title}
+        </a>
+        <p class="meta">
+          Supervisors: {thesis.supervisors} · {thesis.type} · {thesis.date}
+        </p>
+      </li>
+    ))
+  }
+</ul>

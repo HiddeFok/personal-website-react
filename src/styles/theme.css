@@ -7,7 +7,8 @@
     --fg: #d6d3cd;
     --fg-dim: #8a877f;
     --accent: #e5a458;
-    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
     color-scheme: dark;
 }
@@ -55,7 +56,7 @@ img {
 body {
     background: var(--bg);
     color: var(--fg);
-    font-family: var(--mono);
+    font-family: var(--font-sans);
     font-size: 15px;
     line-height: 1.65;
     display: flex;
@@ -104,6 +105,7 @@ code {
     background: var(--bg-alt);
     border: 1px solid var(--border);
     padding: 0.05em 0.35em;
+    font-family: var(--font-mono);
 }
 
 /* ── Layout ──────────────────────────────────────────────────────────────── */
@@ -246,9 +248,31 @@ main.wrap {
 
 .contact-links {
     display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
+    flex-wrap: wrap;
+    gap: 0.6rem;
     margin-top: 1rem;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--border);
+    color: var(--fg-dim);
+    text-decoration: none;
+}
+
+.contact-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    filter: none;
+}
+
+.contact-btn svg {
+    width: 1.1rem;
+    height: 1.1rem;
 }
 
 .portrait {

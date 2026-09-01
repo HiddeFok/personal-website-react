@@ -17,7 +17,7 @@ export const Theses: Thesis[] = [
   {
     title: "Learning and thermodynamics",
     supervisors: "dr. Bas Kleijn, dr. Greg Stephens",
-    type: "Dubble Bachelor thesis, Mathematics and Physics",
+    type: "Double Bachelor thesis, Mathematics and Physics",
     date: "July 2019",
     link: "BSc_thesis.pdf"
   }

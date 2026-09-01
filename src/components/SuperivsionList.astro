@@ -1,0 +1,19 @@
+---
+import { supervisionList } from "../data/supervision.ts";
+
+const sorted = [...supervisionList].sort((a, b) => b.year - a.year);
+---
+
+<ul class="item-list">
+  {
+    sorted.map((sup) => (
+      <li>
+        {sup.title}
+        <p class="meta">
+          {sup.students.join(", ")} · {sup.level} · {sup.year}
+          {sup.additional && <> · {sup.additional}</>}
+        </p>
+      </li>
+    ))
+  }
+</ul>

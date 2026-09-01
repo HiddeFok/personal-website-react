@@ -1,9 +1,29 @@
 ---
 import Base from "../layouts/Base.astro";
 import PublicationList from "../components/PublicationList.astro";
+import CourseList from "../components/CourseList.astro";
+import SupervisionList from "../components/SuperivsionList.astro";
 ---
 
 <Base title="Research -- Hidde Fokkema">
+  <Fragment slot="head">
+    <meta
+      name="citation_title"
+      content="Mathematical Foundations of Explainable AI and Advances in Bandit Optimisation"
+    />
+    <meta name="citation_author" content="Fokkema, Hidde" />
+    <meta name="citation_publication_date" content="2026" />
+    <meta name="citation_dissertation_institution" content="University of Amsterdam" />
+    <meta name="citation_pdf_url" content="https://pure.uva.nl/ws/files/277470997/Thesis.pdf" />
+    <meta name="citation_isbn" content="978-94-6522-938-6" />
+  </Fragment>
   <h1>Research</h1>
   <PublicationList />
+  <section id="teaching">
+    <h2>Teaching &amp; Supervision</h2>
+    <h3>Teaching Assistant</h3>
+    <CourseList />
+    <h3>Supervision</h3>
+    <SupervisionList />
+  </section>
 </Base>
