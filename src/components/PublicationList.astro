@@ -1,0 +1,55 @@
+---
+import { listPublications } from "../data/publications.ts";
+import { Theses } from "../data/theses.ts";
+import { listTalks } from "../data/talks.ts";
+
+const published = listPublications.filter((a) => a.status === "published");
+const preprints = listPublications.filter((a) => a.status === "preprint");
+
+const groupedTalks = Object.groupBy(listTalks, (t) => t.title);
+const talkGroups = Object.entries(groupedTalks)
+.map(([title, talks]) => ({ title, talks: talks! }))
+    .sort((a, b) => {
+    const latest = (talks: typeof a.talks) => 
+        Math.max(...talks.map((t) => new Date(t.date).getTime()));
+    return latest(b.talks) - latest(a.talks);
+});
+---
+
+<section class="meta">
+  <h2>Published</h2>
+  <ul class="item-list">
+    {published.map((pub) => (
+        <a href={pub.link} target="_blank" rel="noopener">
+          {pub.title}
+        </a>
+        <p class="meta">
+            {pub.authors.join(", ")} · {pub.journal}, {pub.date}
+            {pub.code && <> · 
+            <a href={pub.code} 
+                target="_blank" rel="noopener">[Code] 
+            </a></>}
+            {pub.additional}
+        </p>
+      ))
+    }
+  </ul>
+</section>
+{preprints.length > 0 && <section class="meta">
+<h2>Published</h2>
+  <ul class="item-list">
+    {published.map((pub) => (
+        <a href={pub.link} target="_blank" rel="noopener">
+          {pub.title}
+        </a>
+        <p class="meta">
+            {pub.authors.join(", ")} · {pub.journal}, {pub.date}
+            {pub.code && <> · 
+            <a href={pub.code} 
+                target="_blank" rel="noopener">[Code] 
+            </a></>}
+        </p>
+      ))
+    }
+  </ul>
+</section>}

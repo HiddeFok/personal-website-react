@@ -1,0 +1,20 @@
+---
+import { newsItems } from "../data/news.ts";
+
+const newsSorted = newsItems.sort((a, b) => {
+  return new Date(b.date).getTime() - new Date(a.date).getTime();
+});
+---
+
+<section class="meta">
+  <ul class="item-list">
+    {
+      newsSorted?.map((news) => (
+        <li>
+          <p class="body1">{news.date}</p>
+          <p class="body2">{news.text}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>
