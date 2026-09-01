@@ -6,7 +6,7 @@ export const personalInfo: { [key: string]: string } = {
   bluesky: "https://bsky.app/profile/hiddefokkema.bsky.social",
   linkedin: "https://www.linkedin.com/in/hidde-fokkema-a1198a12a/",
   scholar: "https://scholar.google.com/citations?user=FkAOYFsAAAAJ",
-  email: "mailto:h.j.fokkema@uva.nl",
+  email: "mailto:hidde.fokkema@gmail.com",
 };
 
 export type ContactIcon = "scholar" | "bluesky" | "email" | "linkedin" | "github";
@@ -44,4 +44,3 @@ export const contactItems: ContactItem[] = [
     icon: "github",
   },
 ];
-
