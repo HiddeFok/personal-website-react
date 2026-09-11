@@ -42,7 +42,7 @@ const icons: Record<ContactIcon, { viewBox: string; path: string }> = {
       {
         contactItems.map((item) => (
           <li>
-            <a class="contact-btn" href={item.href} aria-label={item.text}>
+            <a class="contact-btn" data-contact={item.icon} href={item.href} aria-label={item.text}>
               <svg viewBox={icons[item.icon].viewBox} fill="currentColor" aria-hidden="true">
                 <path d={icons[item.icon].path} />
               </svg>

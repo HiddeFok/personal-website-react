@@ -12,11 +12,16 @@ import { projects } from "../data/projects.ts";
         <p class="meta">{project.blurb}</p>
         <p>{project.detail}</p>
         <p class="meta">
-          {project.tags.join(" · ")}
+          {
+            project.tags.map((tag, i) => (
+              <span class="tag" data-color={["orange", "blue", "green", "yellow", "pink", "red"][i % 6]}>
+                {tag}
+              </span>
+            ))
+          }
           {project.paper && (
             <>
               {" "}
-              ·{" "}
               <a href={project.paper} target="_blank" rel="noopener">
                 [Paper]
               </a>

@@ -1,5 +1,6 @@
 ---
 import "../styles/theme.css";
+import { personalInfo } from "../data/data.ts";
 
 interface Props {
   title: string;
@@ -29,7 +30,7 @@ const isActive = (href: string) =>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f7f6f1" />
+    <meta name="theme-color" content="#fafaf4" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.ico" />
@@ -37,19 +38,31 @@ const isActive = (href: string) =>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <slot name="head" />
   </head>
   <body>
     <header class="site-header">
-      <div class="wrap">
-        <div>
-          <a class="site-title" href="/">Hidde Fokkema</a>
-          <p class="site-role">AI Research Engineer @ Plumerai &middot; PhD in Machine Learning</p>
-        </div>
-        <nav class="site-nav">
+      <div class="wrap header-bar">
+        <a class="brand" href="/">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="site-title">Hidde Fokkema</span>
+        </a>
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <nav class="site-nav" id="site-nav">
           {
             navItems.map((item) => (
               <a href={item.href} class={isActive(item.href) ? "active" : undefined}>
@@ -57,6 +70,7 @@ const isActive = (href: string) =>
               </a>
             ))
           }
+          <a class="nav-cta" href={personalInfo.email}>Contact</a>
         </nav>
       </div>
     </header>
@@ -65,6 +79,27 @@ const isActive = (href: string) =>
       <slot />
     </main>
 
-    <footer class="footer wrap">&copy; 2021&ndash;2026 Hidde Fokkema</footer>
+    <footer class="footer wrap">
+      <span>&copy; 2021&ndash;2026 Hidde Fokkema</span>
+      <span>Amsterdam &middot; The Netherlands</span>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById("nav-toggle");
+      const nav = document.getElementById("site-nav");
+
+      toggle?.addEventListener("click", () => {
+        const open = nav?.classList.toggle("open") ?? false;
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+
+      // close the menu after navigating (links are same-page routes in static mode)
+      nav?.querySelectorAll("a").forEach((link) =>
+        link.addEventListener("click", () => {
+          nav.classList.remove("open");
+          toggle?.setAttribute("aria-expanded", "false");
+        }),
+      );
+    </script>
   </body>
 </html>

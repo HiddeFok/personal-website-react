@@ -10,7 +10,7 @@ const newsSorted = newsItems.sort((a, b) => {
   {
     newsSorted?.map((news) => (
       <li>
-        <p class="meta">{news.date}</p>
+        <p class="meta date">{news.date}</p>
         <p>{news.text}</p>
         {news.links && news.links.length > 0 && (
           <p class="meta">
