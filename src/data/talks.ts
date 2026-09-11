@@ -57,7 +57,7 @@ export const listTalks: Talk[] = [
     ],
   },
   {
-    title: "A new Algorithm for Convex Bandit Optimization",
+    title: "Online Newton Method for Bandit Convex Optimisation",
     location: "Stochastics Seminar KdVi, University of Amsterdam",
     date: "March 2024",
     links: [{ label: "Slides", href: "/talks/202403_BCO_stochastics_seminar.pdf" }],

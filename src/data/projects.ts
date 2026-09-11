@@ -15,7 +15,7 @@ export const projects: Project[] = [
     blurb:
       "A scikit-learn compatible implementation of the regMMD estimation and regression procedure.",
     detail:
-      "Estimation based on the MMD criterion allows for robust estimation. This implemetation follows the standard scikit-learn format, allowing for easy integration into any Data Science project.",
+      "Estimation based on the MMD criterion allows for robust estimation. This implementation follows the standard scikit-learn format, allowing for easy integration into any Data Science project.",
     repo: "https://github.com/HiddeFok/reg-mmd-scikit",
     tags: ["Python", "scikit-learn API", "MMD"],
   },
@@ -58,8 +58,10 @@ export const projects: Project[] = [
   },
   {
     name: "This website",
-    blurb: "Rebuilt from a React website",
-    detail: "Rebuilt from a React website",
+    blurb:
+      "The site you're looking at — hand-written Astro, static output, zero shipped JavaScript.",
+    detail:
+      "Rebuilt from a Create React App stack down to one dependency and one build step; the design lives in a single CSS file and all content in typed data files. Ships via Docker and GitHub Actions to a self-hosted server.",
     repo: "https://github.com/HiddeFok/personal-website-react",
     tags: ["Astro", "TypeScript", "Docker"],
   },

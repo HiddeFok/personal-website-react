@@ -6,15 +6,23 @@ const newsSorted = newsItems.sort((a, b) => {
 });
 ---
 
-<section class="meta">
-  <ul class="item-list">
-    {
-      newsSorted?.map((news) => (
-        <li>
-          <p class="body1">{news.date}</p>
-          <p class="body2">{news.text}</p>
-        </li>
-      ))
-    }
-  </ul>
-</section>
+<ul class="item-list">
+  {
+    newsSorted?.map((news) => (
+      <li>
+        <p class="meta">{news.date}</p>
+        <p>{news.text}</p>
+        {news.links && news.links.length > 0 && (
+          <p class="meta">
+            {news.links.map((link, i) => (
+              <>
+                {i > 0 && " \u00b7 "}
+                <a href={link.href} target="_blank" rel="noopener">[{link.label}]</a>
+              </>
+            ))}
+          </p>
+        )}
+      </li>
+    ))
+  }
+</ul>

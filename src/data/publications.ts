@@ -6,9 +6,8 @@ export interface Publication {
   link: string;
   status: "published" | "preprint";
   code?: string;
-  additional?: any;
+  additional?: string;
 }
-// object should be removed
 export const listPublications: Publication[] = [
   {
     title: "Performative Validity of Recourse Explanations",
@@ -65,4 +64,3 @@ export const listPublications: Publication[] = [
     code: "https://github.com/HiddeFok/recourse-robust-explanations-impossible",
   },
 ];
-

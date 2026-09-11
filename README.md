@@ -1,97 +1,45 @@
-# Personal website
+# hiddefokkema.nl — personal website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hidde Fokkema's personal website: about, projects, and research. Built with
+[Astro](https://astro.build), static output, **zero shipped JavaScript** — the
+whole design lives in one CSS file (`src/styles/theme.css`) and all content in
+typed data files.
 
-## Docker specific commands
-
-### Developement
-
-To build the development docker image run the command
-
-```
-docker build -t personal-website:dev . 
-```
-
-To run the container based on this image, run 
-```
-docker run \             
-    -it \
-    --rm \
-    -v ${PWD}:/app \
-    -v /app/node_modules \
-    -p 3001:3000 \
-    personal-website:dev
-```
-
-### Production
-
-To build the production docker image run the command
-
-```
-docker build -f Dockerfile.prod -t personal-website:prod . 
-```
-
-To run the container based on this image, run 
-```
-docker run -it --rm -p 1337:80 personal-website:prod
-```
-
-These commands and files are based on [this blog post](https://mherman.org/blog/dockerizing-a-react-app/) by Michael Herman.
-
-## React specific scripts descriptions
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-## Server note (2026-08-30)
-
-The Hetzner VM (`ubuntu-2gb-nbg1-1`, x86_64) runs Ubuntu 20.04, which left
-standard support in May 2025: no security updates, and upstream projects
-(e.g. the neovim PPA) no longer build for it. Plan: rebuild on a fresh
-Ubuntu 24.04 LTS server rather than `do-release-upgrade` twice.
-
-Until then, install Neovim from the release tarball instead of apt:
+## Develop
 
 ```bash
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
-sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
-sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
+npm install
+npm run dev      # http://localhost:4321
 ```
+
+No environment variables, no config. That's it.
+
+## Build
+
+```bash
+npm run build    # static site → dist/
+npm run preview  # serve the build locally
+```
+
+## Content
+
+All content lives in `src/data/` as typed TypeScript files. Adding a
+publication is one object in `src/data/publications.ts`; adding news is one
+object in `src/data/news.ts`; a project is one object in
+`src/data/projects.ts` (blurb + one or two lines on what was hard + repo link).
+Internal links to PDFs under `/talks`, `/posters`, and `/files` must be
+root-relative (`/talks/foo.pdf`, not `talks/foo.pdf`), since pages are served
+from nested paths like `/research/`.
+
+Pages are `src/pages/*.astro`, components in `src/components/*.astro`, and the
+shared layout in `src/layouts/Base.astro`.
+
+## Deploy
+
+GitHub Actions (`Dockerfile.prod`) builds a node:24 image, runs `astro build`,
+and serves `dist/` from nginx. On push to `main`, a self-hosted runner
+rebuilds the image and restarts the container (`docker-compose up -d`).
+The nginx/certificate setup lives on the server itself.
+
+The old `/teaching` URL redirects to `/research/#teaching` via
+`astro.config.mjs`.

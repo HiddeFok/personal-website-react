@@ -1,10 +1,10 @@
 node_modules
-build
+dist
+.git
+.gitignore
 .dockerignore
-Dockerfile
-Dockerfile.prod
-
 .vscode
 .DS_Store
-.gitignore
-.git
+Dockerfile
+Dockerfile.prod
+reference
