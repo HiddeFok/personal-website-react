@@ -1,0 +1,175 @@
+\begin{figure}[t]
+\centering
+\resizebox{\textwidth}{!}{%
+  % trim={left bottom right top} 
+  \begin{adjustbox}{trim=20pt 30pt 0pt 0pt, clip}
+    \begin{tikzpicture}[scale=0.7, every node/.style={scale=0.9}]
+    \node[colornode=black]               (X_C) {$X_C$};
+    \node[colornode=black,  below=0.8 of X_C.center] (Y) {$Y$};
+    \node[colornode=black,  below=0.8 of Y.center]   (X_E) {$X_E$};
+    \node[colornode=black,  below=0.8 of X_E.center] (X_S) {$X_S$};
+    %
+    \node[colornode=gray,  above right= 0.4 and 0.8 of X_C.center]  (e_C) {$U_C$};
+    \node[colornode=gray,  above right=  0.4 and 0.8 of Y.center]    (e_Y) {$U_Y$};
+    \node[colornode=gray,  above right=  0.4 and 0.8 of X_E.center]  (e_E) {$U_E$};
+    \node[colornode=gray,  above right=  0.4 and 0.8 of X_S.center]  (e_S) {$U_S$};
+    %
+    \node[colornode=myblue, right=3 of X_C.center]   (X_C^p) {$X_C^p$};
+    \node[colornode=mygreen,  below=0.8 of X_C^p.center] (Y^p) {$Y^p$};
+    \node[colornode=myblue, below=0.8 of Y^p.center]   (X_E^p) {$X_E^p$};
+    \node[colornode=myblue, below=0.8 of X_E^p.center] (X_S^p) {$X_S^p$};
+    %
+    \node[colornode=gray,  above left=  0.4 and 0.8 of X_C^p.center]  (e_C^p) {$U_C^p$};
+    \node[colornode=gray,  above left=  0.4 and 0.8 of Y^p.center]    (e_Y^p) {$U_Y^p$};
+    \node[colornode=gray,  above left=  0.4 and 0.8 of X_E^p.center]  (e_E^p) {$U_E^p$};
+    \node[colornode=gray,  above left=  0.4 and 0.8 of X_S^p.center]  (e_S^p) {$U_S^p$};
+    %
+    \node[colornode=myred,  below right=  0.1 and 1.5 of X_S.center]  (A) {$A$};
+
+    \node[below right=0.7 and 1.45 of X_S.center] (a) {(a)};
+    %
+    \draw[colorededge=incoming]   (X_C) -- (Y);
+    \draw[colorededge=incoming, openedge]  (Y) -- (X_E);
+    \draw[colorededge=incoming, bend right=25] (X_C) to (X_E);
+    \draw[colorededge=incoming, bend right=25] (X_C) to (X_S);
+    \draw[colorededge=incoming]          (X_S) -- (X_E);
+    %
+    \draw[colorededge]   (X_C^p) -- (Y^p);
+    \draw[colorededge=incoming, openedge, line width=2pt]  (Y^p) -- (X_E^p);
+    \draw[colorededge=outgoing, openedge, dotted, line width=2pt]  (Y^p) -- (X_E^p);
+    \draw[colorededge, bend left=25] (X_C^p) to (X_E^p);
+    \draw[colorededge, bend left=25] (X_C^p) to (X_S^p);
+    \draw[colorededge]          (X_S^p) -- (X_E^p);
+    %
+    \draw[colorededge]   (e_C) -- (e_C^p);
+    \draw[colorededge=incoming, openedge]   (e_Y) -- (e_Y^p);
+    \draw[colorededge=incoming, openedge]   (e_E) -- (e_E^p);
+    \draw[colorededge]   (e_S) -- (e_S^p);
+    %
+    %
+    \draw[colorededge]   (e_C) -- (X_C);
+    \draw[colorededge=incoming, openedge]   (e_Y) -- (Y);
+    \draw[colorededge=incoming, openedge]   (e_E) -- (X_E);
+    \draw[colorededge]   (e_S) -- (X_S);
+    % 
+    \draw[colorededge]   (e_C^p) -- (X_C^p);
+    \draw[colorededge=incoming, openedge]   (e_Y^p) -- (Y^p);
+    \draw[colorededge=incoming, openedge]   (e_E^p) -- (X_E^p);
+    \draw[colorededge]   (e_S^p) -- (X_S^p);
+    %
+    \draw[colorededge=incoming, out=-10, in=180, looseness=1.5]   (X_S) to (A);
+    \draw[colorededge=incoming, out=225, in=200, looseness=1.6, openedge, decisive]   (X_E) to (A);
+    \draw[colorededge=incoming, out=225, in=225, looseness=1.5]   (X_C) to (A);
+    \draw[colorededge, out=360, in=190, looseness=1.5]   (A) to (X_S^p);
+    \draw[colorededge=outgoing, out=335, in=315, looseness=1.6, openedge, decisive]   (A) to (X_E^p);
+    \draw[colorededge, out=315, in=315, looseness=1.5]   (A) to (X_C^p);
+    %
+    % GRAPH 2
+
+    \node[colornode=black, right=2 of X_C^p]  (X_C) {$D$};
+    \node[colornode=black,  below=0.8 of X_C.center] (Y) {$L$};
+    \node[colornode=black,  below=0.8 of Y.center]   (X_E) {$G$};
+    % \node[colornode=black,  below=0.8 of X_E.center] (X_S) {$X_S$};
+    %
+    \node[colornode=gray,  above right= 0.4 and 0.77 of X_C.center]  (e_C) {$U_C$};
+    \node[colornode=gray,  above right=  0.4 and 0.77 of Y.center]    (e_Y) {$U_L$};
+    % \node[colornode=gray,  above right=  0.4 and 0.75 of X_E.center]  (e_E) {$U_E$};
+    % \node[colornode=gray,  above right=  0.4 and 0.75 of X_S.center]  (e_S) {$U_S$};
+    %
+    \node[colornode=myblue, right=1.6 of X_C.center]   (X_C^p) {$D^p$};
+    \node[colornode=mygreen,  below=0.8 of X_C^p.center] (Y^p) {$L^p$};
+    \node[colornode=myblue, below=0.8 of Y^p.center]   (X_E^p) {$G^p$};
+    %
+    \node[colornode=myred,  below=2 of e_Y.center]  (A) {$A$};
+    
+    \node[below=4.4 of e_C] (b) {(b)};
+    %
+    \draw[colorededge=incoming]   (X_C) -- (Y);
+    \draw[colorededge=incoming, openedge]  (Y) -- (X_E);
+    \draw[colorededge=incoming, bend right=25] (X_C) to (X_E);
+    % \draw[colorededge=incoming, bend right=25] (X_C) to (X_S);
+    % \draw[colorededge=incoming]          (X_S) -- (X_E);
+    %
+    \draw[colorededge]   (X_C^p) -- (Y^p);
+    % \draw[colorededge=incoming, openedge, line width=2pt]  (Y^p) -- (X_E^p);
+    \draw[colorededge]  (Y^p) -- (X_E^p);
+    \draw[colorededge, bend left=25] (X_C^p) to (X_E^p);
+    % \draw[colorededge, bend left=25] (X_C^p) to (X_S^p);
+    % \draw[colorededge]          (X_S^p) -- (X_E^p);
+    %
+    \draw[colorededge]   (e_C) -- (X_C);
+    \draw[colorededge=incoming, openedge]   (e_Y) -- (Y);
+    % \draw[colorededge=incoming, openedge]   (e_E) -- (X_E);
+    % \draw[colorededge]   (e_S) -- (X_S);
+    % 
+    \draw[colorededge]   (e_C) -- (X_C^p);
+    \draw[colorededge=incoming, openedge]   (e_Y) -- (Y^p);
+    % \draw[colorededge=incoming, openedge]   (e_E) -- (X_E^p);
+    % \draw[colorededge]   (e_S) -- (X_S^p);
+    %
+    % \draw[colorededge=incoming, out=-10, in=180, looseness=1.5]   (X_S) to (A);
+    \draw[colorededge=incoming, openedge, decisive]   (X_E) to (A);
+    \draw[colorededge=incoming, out=240, in=210, looseness=1.3]   (X_C) to (A);
+    % \draw[colorededge, out=360, in=190, looseness=1.5]   (A) to (X_S^p);
+    % \draw[colorededge=outgoing, out=335, in=315, looseness=1.5, openedge, decisive]   (A) to (X_E^p);
+    \draw[colorededge, out=330, in=300, looseness=1.3]   (A) to (X_C^p);
+
+    
+    %% GRAPH 3
+    \node[colornode=black, right=2 of X_C^p] (X_C) {$R$};
+    \node[colornode=black,  below=0.8 of X_C.center] (Y) {$Y$};
+    \node[colornode=black,  below=0.8 of Y.center]   (X_E) {$M$};
+    % \node[colornode=black,  below=0.8 of X_E.center] (X_S) {$X_S$};
+    
+    \node[colornode=gray,  above right= 0.4 and 0.75 of X_C.center]  (e_C) {$U_C$};
+    \node[colornode=gray,  above left=  0.4 and 0.77 of Y.center]    (e_Y) {$U_Y$};
+    \node[colornode=gray,  above left=  0.4 and 0.75 of X_E.center]  (e_E) {$U_E$};
+    
+    \node[colornode=myblue, right=1.6 of X_C.center]   (X_C^p) {$R^p$};
+    \node[colornode=mygreen,  below=0.8 of X_C^p.center] (Y^p) {$Y^p$};
+    \node[colornode=myblue, below=0.8 of Y^p.center]   (X_E^p) {$M^p$};
+    % \node[colornode=myblue, below=0.8 of X_E^p.center] (X_S^p) {$X_S^p$};
+    
+    \node[colornode=gray,  above right=  0.4 and 0.77 of Y^p.center]    (e_Y^p) {$U_Y^p$};
+    \node[colornode=gray,  above right=  0.4 and 0.75 of X_E^p.center]  (e_E^p) {$U_E^p$};
+    %
+    %
+    \node[colornode=myred,  right=0.65 of Y.center]  (A) {$A$};
+    \node[below=4.4 of e_C] (c) {(c)};
+    %
+    \draw[colorededge]   (X_C) -- (Y);
+    \draw[colorededge, openedge]  (Y) -- (X_E);
+    \draw[colorededge, bend right=25] (X_C) to (X_E);
+    % \draw[colorededge, bend right=25] (X_C) to (X_S);
+    % \draw[colorededge]          (X_S) -- (X_E);
+    
+    \draw[colorededge]   (e_C) -- (X_C);
+    \draw[colorededge]   (e_C) -- (X_C^p);
+
+    \draw[colorededge]   (e_Y) -- (Y);
+    \draw[colorededge]   (e_E) -- (X_E);
+    
+    %
+    \draw[colorededge]   (X_C^p) -- (Y^p);
+    %\draw[colorededge]  (Y^p) -- (X_E^p);
+    \draw[colorededge=outgoing, line width=2pt]  (Y^p) -- (X_E^p);
+    \draw[colorededge, bend left=25] (X_C^p) to (X_E^p);
+
+    \draw[colorededge]   (e_Y^p) -- (Y^p);
+    \draw[colorededge]   (e_E^p) -- (X_E^p);
+    
+    % \draw[colorededge, bend left=25] (X_C^p) to (X_S^p);
+    % \draw[colorededge]          (X_S^p) -- (X_E^p);
+    %
+    % \draw[colorededge]   (X_S) to (A);
+    \draw[colorededge]   (X_E) to (A);
+    \draw[colorededge]   (X_C) to (A);
+    % \draw[colorededge]   (A) to (X_S^p);
+    \draw[colorededge=outgoing, line width=2pt]   (A) to (X_E^p);
+    \draw[colorededge]   (A) to (X_C^p);
+
+  \end{tikzpicture}
+  \end{adjustbox}
+}
+\label{perf-fig:causal-model}
+\end{figure}
