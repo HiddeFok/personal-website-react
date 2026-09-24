@@ -1,9 +1,19 @@
 ---
 import Base from "../layouts/Base.astro";
 import PublicationList from "../components/PublicationList.astro";
+
+const jumps = [
+  { href: "#published", label: "Published" },
+  { href: "#thesis", label: "PhD thesis" },
+  { href: "#talks", label: "Talks" },
+  { href: "#earlier", label: "Earlier theses" },
+];
 ---
 
-<Base title="Research -- Hidde Fokkema">
+<Base
+  title="Research – Hidde Fokkema"
+  description="Publications, PhD thesis, and talks by Hidde Fokkema on explainable AI, algorithmic recourse, concept learning, and bandit convex optimisation."
+>
   <Fragment slot="head">
     <meta
       name="citation_title"
@@ -16,8 +26,11 @@ import PublicationList from "../components/PublicationList.astro";
     <meta name="citation_isbn" content="978-94-6522-938-6" />
   </Fragment>
   <section class="band">
-    <p class="eyebrow">Science</p>
+    <p class="eyebrow">Papers, thesis, talks</p>
     <h1>Research</h1>
+    <nav class="jump" aria-label="On this page">
+      {jumps.map((j) => <a href={j.href}>{j.label}</a>)}
+    </nav>
   </section>
   <PublicationList />
 </Base>

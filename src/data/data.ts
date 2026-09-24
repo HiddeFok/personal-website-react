@@ -1,7 +1,7 @@
 export const personalInfo: { [key: string]: string } = {
   Firstname: "Hidde",
   LastName: "Fokkema",
-  profilePic: "HF_1_18032026.jpeg",
+  profilePic: "portrait.jpg",
   github: "https://github.com/HiddeFok",
   bluesky: "https://bsky.app/profile/hiddefokkema.bsky.social",
   linkedin: "https://www.linkedin.com/in/hidde-fokkema-a1198a12a/",

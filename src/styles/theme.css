@@ -37,10 +37,10 @@
     --accent: var(--orange);
     --accent-deep: var(--orange-deep);
 
-    /* typography — Inter body, Space Grotesk display (stand-in for ALTMistral), Space Mono accents */
+    /* typography — Inter body, Space Grotesk display (stand-in for ALTMistral), system mono accents */
     --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
     --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-    --font-mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
     /* radius — square, like Mistral's straight-line boxes */
     --radius-sm: 0;
@@ -178,19 +178,6 @@ code {
     color: var(--accent-deep);
     margin-top: 2.5rem;
     margin-bottom: 0.4rem;
-}
-
-.eyebrow--blue {
-    color: var(--blue-700);
-}
-.eyebrow--green {
-    color: var(--green-900);
-}
-.eyebrow--pink {
-    color: var(--pink-800);
-}
-.eyebrow--yellow {
-    color: var(--yellow-700);
 }
 
 /* eyebrow sits directly above its heading */
@@ -339,7 +326,7 @@ code {
     font-size: 0.78rem;
 }
 
-.footer .wrap {
+.footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -360,6 +347,16 @@ main.wrap {
     background: linear-gradient(var(--border), var(--border)) no-repeat var(--hang) 0 / 1px 100%;
 }
 
+/* running text never exceeds a comfortable measure, whatever the column width */
+.prose {
+    max-width: 70ch;
+}
+
+.prose h1 {
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    margin-bottom: 0.9rem;
+}
+
 /* full-bleed sections divided by hairlines, Mistral-style. Each band is a two-column
    grid: hanging items (.hang, .figure, dt) on the left, everything else on the right.
    Lists pass the columns through to their rows with subgrid. */
@@ -373,30 +370,51 @@ main.wrap {
 }
 
 .band > *,
-.band > .item-list > li > *,
+.band .item-list > li > *,
 .band > .timeline > dd {
     grid-column: 2;
 }
 
 .band > .hang,
-.band > .item-list > li > .hang,
-.band > .item-list > li > .figure,
+.band .item-list > li > .hang,
+.band .item-list > li > .figure,
 .band > .timeline > dt {
     grid-column: 1;
 }
 
-.band > .item-list,
-.band > .item-list > li,
-.band > .timeline {
+.band .item-list,
+.band .item-list > li,
+.band > .timeline,
+.band > details {
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: subgrid;
     align-items: start;
 }
 
-.band > * + .item-list,
-.band > .item-list + * {
+.band > details > summary {
+    grid-column: 2;
+    cursor: pointer;
     margin-top: 1.25rem;
+}
+
+/* browsers wrap a <details>' body in an internal box; unwrap it so the list joins the grid */
+.band > details::details-content {
+    display: contents;
+}
+
+.band > * + .item-list,
+.band .item-list + * {
+    margin-top: 1.25rem;
+}
+
+.band > details > .item-list {
+    margin-top: 0.6rem;
+}
+
+/* grouped talk titles sit beside their hanging year, not below extra headroom */
+.band .item-list h3 {
+    margin-top: 0;
 }
 
 /* generic record list: publications, talks, news, courses, projects */
@@ -428,6 +446,10 @@ main.wrap {
 .meta {
     color: var(--fg-dim);
     font-size: 0.87rem;
+}
+
+.meta + .meta {
+    margin-top: 0.2rem;
 }
 
 .meta a {
@@ -468,17 +490,13 @@ main.wrap {
     background: rgba(49, 142, 104, 0.12);
     color: var(--green-900);
 }
-.tag[data-color="yellow"] {
-    background: rgba(255, 175, 1, 0.14);
-    color: var(--yellow-700);
-}
-.tag[data-color="pink"] {
-    background: rgba(255, 146, 220, 0.16);
-    color: var(--pink-800);
-}
-.tag[data-color="red"] {
-    background: rgba(229, 19, 0, 0.09);
-    color: var(--red);
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.35rem;
+    padding-top: 0.15em;
 }
 
 /* nested venue list under a grouped talk title */
@@ -509,6 +527,27 @@ main.wrap {
 
 .timeline dd {
     margin: 0;
+}
+
+.jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    margin-top: 0.9rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.jump a {
+    color: var(--fg-dim);
+    text-decoration: none;
+    border-bottom: 2px solid var(--border);
+}
+
+.jump a:hover {
+    color: var(--fg);
+    border-color: var(--orange);
 }
 
 .lead {
@@ -545,6 +584,12 @@ main.wrap {
     background: var(--orange-hover);
     color: #fff;
     transform: translateY(-1px);
+}
+
+.btn--primary:focus-visible,
+.site-nav .nav-cta:focus-visible {
+    outline-color: var(--fg);
+    outline-offset: -3px;
 }
 
 /* ── Contact card ────────────────────────────────────────────────────────── */
@@ -622,11 +667,16 @@ main.wrap {
 
 /* hanging figures share one height so the rows line up */
 .figure {
+    display: block;
     width: 100%;
     height: 10rem;
     object-fit: contain;
     /* white figure backgrounds blend into the page colour */
     mix-blend-mode: multiply;
+}
+
+a.hang:hover .figure {
+    opacity: 0.85;
 }
 
 /* the portrait thesis cover spans its whole band: its height follows the text beside it,
@@ -636,6 +686,7 @@ main.wrap {
 }
 
 .figure--cover {
+    display: block;
     position: absolute;
     top: 1rem;
     left: 1.5rem;
@@ -643,13 +694,13 @@ main.wrap {
     height: calc(100% - 2rem);
 }
 
+.figure--cover .figure {
+    height: 100%;
+}
+
 /* avatar + contact icons */
 .profile {
     text-align: center;
-    background: rgba(255, 82, 41, 0.08);
-    border: 1px solid rgba(255, 82, 41, 0.35);
-    border-top: 4px solid var(--orange);
-    padding: 1rem;
 }
 
 /* news: date hangs left, links run inline, tighter rows */
@@ -658,13 +709,13 @@ main.wrap {
     padding-top: 0.6rem;
 }
 
-.news .date {
+.band .item-list > li > .date {
     padding-top: 0.2em;
 }
 
 /* inside a band, row separators only span the right column; full-width lines
    are reserved for the borders between bands */
-.band > .item-list > li + li {
+.band .item-list > li + li {
     border-top: none;
     background: linear-gradient(var(--border-soft), var(--border-soft)) no-repeat right top /
         calc(100% - var(--hang) + 1.5rem) 1px;
@@ -672,12 +723,12 @@ main.wrap {
 
 /* hanging years and dates hug the vertical line */
 .band > .timeline > dt,
-.news .date {
+.band .item-list > li > .date {
     text-align: right;
 }
 
 /* the text beside a hanging date starts on the same line */
-.band > .item-list > li > .hang + p {
+.band .item-list > li > .hang + * {
     margin-top: 0;
 }
 
@@ -690,9 +741,10 @@ main.wrap {
     }
 
     .band,
-    .band > .item-list,
-    .band > .item-list > li,
-    .band > .timeline {
+    .band .item-list,
+    .band .item-list > li,
+    .band > .timeline,
+    .band > details {
         display: block;
     }
 
@@ -711,16 +763,20 @@ main.wrap {
         height: 20rem;
     }
 
-    .news .date {
+    .band .item-list > li > .date {
         margin-bottom: 0;
     }
 
     .band > .timeline > dt,
-    .news .date {
+    .band .item-list > li > .date {
         text-align: left;
     }
 
-    .band > .item-list > li + li {
+    .tags {
+        justify-content: flex-start;
+    }
+
+    .band .item-list > li + li {
         border-top: 1px solid var(--border-soft);
         background: none;
     }

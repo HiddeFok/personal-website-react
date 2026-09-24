@@ -1,22 +1,31 @@
 ---
 import { newsItems } from "../data/news.ts";
 
-const newsSorted = newsItems.sort((a, b) => {
+const newsSorted = [...newsItems].sort((a, b) => {
   return new Date(b.date).getTime() - new Date(a.date).getTime();
 });
+
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString("en-GB", { month: "short", year: "numeric" });
+
+const SHOWN = 5;
+const recent = newsSorted.slice(0, SHOWN);
+const older = newsSorted.slice(SHOWN);
 ---
 
 <ul class="item-list news">
   {
-    newsSorted?.map((news) => (
+    recent.map((news) => (
       <li>
-        <p class="meta date hang">{news.date}</p>
+        <p class="meta date hang">{formatDate(news.date)}</p>
         <p>
           {news.text}
           {news.links?.map((link) => (
             <>
               {" "}
-              <a class="meta" href={link.href} target="_blank" rel="noopener">[{link.label}]</a>
+              <a class="meta" href={link.href} target="_blank" rel="noopener">
+                [{link.label}]
+              </a>
             </>
           ))}
         </p>
@@ -24,3 +33,28 @@ const newsSorted = newsItems.sort((a, b) => {
     ))
   }
 </ul>
+{
+  older.length > 0 && (
+    <details class="news-older">
+      <summary>{older.length} older updates</summary>
+      <ul class="item-list news">
+        {older.map((news) => (
+          <li>
+            <p class="meta date hang">{formatDate(news.date)}</p>
+            <p>
+              {news.text}
+              {news.links?.map((link) => (
+                <>
+                  {" "}
+                  <a class="meta" href={link.href} target="_blank" rel="noopener">
+                    [{link.label}]
+                  </a>
+                </>
+              ))}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </details>
+  )
+}

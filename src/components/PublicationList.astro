@@ -1,4 +1,5 @@
 ---
+import Figure from "./Figure.astro";
 import { listPublications } from "../data/publications.ts";
 import { Theses } from "../data/theses.ts";
 import { listTalks } from "../data/talks.ts";
@@ -15,102 +16,86 @@ const talkGroups = Object.entries(groupedTalks)
       Math.max(...talks.map((t) => new Date(t.date).getTime()));
     return latest(b.talks) - latest(a.talks);
   });
+
+const yearOf = (date: string) => new Date(date).getFullYear();
+const yearRange = (talks: typeof shownTalks) => {
+  const years = talks.map((t) => yearOf(t.date));
+  const lo = Math.min(...years);
+  const hi = Math.max(...years);
+  return lo === hi ? String(lo) : `${lo}–${hi}`;
+};
 ---
 
-<section class="band">
-  <p class="eyebrow eyebrow--blue">Peer-reviewed</p>
-  <h2>Published</h2>
-  <ul class="item-list">
-    {
-      published.map((pub) => (
-        <li>
-          {pub.image && (
-            <img class="figure" src={pub.image} alt={`Figure from "${pub.title}"`} loading="lazy" />
-          )}
-          <div>
-            <a href={pub.link} target="_blank" rel="noopener">
-              {pub.title}
-            </a>
-            <p class="meta">
-              {pub.authors.map((author, i) => (
-                <>
-                  {i > 0 && ", "}
-                  {author === "HF" ? <strong>H. Fokkema</strong> : author}
-                </>
-              ))}
-              {" · "}
-              {pub.journal}, {pub.date}
-              {pub.additional && <> · {pub.additional}</>}
-              {pub.code && (
-                <>
-                  {" · "}
-                  <a href={pub.code} target="_blank" rel="noopener">
-                    [Code]
-                  </a>
-                </>
-              )}
-            </p>
-          </div>
-        </li>
-      ))
-    }
-  </ul>
-</section>
-
 {
-  preprints.length > 0 && (
-    <section class="band">
-      <p class="eyebrow">Latest</p>
-      <h2>Preprints</h2>
-      <ul class="item-list">
-        {preprints.map((pub) => (
-          <li>
-            {pub.image && (
-              <img class="figure" src={pub.image} alt={`Figure from "${pub.title}"`} loading="lazy" />
-            )}
-            <div>
-              <a href={pub.link} target="_blank" rel="noopener">
-                {pub.title}
-              </a>
-              <p class="meta">
-                {pub.authors.map((author, i) => (
-                  <>
-                    {i > 0 && ", "}
-                    {author === "HF" ? <strong>H. Fokkema</strong> : author}
-                  </>
-                ))}
-                {" · "}
-                {pub.journal}, {pub.date}
-                {pub.additional && <> · {pub.additional}</>}
-                {pub.code && (
-                  <>
-                    {" · "}
-                    <a href={pub.code} target="_blank" rel="noopener">
-                      [Code]
-                    </a>
-                  </>
-                )}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </section>
-  )
+  [
+    {
+      id: "published",
+      eyebrow: `${published.length} peer-reviewed`,
+      heading: "Published",
+      pubs: published,
+    },
+    {
+      id: "preprints",
+      eyebrow: `${preprints.length} under review`,
+      heading: "Preprints",
+      pubs: preprints,
+    },
+  ]
+    .filter((group) => group.pubs.length > 0)
+    .map((group) => (
+      <section class="band" id={group.id}>
+        <p class="eyebrow">{group.eyebrow}</p>
+        <h2>{group.heading}</h2>
+        <ul class="item-list">
+          {group.pubs.map((pub) => (
+            <li>
+              {pub.image && (
+                <Figure src={pub.image} alt={`Figure from "${pub.title}"`} href={pub.link} />
+              )}
+              <div class="prose">
+                <a href={pub.link} target="_blank" rel="noopener">
+                  {pub.title}
+                </a>
+                <p class="meta">
+                  <span class="date">{pub.date}</span> · {pub.journal}
+                  {pub.additional && <> · {pub.additional}</>}
+                  {pub.code && (
+                    <>
+                      {" · "}
+                      <a href={pub.code} target="_blank" rel="noopener">
+                        [Code]
+                      </a>
+                    </>
+                  )}
+                </p>
+                <p class="meta">
+                  {pub.authors.map((author, i) => (
+                    <>
+                      {i > 0 && ", "}
+                      {author === "HF" ? <strong>Hidde Fokkema</strong> : author}
+                    </>
+                  ))}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
 }
 
-<section class="band">
-  <p class="eyebrow eyebrow--pink">Dissertation</p>
+<section class="band" id="thesis">
+  <p class="eyebrow">Defended January 2026</p>
   <h2>PhD Thesis</h2>
   <ul class="item-list">
     <li>
-      <img
-        class="figure figure--cover"
+      <Figure
+        class="figure--cover"
         src="/paper_diagrams/PhD_cover.png"
         alt="Cover of the PhD thesis"
-        loading="lazy"
+        href="https://pure.uva.nl/ws/files/277470997/Thesis.pdf"
       />
-      <div>
+      <div class="prose">
         <a
           href="https://dare.uva.nl/search?identifier=e0b2c89d-603a-4edc-b9b9-59a6547c1eec"
           target="_blank"
@@ -119,8 +104,12 @@ const talkGroups = Object.entries(groupedTalks)
           Mathematical Foundations of Explainable AI and Advances in Bandit Optimisation
         </a>
         <p class="meta">
-          Defended January 2026 ·
-          <a href="https://pure.uva.nl/ws/files/277470997/Thesis.pdf" target="_blank" rel="noopener">
+          University of Amsterdam ·
+          <a
+            href="https://pure.uva.nl/ws/files/277470997/Thesis.pdf"
+            target="_blank"
+            rel="noopener"
+          >
             [PDF]
           </a>
         </p>
@@ -138,51 +127,57 @@ const talkGroups = Object.entries(groupedTalks)
   </ul>
 </section>
 
-<section class="band">
-  <p class="eyebrow eyebrow--green">Speaking</p>
+<section class="band" id="talks">
+  <p class="eyebrow">{shownTalks.length} talks, {talkGroups.length} topics</p>
   <h2>Talks</h2>
   <ul class="item-list">
     {
       talkGroups.map((group) => (
         <li>
-          <h3>{group.title}</h3>
-          <ul class="sub-list">
-            {group.talks.map((talk) => (
-              <li>
-                <p class="meta">
-                  {talk.location}, {talk.date}
-                  {talk.links?.map((link) => (
-                    <>
-                      {" · "}
-                      <a href={link.href} target="_blank" rel="noopener">
-                        [{link.label}]
-                      </a>
-                    </>
-                  ))}
-                </p>
-                {talk.note && <p class="meta">{talk.note}</p>}
-              </li>
-            ))}
-          </ul>
+          <p class="meta date hang">{yearRange(group.talks)}</p>
+          <div class="prose">
+            <h3>{group.title}</h3>
+            <ul class="sub-list">
+              {group.talks.map((talk) => (
+                <li>
+                  <p class="meta">
+                    {talk.location}, {talk.date}
+                    {talk.links?.map((link) => (
+                      <>
+                        {" · "}
+                        <a href={link.href} target="_blank" rel="noopener">
+                          [{link.label}]
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                  {talk.note && <p class="meta">{talk.note}</p>}
+                </li>
+              ))}
+            </ul>
+          </div>
         </li>
       ))
     }
   </ul>
 </section>
 
-<section class="band">
-  <p class="eyebrow eyebrow--yellow">Supervision</p>
-  <h2>Theses</h2>
+<section class="band" id="earlier">
+  <p class="eyebrow">Before the PhD</p>
+  <h2>Master's and Bachelor's theses</h2>
   <ul class="item-list">
     {
       Theses.map((thesis) => (
         <li>
-          <a href={`/files/${thesis.link}`} target="_blank" rel="noopener">
-            {thesis.title}
-          </a>
-          <p class="meta">
-            Supervisors: {thesis.supervisors} · {thesis.type} · {thesis.date}
-          </p>
+          <p class="meta date hang">{thesis.date}</p>
+          <div class="prose">
+            <a href={`/files/${thesis.link}`} target="_blank" rel="noopener">
+              {thesis.title}
+            </a>
+            <p class="meta">
+              {thesis.type} · supervised by {thesis.supervisors}
+            </p>
+          </div>
         </li>
       ))
     }

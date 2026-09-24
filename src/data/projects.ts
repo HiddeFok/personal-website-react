@@ -7,8 +7,6 @@ export interface Project {
   paper?: string;
 }
 
-// `detail` is the field a reader remembers -- rewrite each one in your own
-// words before publishing (Phase 6); these are placeholders based on the repos.
 export const projects: Project[] = [
   {
     name: "reg-mmd-scikit",
@@ -51,7 +49,7 @@ export const projects: Project[] = [
     blurb:
       "Experiment code for 'Attribution-based Explanations that Provide Recourse Cannot be Robust' (JMLR 2023).",
     detail:
-      "Experiment code for the 'Attribution-based Explanations that Provide Recourse Cannot be Robust' (JMLR 2023).",
+      "Experiments illustrating the paper's impossibility result: on synthetic data, explanations that offer recourse and explanations that are robust to small input changes pull in opposite directions.",
     repo: "https://github.com/HiddeFok/recourse-robust-explanations-impossible",
     tags: ["Python", "Reproducibility"],
     paper: "https://jmlr.org/papers/v24/23-0042.html",

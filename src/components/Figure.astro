@@ -1,0 +1,39 @@
+---
+// Hanging figure in the left column: a still image, or a silent looping video with a
+// poster (the poster is the same path with an .mp4 -> .png swap). Optionally links out.
+interface Props {
+  src: string;
+  alt: string;
+  href?: string;
+  class?: string;
+}
+
+const { src, alt, href, class: cls } = Astro.props;
+const isVideo = src.endsWith(".mp4");
+const Wrapper = href ? "a" : "div";
+---
+
+<Wrapper
+  class:list={["hang", cls]}
+  href={href}
+  target={href ? "_blank" : undefined}
+  rel={href ? "noopener" : undefined}
+>
+  {
+    isVideo ? (
+      <video
+        class="figure"
+        src={src}
+        poster={src.replace(/\.mp4$/, ".png")}
+        aria-label={alt}
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      />
+    ) : (
+      <img class="figure" src={src} alt={alt} loading="lazy" />
+    )
+  }
+</Wrapper>

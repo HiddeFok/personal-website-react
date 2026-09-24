@@ -9,8 +9,24 @@ interface Props {
 
 const {
   title,
-  description = "Hidde Fokkema -- AI Research Engineer",
+  description = "Hidde Fokkema, AI Research Engineer at Plumerai. PhD in machine learning theory from the University of Amsterdam: explainable AI and bandit optimisation.",
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL("/portrait.jpg", Astro.site);
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: `${personalInfo.Firstname} ${personalInfo.LastName}`,
+  jobTitle: "AI Research Engineer",
+  worksFor: { "@type": "Organization", name: "Plumerai" },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "University of Amsterdam" },
+  url: Astro.site?.href,
+  image: ogImage.href,
+  email: personalInfo.email,
+  sameAs: [personalInfo.scholar, personalInfo.github, personalInfo.linkedin, personalInfo.bluesky],
+};
 
 // Built URLs carry a trailing slash; strip it so comparisons are stable.
 const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
@@ -33,12 +49,22 @@ const isActive = (href: string) =>
     <meta name="theme-color" content="#fafaf4" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap"
       rel="stylesheet"
     />
     <slot name="head" />
@@ -58,8 +84,15 @@ const isActive = (href: string) =>
           aria-expanded="false"
           aria-controls="site-nav"
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <path d="M4 6h16M4 12h16M4 18h16" />
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
         <nav class="site-nav" id="site-nav">
@@ -92,6 +125,14 @@ const isActive = (href: string) =>
         const open = nav?.classList.toggle("open") ?? false;
         toggle.setAttribute("aria-expanded", String(open));
       });
+
+      // honour reduced-motion for the looping figure videos
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.querySelectorAll("video[autoplay]").forEach((v) => {
+          v.removeAttribute("autoplay");
+          v.pause();
+        });
+      }
 
       // close the menu after navigating (links are same-page routes in static mode)
       nav?.querySelectorAll("a").forEach((link) =>

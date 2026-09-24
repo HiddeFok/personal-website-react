@@ -12,7 +12,7 @@ export const newsItems: NewsItem[] = [
   },
   {
     date: "2026-02",
-    text: "I successfully defended my PhD in January 2026! This means that I have finished my chapter at the University of Amsterdam. I have since joined Plumerai as an AI Research Engineer.",
+    text: "I successfully defended my PhD in January 2026, which closes my chapter at the University of Amsterdam.",
     links: [
       {
         label: "Dissertation (PDF)",
