@@ -454,3 +454,8 @@ Leave PDF *filenames* alone (`Theoretische_beperkingene_XAI.pdf`) — they're al
 - [ ] Every publication with a public repo has a `[Code]` link
 - [ ] Projects page live with ≥5 entries; nav reads About / Projects / Research
 - [ ] About page answers "what does he do now" above the fold — role, Plumerai, timeline — before any list of interests
+
+## Design references
+
+- Jon Barron — https://jonbarron.info/ — looping video per paper beside the text
+- Alexander Mordvintsev — https://znah.net/ — interactive WebGL demos as project cards
