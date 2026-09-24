@@ -4,6 +4,8 @@ export interface Talk {
   date: string;
   links?: { label: string; href: string }[];
   note?: string;
+  /** Set to false to keep the talk on record without listing it on the site. */
+  show?: boolean;
 }
 
 export const listTalks: Talk[] = [

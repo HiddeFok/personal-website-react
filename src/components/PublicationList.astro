@@ -6,7 +6,8 @@ import { listTalks } from "../data/talks.ts";
 const published = listPublications.filter((a) => a.status === "published");
 const preprints = listPublications.filter((a) => a.status === "preprint");
 
-const groupedTalks = Object.groupBy(listTalks, (t) => t.title);
+const shownTalks = listTalks.filter((t) => t.show !== false);
+const groupedTalks = Object.groupBy(shownTalks, (t) => t.title);
 const talkGroups = Object.entries(groupedTalks)
   .map(([title, talks]) => ({ title, talks: talks! }))
   .sort((a, b) => {
