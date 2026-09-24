@@ -52,13 +52,6 @@ export const listTalks: Talk[] = [
     links: [{ label: "Slides", href: "/posters/Cardiff_workshop_2025.pdf" }],
   },
   {
-    title:
-      "Using Causal Representation Learning to formalize concept extraction from learned representations",
-    location: "University of Tübingen, Research Seminar 'Machine Learning Theory'",
-    date: "November 2024",
-    note: "A work in progress!",
-  },
-  {
     title: "Attribution-based Explanations that Provide Recourse Cannot be Robust",
     location: "International Conference on Machine Learning (ICML)",
     date: "July 2024",
@@ -88,7 +81,7 @@ export const listTalks: Talk[] = [
   {
     title: "Attribution-based Explanations that Provide Recourse Cannot be Robust",
     location: "Theory of Interpretable AI Seminar",
-    date: "March 2024",
+    date: "May 2024",
     links: [
       { label: "Slides", href: "/talks/202405_theory_of_interpretable_ai.pdf" },
       { label: "Video", href: "https://www.youtube.com/watch?v=EwwllG40XZM" },
@@ -162,8 +155,8 @@ export const listTalks: Talk[] = [
     date: "July 2022",
   },
   {
-    title: "Poster presentation 1st Workshop Mathematics & Artificial Intelligence",
-    location: "CWI Amsterdam",
+    title: "Attribution-based Explanations that Provide Recourse Cannot be Robust",
+    location: "CWI Amsterdam, 1st Workshop Mathematics & Artificial Intelligence",
     date: "June 2022",
     links: [{ label: "Poster", href: "/posters/Impossibility_poster.pdf" }],
   },
@@ -178,10 +171,12 @@ export const listTalks: Talk[] = [
       },
     ],
     note: "Presented my favourite paper from NeurIPS 2021, by Fermanian, Marion, Vert & Biau.",
+    show: false,
   },
   {
     title: "(Martingale) Optimal Transport: Introduction, Computation and Applications",
     location: "CWI Amsterdam, Machine Learning Seminar",
     date: "January 2022",
+    show: false,
   },
 ];
