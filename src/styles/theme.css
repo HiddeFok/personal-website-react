@@ -620,6 +620,67 @@ main.wrap {
     object-position: 50% 30%;
 }
 
+/* hanging figures share one height so the rows line up */
+.figure {
+    width: 100%;
+    height: 10rem;
+    object-fit: contain;
+    /* white figure backgrounds blend into the page colour */
+    mix-blend-mode: multiply;
+}
+
+/* the portrait thesis cover spans its whole band: its height follows the text beside it,
+   with a small gap to the band's top and bottom lines */
+.band:has(.figure--cover) {
+    position: relative;
+}
+
+.figure--cover {
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    width: calc(var(--hang) - 3rem);
+    height: calc(100% - 2rem);
+}
+
+/* avatar + contact icons */
+.profile {
+    text-align: center;
+    background: rgba(255, 82, 41, 0.08);
+    border: 1px solid rgba(255, 82, 41, 0.35);
+    border-top: 4px solid var(--orange);
+    padding: 1rem;
+}
+
+/* news: date hangs left, links run inline, tighter rows */
+.news > li + li {
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+}
+
+.news .date {
+    padding-top: 0.2em;
+}
+
+/* inside a band, row separators only span the right column; full-width lines
+   are reserved for the borders between bands */
+.band > .item-list > li + li {
+    border-top: none;
+    background: linear-gradient(var(--border-soft), var(--border-soft)) no-repeat right top /
+        calc(100% - var(--hang) + 1.5rem) 1px;
+}
+
+/* hanging years and dates hug the vertical line */
+.band > .timeline > dt,
+.news .date {
+    text-align: right;
+}
+
+/* the text beside a hanging date starts on the same line */
+.band > .item-list > li > .hang + p {
+    margin-top: 0;
+}
+
 /* ── Narrow screens ──────────────────────────────────────────────────────── */
 
 @media (max-width: 900px) {
@@ -642,6 +703,12 @@ main.wrap {
 
     .profile {
         max-width: 360px;
+    }
+
+    .figure--cover {
+        position: static;
+        width: 100%;
+        height: 20rem;
     }
 
     .news .date {
@@ -716,50 +783,4 @@ main.wrap {
         transition: none !important;
         animation: none !important;
     }
-}
-
-/* hanging figures share one height so the rows line up */
-.figure {
-    width: 100%;
-    height: 10rem;
-    object-fit: contain;
-    /* white figure backgrounds blend into the page colour */
-    mix-blend-mode: multiply;
-}
-
-/* avatar + contact icons */
-.profile {
-    background: rgba(255, 82, 41, 0.08);
-    border: 1px solid rgba(255, 82, 41, 0.35);
-    border-top: 4px solid var(--orange);
-    padding: 1rem;
-}
-
-/* news: date hangs left, links run inline, tighter rows */
-.news > li + li {
-    margin-top: 0.6rem;
-    padding-top: 0.6rem;
-}
-
-.news .date {
-    padding-top: 0.2em;
-}
-
-/* inside a band, row separators only span the right column; full-width lines
-   are reserved for the borders between bands */
-.band > .item-list > li + li {
-    border-top: none;
-    background: linear-gradient(var(--border-soft), var(--border-soft)) no-repeat right top /
-        calc(100% - var(--hang) + 1.5rem) 1px;
-}
-
-/* hanging years and dates hug the vertical line */
-.band > .timeline > dt,
-.news .date {
-    text-align: right;
-}
-
-/* the text beside a hanging date starts on the same line */
-.band > .item-list > li > .hang + p {
-    margin-top: 0;
 }
