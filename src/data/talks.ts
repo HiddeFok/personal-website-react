@@ -8,6 +8,42 @@ export interface Talk {
 
 export const listTalks: Talk[] = [
   {
+    title:
+      "Sample-efficient Learning of Concepts with Theoretical Guarantees: from Data to Concepts without Interventions",
+    location: "Amsterdam Causality Meeting",
+    date: "April 2026",
+    links: [{ label: "Slides", href: "/talks/202604_Amsterdam_causality_meeting_concepts.pdf" }],
+  },
+  {
+    title:
+      "Sample-efficient Learning of Concepts with Theoretical Guarantees: from Data to Concepts without Interventions",
+    location: "Conference on Neural Information Processing Systems (NeurIPS)",
+    date: "December 2025",
+    links: [{ label: "Poster", href: "/posters/NeurIPS_2025_concept_learning.pdf" }],
+  },
+  {
+    title: "Performative Validity of Recourse Explanations",
+    location: "Conference on Neural Information Processing Systems (NeurIPS)",
+    date: "December 2025",
+    links: [{ label: "Poster", href: "/posters/NeurIPS_2025_performative_validity.pdf" }],
+  },
+  {
+    title: "Performativity and Risks of Algorithmic Recourse",
+    location: "Leiden University",
+    date: "November 2025",
+    links: [{ label: "Slides", href: "/talks/202511_Leiden_performativity_recourse.pdf" }],
+  },
+  {
+    title:
+      "Sample-efficient Learning of Concepts with Theoretical Guarantees: from Data to Concepts without Interventions",
+    location: "TopQuants Autumn Event 2025",
+    date: "November 2025",
+    links: [
+      { label: "Slides", href: "/talks/202511_TopQuants_concepts.pdf" },
+      { label: "Event", href: "https://www.topquants.nl/autumn-event-2025/hidde-fokkema/" },
+    ],
+  },
+  {
     title: "Performativity and Risks of Algorithmic Recourse",
     location: "Cardiff University, Explainable Learning & Reasoning Workshop",
     date: "June 2025",
