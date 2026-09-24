@@ -6,35 +6,26 @@ import NewsList from "../components/NewsList.astro";
 ---
 
 <Base title="Hidde Fokkema -- AI Research Engineer">
-  <p class="eyebrow">About</p>
-  <h1>Hidde Fokkema</h1>
-  <p class="hero-sub">AI Research Engineer @ Plumerai &middot; PhD in Machine Learning</p>
-  <div class="cta-row">
-    <a class="btn btn--primary" href="/files/CV_Hidde_Fokkema_public.pdf" target="_blank" rel="noopener">
-      Curriculum Vit&aelig;
-    </a>
-    <a class="btn btn--ghost" href="/projects">Projects &rarr;</a>
-  </div>
-
-  <div class="about-grid">
+  <IntroCard>
     <ContactCard />
-    <div>
-      <IntroCard />
-      <p class="eyebrow eyebrow--blue">Career</p>
-      <h2>Experience</h2>
-      <dl class="timeline">
-        <dt>2026&ndash;</dt>
-        <dd>Plumerai &mdash; AI Research Engineer</dd>
-        <dt>2025</dt>
-        <dd>Booking.com &mdash; ML Scientist (3 months)</dd>
-        <dt>2021&ndash;2026</dt>
-        <dd>University of Amsterdam &mdash; PhD</dd>
-        <dt>pre-PhD</dt>
-        <dd>Amsterdam Data Collective &mdash; Data Science Consultant (part-time)</dd>
-      </dl>
-      <p class="eyebrow eyebrow--green">Updates</p>
-      <h2>News</h2>
-      <NewsList />
-    </div>
-  </div>
+  </IntroCard>
+  <section class="band">
+    <p class="eyebrow eyebrow--blue">Career</p>
+    <h2>Experience</h2>
+    <dl class="timeline">
+      <dt>2026&ndash;</dt>
+      <dd>Plumerai &mdash; AI Research Engineer</dd>
+      <dt>2025</dt>
+      <dd>Booking.com &mdash; ML Scientist (3 months)</dd>
+      <dt>2021&ndash;2026</dt>
+      <dd>University of Amsterdam &mdash; PhD</dd>
+      <dt>pre-PhD</dt>
+      <dd>Amsterdam Data Collective &mdash; Data Science Consultant (part-time)</dd>
+    </dl>
+  </section>
+  <section class="band">
+    <p class="eyebrow eyebrow--green">Updates</p>
+    <h2>News</h2>
+    <NewsList />
+  </section>
 </Base>
