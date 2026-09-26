@@ -1,3 +1,8 @@
+import type { ImageMetadata } from "astro";
+import performativeValidity from "../assets/paper_diagrams/performative_validity.png";
+import conceptLearning from "../assets/paper_diagrams/concept_learning.png";
+import riskOfRecourse from "../assets/paper_diagrams/risk_of_recourse.png";
+
 export interface Publication {
   title: string;
   authors: string[];
@@ -7,7 +12,7 @@ export interface Publication {
   status: "published" | "preprint";
   code?: string;
   additional?: string;
-  image?: string;
+  image?: ImageMetadata | `${string}.mp4`;
 }
 export const listPublications: Publication[] = [
   {
@@ -23,7 +28,7 @@ export const listPublications: Publication[] = [
       "Advances in Neural Information Processing Systems (NeurIPS), vol. 38, pp. 139334–139370",
     date: "2025",
     link: "https://proceedings.neurips.cc/paper_files/paper/2025/hash/cbbbd7db0a672d01bdb7313fbb4ae6a9-Abstract-Conference.html",
-    image: "/paper_diagrams/performative_validity.png",
+    image: performativeValidity,
     status: "published",
   },
   {
@@ -34,7 +39,7 @@ export const listPublications: Publication[] = [
       "Advances in Neural Information Processing Systems (NeurIPS), vol. 38, pp. 111783–111843",
     date: "2025",
     link: "https://proceedings.neurips.cc/paper_files/paper/2025/hash/a23fa41edb52c314c058fd5ce97217d5-Abstract-Conference.html",
-    image: "/paper_diagrams/concept_learning.png",
+    image: conceptLearning,
     status: "published",
     code: "https://github.com/HiddeFok/sample-efficient-learning-of-concepts",
   },
@@ -55,7 +60,7 @@ export const listPublications: Publication[] = [
       "International Conference on Artificial Intelligence & Statistics (AISTATS), PMLR, vol. 238, pp. 550–558",
     date: "2024",
     link: "https://proceedings.mlr.press/v238/fokkema24a",
-    image: "/paper_diagrams/risk_of_recourse.png",
+    image: riskOfRecourse,
     status: "published",
     code: "https://github.com/HiddeFok/consequences-of-recourse",
   },

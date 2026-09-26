@@ -1,5 +1,6 @@
 ---
 import Figure from "./Figure.astro";
+import phdCover from "../assets/paper_diagrams/PhD_cover.png";
 import { listPublications } from "../data/publications.ts";
 import { Theses } from "../data/theses.ts";
 import { listTalks } from "../data/talks.ts";
@@ -91,7 +92,7 @@ const yearRange = (talks: typeof shownTalks) => {
     <li>
       <Figure
         class="figure--cover"
-        src="/paper_diagrams/PhD_cover.png"
+        src={phdCover}
         alt="Cover of the PhD thesis"
         href="https://pure.uva.nl/ws/files/277470997/Thesis.pdf"
       />

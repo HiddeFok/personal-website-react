@@ -1,6 +1,7 @@
 ---
 import "../styles/theme.css";
 import { personalInfo } from "../data/data.ts";
+import portrait from "../assets/portrait.jpg";
 
 interface Props {
   title: string;
@@ -13,7 +14,7 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL("/portrait.jpg", Astro.site);
+const ogImage = new URL(portrait.src, Astro.site);
 
 const person = {
   "@context": "https://schema.org",

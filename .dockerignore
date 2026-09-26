@@ -5,6 +5,10 @@ dist
 .dockerignore
 .vscode
 .DS_Store
+**/.DS_Store
 Dockerfile
 Dockerfile.prod
 reference
+
+public/paper_diagrams/*.tex
+public/paper_diagrams/*.pdf

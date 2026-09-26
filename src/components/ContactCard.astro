@@ -1,5 +1,7 @@
 ---
-import { personalInfo, contactItems, type ContactIcon } from "../data/data.ts";
+import { contactItems, type ContactIcon } from "../data/data.ts";
+import { Image } from "astro:assets";
+import portrait from "../assets/portrait.jpg";
 
 // Inline SVGs (MIT-licensed: simple-icons for brand marks, bootstrap-icons for envelope) --
 // no external icon font/script, keeps the site's zero-external-script goal.
@@ -28,9 +30,9 @@ const icons: Record<ContactIcon, { viewBox: string; path: string }> = {
 ---
 
 <section class="profile hang">
-  <img
+  <Image
     class="portrait"
-    src={`/${personalInfo.profilePic}`}
+    src={portrait}
     alt="Hidde Fokkema"
     width="800"
     height="800"

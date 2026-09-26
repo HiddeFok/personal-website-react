@@ -1,15 +1,17 @@
 ---
-// Hanging figure in the left column: a still image, or a silent looping video with a
+// Hanging figure in the left column: an imported still image, or a silent looping video with a
 // poster (the poster is the same path with an .mp4 -> .png swap). Optionally links out.
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
 interface Props {
-  src: string;
+  src: ImageMetadata | `${string}.mp4`;
   alt: string;
   href?: string;
   class?: string;
 }
 
 const { src, alt, href, class: cls } = Astro.props;
-const isVideo = src.endsWith(".mp4");
 const Wrapper = href ? "a" : "div";
 ---
 
@@ -20,7 +22,7 @@ const Wrapper = href ? "a" : "div";
   rel={href ? "noopener" : undefined}
 >
   {
-    isVideo ? (
+    typeof src === "string" ? (
       <video
         class="figure"
         src={src}
@@ -33,7 +35,7 @@ const Wrapper = href ? "a" : "div";
         preload="metadata"
       />
     ) : (
-      <img class="figure" src={src} alt={alt} loading="lazy" />
+      <Image class="figure" src={src} alt={alt} width={Math.min(src.width, 800)} />
     )
   }
 </Wrapper>

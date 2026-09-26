@@ -82,7 +82,6 @@ ol {
 }
 
 img {
-    max-width: 100%;
     height: auto;
     display: block;
 }
@@ -659,7 +658,8 @@ main.wrap {
 }
 
 .portrait {
-    width: 100%;
+    width: 60%;
+    margin-inline: auto;
     aspect-ratio: 1;
     object-fit: cover;
     object-position: 50% 30%;
