@@ -398,7 +398,7 @@ main.wrap {
 }
 
 /* browsers wrap a <details>' body in an internal box; unwrap it so the list joins the grid */
-.band > details::details-content {
+.band > details[open]::details-content {
     display: contents;
 }
 
