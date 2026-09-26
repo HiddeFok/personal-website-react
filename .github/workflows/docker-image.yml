@@ -17,7 +17,7 @@ jobs:
 
   run:
     needs: build
-    if: github.event_name = 'push'
+    if: github.event_name == 'push'
     runs-on: self-hosted
 
     steps:
@@ -29,4 +29,3 @@ jobs:
       # a docker-compose.yaml file
       - name: Run the new container
         run: docker compose up -d
-
