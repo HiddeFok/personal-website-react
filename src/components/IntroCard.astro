@@ -11,13 +11,13 @@ interface Interest {
 const interests: Interest[] = [
   {
     subject: "Mathematical Foundations of Explainable AI",
-    text: "We showed that attribution-based explanations that provide recourse cannot be robust, and that offering recourse can hurt the accuracy of a deployed classifier. We also introduced a framework combining causal representation learning and concept learning to build concept-based models with formal guarantees on the concepts they learn.",
+    text: "My main focus of my research was expanding the mathematical understanding of algorithms for eXplainable AI (XAI) and Intepretable Machine Learnin (IML). In this vein we proved that attribution methods cannot have every property you would want it to have at once, that counterfactual methods carries several risks related to the changing of the conditional distribution, and introduced a new method to construct Concept-Based Models using techniques from Causal Representation Learning",
     image: "/paper_diagrams/concept_learning.png",
     href: "/research#published",
   },
   {
     subject: "Bandit Optimisation",
-    text: "I worked on improving the best known regret bounds for bandit convex optimisation, in both the stochastic and adversarial case.",
+    text: "Together with my collaborators, I was also able to contribute to the field of Bandit Convex Optimisation. We were able to introduce a new algorithm that proved to have the best known Regret bounds in the Stochastic and Adversarial case.",
     image: "/gifs/Online_Newton_Step.mp4",
     href: "/research#published",
   },
@@ -27,34 +27,41 @@ const interests: Interest[] = [
 <section class="band">
   <slot />
   <div class="prose">
-    <h1>Machine learning theory, applied under real constraints.</h1>
+    <h1>From ML Theory to Efficient AI</h1>
     <p>
-      I am a researcher in Machine Learning, currently working as an AI Research Engineer at <a
-        href="https://www.plumerai.com"
-        target="_blank"
-        rel="noopener">Plumerai</a
-      >, where I work on efficient deep learning for embedded hardware &mdash; taking the same
-      optimisation and learning-theory questions from my PhD and applying them under real deployment
-      constraints.
+      I am a researcher in Machine Learning, currently working as an AI Research Engineer at
+      <a href="https://www.plumerai.com" target="_blank" rel="noopener"> Plumerai </a>, where I work
+      on efficient deep learning for edge devices.
+    </p>
+
+    <p>
+      Before my current work, I completed my PhD at the
+      <a href="https://kdvi.uva.nl/" target="_blank" rel="noopener"> Korteweg-de Vries Institute</a> of
+      the University of Amsterdam, supervised by
+      <a href="http://www.timvanerven.nl/" target="_blank" rel="noopener"> dr. Tim van Erven</a>. My
+      research there focussed on the mathematical foundations of XAI and Bandit Convex Optimisation.
+      These topics and my contributions are briefly explained below.
     </p>
     <p>
-      Between finishing my PhD and joining Plumerai, I spent three months at Booking.com as a
-      Machine Learning Scientist, putting some of the bandit optimisation theory from my PhD into
-      production.
-    </p>
-    <p>
-      I completed my PhD at the <a href="https://kdvi.uva.nl/" target="_blank" rel="noopener"
-        >Korteweg-de Vries Institute</a
-      > of the University of Amsterdam, supervised by <a
-        href="http://www.timvanerven.nl/"
+      <div class="prose">
+        <p>
+          For even more detail, you can visit my <a href="/research">Research page</a> to find links to
+          my published work. Most code for these papers, and some other projects can be found on my&nbsp;
+          <a href="/projects">Projects page</a>.
+        </p>
+      </div>
+      <a
+        class="btn btn--primary"
+        href="/files/CV_Hidde_Fokkema_public.pdf"
         target="_blank"
-        rel="noopener">dr. Tim van Erven</a
-      >. My research there focussed on the two themes below.
+        rel="noopener"
+      >
+        CV
+      </a>
     </p>
   </div>
 </section>
 <section class="band">
-  <p class="eyebrow">Two themes</p>
   <h2>Research interests</h2>
   <ul class="item-list">
     {
@@ -69,23 +76,4 @@ const interests: Interest[] = [
       ))
     }
   </ul>
-  <div class="prose">
-    <p>
-      The papers behind both themes are on the <a href="/research">Research page</a>; the code,
-      including a PyTorch implementation of one of the bandit algorithms, is on the <a
-        href="/projects">Projects page</a
-      >. I'm also interested in the intersection of AI and the physical sciences, and in optimal
-      transport and stochastic calculus more broadly, from my Master's research.
-    </p>
-    <p>
-      <a
-        class="btn btn--primary"
-        href="/files/CV_Hidde_Fokkema_public.pdf"
-        target="_blank"
-        rel="noopener"
-      >
-        Curriculum Vit&aelig;
-      </a>
-    </p>
-  </div>
 </section>
