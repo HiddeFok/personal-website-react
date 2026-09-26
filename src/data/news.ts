@@ -6,7 +6,6 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
-    // TODO(hidde): confirm the real start month.
     date: "2026-05",
     text: "I have started as an AI Research Engineer at Plumerai, working on efficient deep learning for Edge AI.",
   },

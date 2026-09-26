@@ -1,35 +1,30 @@
 /* ── Tokens ────────────────────────────────────────────────────────────────
-   Design language adapted from mistral.ai (light mode):
-   broken-white cream surfaces, navy text, vibrant orange/blue/green/yellow
-   accents, flat square nav bar with hairline dividers, small-radius buttons.
+   Design language adapted from mistral.ai (light mode): cream surfaces, navy text,
+   vibrant orange/blue/green/yellow accents, square boxes with hairline dividers.
    ──────────────────────────────────────────────────────────────────────── */
 
 :root {
-    /* surfaces — Mistral "cream" scale */
-    --bg: #fafaf4; /* cream-50 — page, broken white */
-    --bg-alt: #f2f1e8; /* cream-100 — cards, wells */
-    --bg-deep: #e4e2d6; /* cream-300 — hover fills */
+    /* surfaces */
+    --bg: #fafaf4; /* page */
+    --bg-alt: #f2f1e8; /* cards, wells */
+    --bg-deep: #e4e2d6; /* hover fills */
     --border: #dcd8c8; /* hairlines */
     --border-soft: #e4e2d6;
 
-    /* text — Mistral "navy" scale */
-    --fg: #151524; /* navy-950 — body */
-    --fg-soft: #56566c; /* navy-700 — leads */
-    --fg-dim: #6f6f84; /* navy-600 — metadata (AA) */
+    /* text */
+    --fg: #151524; /* body */
+    --fg-soft: #56566c; /* leads */
+    --fg-dim: #6f6f84; /* metadata (AA) */
 
-    /* vibrant accents — Mistral brand palette */
+    /* accents; the darker variants are readable on cream */
     --orange: #ff5229;
-    --orange-deep: #c23a10; /* readable on cream */
+    --orange-deep: #c23a10;
     --orange-hover: #e85014;
     --blue: #0082e6;
-    --blue-700: #0262bf; /* readable on cream */
+    --blue-700: #0262bf;
     --green: #318e68;
-    --green-900: #055737; /* readable on cream */
+    --green-900: #055737;
     --yellow: #ffaf01;
-    --yellow-700: #a77201;
-    --pink: #ff92dc;
-    --pink-800: #83075c; /* readable on cream */
-    --red: #e51300;
 
     /* semantic */
     --link: var(--blue-700);
@@ -37,16 +32,9 @@
     --accent: var(--orange);
     --accent-deep: var(--orange-deep);
 
-    /* typography — Inter body, Space Grotesk display (stand-in for ALTMistral), system mono accents */
     --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
     --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
-
-    /* radius — square, like Mistral's straight-line boxes */
-    --radius-sm: 0;
-    --radius-md: 0;
-    --radius-lg: 0;
-    --radius-xl: 0;
 
     /* width of the hanging left column (avatar, figures, dates) */
     --hang: 360px;
@@ -93,7 +81,7 @@ img {
 }
 
 ::selection {
-    background: rgba(255, 82, 41, 0.22);
+    background: color-mix(in srgb, var(--orange) 22%, transparent);
     color: var(--fg);
 }
 
@@ -126,7 +114,7 @@ h1 {
 
 h2 {
     font-size: 1.75rem;
-    margin-top: 0rem;
+    margin-top: 0;
     scroll-margin-top: 5.5rem;
 }
 
@@ -157,16 +145,7 @@ strong {
     font-weight: 700;
 }
 
-code {
-    background: var(--bg-alt);
-    border: 1px solid var(--border-soft);
-    padding: 0.05em 0.35em;
-    border-radius: var(--radius-sm);
-    font-family: var(--font-mono);
-    font-size: 0.9em;
-}
-
-/* ── Eyebrow labels (Mistral signature: plain mono uppercase) ───────────── */
+/* ── Eyebrow labels: plain mono uppercase above a heading ────────────────── */
 
 .eyebrow {
     font-family: var(--font-mono);
@@ -179,30 +158,27 @@ code {
     margin-bottom: 0.4rem;
 }
 
-/* eyebrow sits directly above its heading */
 .eyebrow + h1,
 .eyebrow + h2 {
     margin-top: 0;
 }
 
-/* a band's opening eyebrow needs no top spacing */
 .band > .eyebrow:first-child {
     margin-top: 0;
 }
 
-/* ── Header: flat square nav bar with hairline dividers ─────────────────── */
+/* ── Header: flat nav bar with hairline dividers ─────────────────────────── */
 
 .site-header {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(250, 250, 244, 0.88);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-soft);
 }
 
-/* one 48px row: brand left, nav + CTA right — framed by vertical hairlines */
 .header-bar {
     display: flex;
     align-items: stretch;
@@ -223,7 +199,6 @@ code {
 .brand-mark {
     width: 0.6rem;
     height: 0.6rem;
-    border-radius: var(--radius-sm);
     background: var(--orange);
     flex: none;
 }
@@ -236,10 +211,6 @@ code {
     color: var(--fg);
     text-decoration: none;
     white-space: nowrap;
-}
-
-.site-title:hover {
-    color: var(--fg);
 }
 
 .site-nav {
@@ -263,7 +234,6 @@ code {
         color 0.15s ease;
 }
 
-/* hairline dividers between nav items (Mistral divide-x) */
 .site-nav a + a {
     border-left: 1px solid var(--border-soft);
 }
@@ -277,20 +247,7 @@ code {
     color: var(--accent);
 }
 
-/* square CTA block at the end of the bar */
-.site-nav .nav-cta {
-    margin-left: auto;
-    background: var(--orange);
-    color: #fff;
-    border-left: 1px solid var(--border-soft);
-}
-
-.site-nav .nav-cta:hover {
-    background: var(--orange-hover);
-    color: #fff;
-}
-
-/* hamburger toggle — desktop hidden */
+/* hamburger toggle, shown only on narrow screens */
 .nav-toggle {
     display: none;
     align-items: center;
@@ -301,7 +258,6 @@ code {
     border: 1px solid var(--border);
     background: var(--bg-alt);
     color: var(--fg);
-    border-radius: var(--radius-md);
     cursor: pointer;
     align-self: center;
 }
@@ -318,18 +274,15 @@ code {
 /* ── Footer ──────────────────────────────────────────────────────────────── */
 
 .footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.35rem;
     border-top: 1px solid var(--border-soft);
     padding-block: 1.75rem;
     color: var(--fg-dim);
     font-family: var(--font-mono);
     font-size: 0.78rem;
-}
-
-.footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.35rem;
 }
 
 /* ── Content blocks ──────────────────────────────────────────────────────── */
@@ -356,9 +309,9 @@ main.wrap {
     margin-bottom: 0.9rem;
 }
 
-/* full-bleed sections divided by hairlines, Mistral-style. Each band is a two-column
-   grid: hanging items (.hang, .figure, dt) on the left, everything else on the right.
-   Lists pass the columns through to their rows with subgrid. */
+/* full-bleed sections divided by hairlines. Each band is a two-column grid: hanging items
+   (.hang, .figure, dt) on the left, everything else on the right. Lists pass the columns
+   through to their rows with subgrid. */
 .band {
     display: grid;
     grid-template-columns: calc(var(--hang) - 3rem) minmax(0, 1fr);
@@ -416,7 +369,7 @@ main.wrap {
     margin-top: 0;
 }
 
-/* generic record list: publications, talks, news, courses, projects */
+/* generic record list: publications, talks, news, projects */
 
 .item-list > li + li {
     margin-top: 1.25rem;
@@ -472,21 +425,20 @@ main.wrap {
 .tag {
     display: inline-block;
     padding: 0.16em 0.7em;
-    border-radius: var(--radius-md);
     font-family: var(--font-mono);
     font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.02em;
-    background: rgba(255, 82, 41, 0.1);
+    background: color-mix(in srgb, var(--orange) 10%, transparent);
     color: var(--orange-deep);
 }
 
 .tag[data-color="blue"] {
-    background: rgba(0, 130, 230, 0.1);
+    background: color-mix(in srgb, var(--blue) 10%, transparent);
     color: var(--blue-700);
 }
 .tag[data-color="green"] {
-    background: rgba(49, 142, 104, 0.12);
+    background: color-mix(in srgb, var(--green) 12%, transparent);
     color: var(--green-900);
 }
 
@@ -556,13 +508,11 @@ main.wrap {
     margin-top: 0.9rem;
 }
 
-/* square buttons — Mistral uses rounded-sm/md rectangles, not pills */
 .btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.62rem 1.4rem;
-    border-radius: var(--radius-sm);
     font-family: var(--font-display);
     font-size: 0.95rem;
     font-weight: 600;
@@ -585,8 +535,7 @@ main.wrap {
     transform: translateY(-1px);
 }
 
-.btn--primary:focus-visible,
-.site-nav .nav-cta:focus-visible {
+.btn--primary:focus-visible {
     outline-color: var(--fg);
     outline-offset: -3px;
 }
@@ -611,7 +560,6 @@ main.wrap {
     background: var(--bg);
     color: var(--fg-dim);
     text-decoration: none;
-    border-radius: var(--radius-md);
     transition:
         background 0.15s ease,
         color 0.15s ease,
@@ -622,10 +570,9 @@ main.wrap {
 
 .contact-btn:hover {
     transform: translateY(-2px);
-    filter: none;
 }
 
-/* per-network vibrant hover colours */
+/* per-network hover colours */
 .contact-btn[data-contact="scholar"]:hover {
     background: var(--blue);
     border-color: var(--blue);
@@ -740,8 +687,8 @@ a.hang:hover .figure {
 }
 
 .summary {
-    font-size: 9pt;
-    line-height: 15pt;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
 }
 
 /* ── Narrow screens ──────────────────────────────────────────────────────── */
@@ -766,7 +713,7 @@ a.hang:hover .figure {
     }
 
     .profile {
-        max-width: 360px;
+        max-width: var(--hang);
     }
 
     .figure--cover {
@@ -808,7 +755,7 @@ a.hang:hover .figure {
         align-items: stretch;
         background: var(--bg);
         border-bottom: 1px solid var(--border-soft);
-        box-shadow: 0 24px 40px rgba(21, 21, 36, 0.08);
+        box-shadow: 0 24px 40px color-mix(in srgb, var(--fg) 8%, transparent);
     }
 
     .site-nav.open {
@@ -823,18 +770,6 @@ a.hang:hover .figure {
     .site-nav a + a {
         border-left: none;
         border-top: 1px solid var(--border-soft);
-    }
-
-    .site-nav .nav-cta {
-        margin: 0.75rem 1rem;
-        padding: 0.8rem 1rem;
-        border-radius: var(--radius-sm);
-        justify-content: center;
-    }
-
-    .timeline {
-        grid-template-columns: 1fr;
-        gap: 0.1rem;
     }
 
     .timeline dd {

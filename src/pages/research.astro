@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import PublicationList from "../components/PublicationList.astro";
+import { phdThesis } from "../data/theses.ts";
 
 const jumps = [
   { href: "#published", label: "Published" },
@@ -15,15 +16,12 @@ const jumps = [
   description="Publications, PhD thesis, and talks by Hidde Fokkema on explainable AI, algorithmic recourse, concept learning, and bandit convex optimisation."
 >
   <Fragment slot="head">
-    <meta
-      name="citation_title"
-      content="Mathematical Foundations of Explainable AI and Advances in Bandit Optimisation"
-    />
+    <meta name="citation_title" content={phdThesis.title} />
     <meta name="citation_author" content="Fokkema, Hidde" />
-    <meta name="citation_publication_date" content="2026" />
-    <meta name="citation_dissertation_institution" content="University of Amsterdam" />
-    <meta name="citation_pdf_url" content="https://pure.uva.nl/ws/files/277470997/Thesis.pdf" />
-    <meta name="citation_isbn" content="978-94-6522-938-6" />
+    <meta name="citation_publication_date" content={phdThesis.year} />
+    <meta name="citation_dissertation_institution" content={phdThesis.institution} />
+    <meta name="citation_pdf_url" content={phdThesis.pdf} />
+    <meta name="citation_isbn" content={phdThesis.isbn} />
   </Fragment>
   <section class="band">
     <p class="eyebrow">Papers, thesis, talks</p>

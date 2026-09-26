@@ -1,0 +1,29 @@
+---
+import type { NewsItem } from "../data/news.ts";
+
+interface Props {
+  news: NewsItem;
+}
+
+const { news } = Astro.props;
+
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString("en-GB", { month: "short", year: "numeric", timeZone: "UTC" });
+---
+
+<li>
+  <p class="meta date hang">{formatDate(news.date)}</p>
+  <p>
+    {news.text}
+    {
+      news.links?.map((link) => (
+        <>
+          {" "}
+          <a class="meta" href={link.href} target="_blank" rel="noopener">
+            [{link.label}]
+          </a>
+        </>
+      ))
+    }
+  </p>
+</li>

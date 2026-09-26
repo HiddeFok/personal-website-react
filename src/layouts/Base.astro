@@ -19,9 +19,9 @@ const ogImage = new URL(portrait.src, Astro.site);
 const person = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: `${personalInfo.Firstname} ${personalInfo.LastName}`,
-  jobTitle: "AI Research Engineer",
-  worksFor: { "@type": "Organization", name: "Plumerai" },
+  name: personalInfo.name,
+  jobTitle: personalInfo.jobTitle,
+  worksFor: { "@type": "Organization", name: personalInfo.employer },
   alumniOf: { "@type": "CollegeOrUniversity", name: "University of Amsterdam" },
   url: Astro.site?.href,
   image: ogImage.href,
@@ -56,8 +56,8 @@ const isActive = (href: string) =>
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="800" />
-    <meta property="og:image:height" content="800" />
+    <meta property="og:image:width" content={String(portrait.width)} />
+    <meta property="og:image:height" content={String(portrait.height)} />
     <meta name="twitter:card" content="summary" />
     <script type="application/ld+json" set:html={JSON.stringify(person)} />
     <link rel="icon" href="/favicon.ico" />
@@ -75,7 +75,7 @@ const isActive = (href: string) =>
       <div class="wrap header-bar">
         <a class="brand" href="/">
           <span class="brand-mark" aria-hidden="true"></span>
-          <span class="site-title">Hidde Fokkema</span>
+          <span class="site-title">{personalInfo.name}</span>
         </a>
         <button
           class="nav-toggle"
@@ -113,7 +113,7 @@ const isActive = (href: string) =>
     </main>
 
     <footer class="footer wrap">
-      <span>&copy; 2021&ndash;2026 Hidde Fokkema</span>
+      <span>&copy; 2021&ndash;{new Date().getFullYear()} {personalInfo.name}</span>
       <span>Amsterdam &middot; The Netherlands</span>
     </footer>
 
@@ -126,15 +126,14 @@ const isActive = (href: string) =>
         toggle.setAttribute("aria-expanded", String(open));
       });
 
-      // honour reduced-motion for the looping figure videos
       if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        document.querySelectorAll("video[autoplay]").forEach((v) => {
+        document.querySelectorAll<HTMLVideoElement>("video[autoplay]").forEach((v) => {
           v.removeAttribute("autoplay");
           v.pause();
         });
       }
 
-      // close the menu after navigating (links are same-page routes in static mode)
+      // Close the menu before leaving, so a back-navigation restored from cache does not reopen it.
       nav?.querySelectorAll("a").forEach((link) =>
         link.addEventListener("click", () => {
           nav.classList.remove("open");

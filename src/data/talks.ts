@@ -149,7 +149,6 @@ export const listTalks: Talk[] = [
     ],
   },
   {
-    // Typo "Explenations" fixed so this groups with the four entries above.
     title: "Attribution-based Explanations that Provide Recourse Cannot be Robust",
     location: "CWI Amsterdam, Machine Learning Seminar",
     date: "July 2022",

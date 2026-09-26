@@ -1,7 +1,7 @@
-export const personalInfo: { [key: string]: string } = {
-  Firstname: "Hidde",
-  LastName: "Fokkema",
-  profilePic: "portrait.jpg",
+export const personalInfo = {
+  name: "Hidde Fokkema",
+  jobTitle: "AI Research Engineer",
+  employer: "Plumerai",
   github: "https://github.com/HiddeFok",
   bluesky: "https://bsky.app/profile/hiddefokkema.bsky.social",
   linkedin: "https://www.linkedin.com/in/hidde-fokkema-a1198a12a/",
@@ -9,38 +9,12 @@ export const personalInfo: { [key: string]: string } = {
   email: "mailto:hidde.fokkema@gmail.com",
 };
 
-export type ContactIcon = "scholar" | "bluesky" | "email" | "linkedin" | "github";
+export const contactItems = [
+  { icon: "scholar", text: "Google Scholar", href: personalInfo.scholar },
+  { icon: "bluesky", text: "Bluesky", href: personalInfo.bluesky },
+  { icon: "email", text: "E-mail", href: personalInfo.email },
+  { icon: "linkedin", text: "LinkedIn", href: personalInfo.linkedin },
+  { icon: "github", text: "Github", href: personalInfo.github },
+] as const;
 
-interface ContactItem {
-  href: string;
-  text: string;
-  icon: ContactIcon;
-}
-
-export const contactItems: ContactItem[] = [
-  {
-    href: personalInfo.scholar,
-    text: "Google Scholar",
-    icon: "scholar",
-  },
-  {
-    href: personalInfo.bluesky,
-    text: "Bluesky",
-    icon: "bluesky",
-  },
-  {
-    href: personalInfo.email,
-    text: "E-mail",
-    icon: "email",
-  },
-  {
-    href: personalInfo.linkedin,
-    text: "LinkedIn",
-    icon: "linkedin",
-  },
-  {
-    href: personalInfo.github,
-    text: "Github",
-    icon: "github",
-  },
-];
+export type ContactIcon = (typeof contactItems)[number]["icon"];

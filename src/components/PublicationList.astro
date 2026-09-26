@@ -1,8 +1,7 @@
 ---
 import Figure from "./Figure.astro";
-import phdCover from "../assets/paper_diagrams/PhD_cover.png";
 import { listPublications } from "../data/publications.ts";
-import { Theses } from "../data/theses.ts";
+import { phdThesis, Theses } from "../data/theses.ts";
 import { listTalks } from "../data/talks.ts";
 
 const published = listPublications.filter((a) => a.status === "published");
@@ -18,9 +17,8 @@ const talkGroups = Object.entries(groupedTalks)
     return latest(b.talks) - latest(a.talks);
   });
 
-const yearOf = (date: string) => new Date(date).getFullYear();
 const yearRange = (talks: typeof shownTalks) => {
-  const years = talks.map((t) => yearOf(t.date));
+  const years = talks.map((t) => new Date(t.date).getFullYear());
   const lo = Math.min(...years);
   const hi = Math.max(...years);
   return lo === hi ? String(lo) : `${lo}–${hi}`;
@@ -83,54 +81,23 @@ const yearRange = (talks: typeof shownTalks) => {
 }
 
 <section class="band" id="thesis">
-  <p class="eyebrow">Defended January 2026</p>
+  <p class="eyebrow">Defended {phdThesis.defended}</p>
   <h2>PhD Thesis</h2>
   <ul class="item-list">
     <li>
       <Figure
         class="figure--cover"
-        src={phdCover}
+        src={phdThesis.cover}
         alt="Cover of the PhD thesis"
-        href="https://pure.uva.nl/ws/files/277470997/Thesis.pdf"
+        href={phdThesis.pdf}
       />
       <div class="prose">
-        <a
-          href="https://dare.uva.nl/search?identifier=e0b2c89d-603a-4edc-b9b9-59a6547c1eec"
-          target="_blank"
-          rel="noopener"
-        >
-          Mathematical Foundations of Explainable AI and Advances in Bandit Optimisation
-        </a>
+        <a href={phdThesis.record} target="_blank" rel="noopener">{phdThesis.title}</a>
         <p class="meta">
-          University of Amsterdam ·
-          <a
-            href="https://pure.uva.nl/ws/files/277470997/Thesis.pdf"
-            target="_blank"
-            rel="noopener"
-          >
-            [PDF]
-          </a>
+          {phdThesis.institution} ·
+          <a href={phdThesis.pdf} target="_blank" rel="noopener">[PDF]</a>
         </p>
-        <p class="summary">
-          My dissertation consists of two parts. In the first part it presents several works that
-          expand the mathematical foundations explainable AI methods. In particular, it investigates
-          attribution methods, counterfactual methods and concept-based models. Attribution methods
-          indicate which input features are the most important to a particular model. What
-          importance means is often ambiguous. We propose one interpretation in Chapter 2, where we
-          interpret the attribution scores as a direction. The direction tells the user how to
-          change their features to achieve a certain goal. We show that such methods are not robust
-          with respect to the input: users with very similar attributes, might get drastically
-          different explanations. In the following chapters 3 and 4, we zoom in on the
-          counterfactual explanations. We demonstrate that following these explanations will change
-          the underlying data distribution. We show that this can result in a decrease in accuracy
-          of the model and even invalid the explanations themselves over time. In Chapter 5 we
-          propose a method and new framework that can be used to develop sample-efficient
-          concept-based models. By effectively leveraging the techniques used in Causal
-          Representation Learning, we are able to be more data efficient. Finally, in the second
-          part and the last chapter, we look at the bandit convex optimisation problem. We propose a
-          new algorithm that is able to solve this problem, which has improved regret bounds
-          compared to earlier algorithms, while being efficiently implementable.
-        </p>
+        <p class="summary">{phdThesis.summary}</p>
       </div>
     </li>
   </ul>

@@ -1,10 +1,9 @@
 ---
-import { contactItems, type ContactIcon } from "../data/data.ts";
+import { contactItems, personalInfo, type ContactIcon } from "../data/data.ts";
 import { Image } from "astro:assets";
 import portrait from "../assets/portrait.jpg";
 
-// Inline SVGs (MIT-licensed: simple-icons for brand marks, bootstrap-icons for envelope) --
-// no external icon font/script, keeps the site's zero-external-script goal.
+// Paths from simple-icons (brands) and bootstrap-icons (envelope), both MIT.
 const icons: Record<ContactIcon, { viewBox: string; path: string }> = {
   scholar: {
     viewBox: "0 0 24 24",
@@ -30,14 +29,8 @@ const icons: Record<ContactIcon, { viewBox: string; path: string }> = {
 ---
 
 <section class="profile hang">
-  <Image
-    class="portrait"
-    src={portrait}
-    alt="Hidde Fokkema"
-    width="800"
-    height="800"
-  />
-  <p class="meta">AI Research Engineer, Plumerai</p>
+  <Image class="portrait" src={portrait} alt={personalInfo.name} />
+  <p class="meta">{personalInfo.jobTitle}, {personalInfo.employer}</p>
   <p class="meta">PhD Mathematical Machine Learning, University of Amsterdam</p>
   <div>
     <ul class="contact-links">

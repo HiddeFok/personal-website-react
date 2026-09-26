@@ -1,12 +1,11 @@
 ---
-import type { ImageMetadata } from "astro";
-import Figure from "./Figure.astro";
+import Figure, { type FigureSrc } from "./Figure.astro";
 import conceptLearning from "../assets/paper_diagrams/concept_learning.png";
 
 interface Interest {
   subject: string;
   text: string;
-  image: ImageMetadata | `${string}.mp4`;
+  image: FigureSrc;
   href: string;
 }
 
@@ -45,22 +44,18 @@ const interests: Interest[] = [
       These topics and my contributions are briefly explained below.
     </p>
     <p>
-      <div class="prose">
-        <p>
-          For even more detail, you can visit my <a href="/research">Research page</a> to find links to
-          my published work. Most code for these papers, and some other projects can be found on my&nbsp;
-          <a href="/projects">Projects page</a>.
-        </p>
-      </div>
-      <a
-        class="btn btn--primary"
-        href="/files/CV_Hidde_Fokkema_public.pdf"
-        target="_blank"
-        rel="noopener"
-      >
-        CV
-      </a>
+      For even more detail, you can visit my <a href="/research">Research page</a> to find links to my
+      published work. Most code for these papers, and some other projects can be found on my&nbsp;
+      <a href="/projects">Projects page</a>.
     </p>
+    <a
+      class="btn btn--primary"
+      href="/files/CV_Hidde_Fokkema_public.pdf"
+      target="_blank"
+      rel="noopener"
+    >
+      CV
+    </a>
   </div>
 </section>
 <section class="band">

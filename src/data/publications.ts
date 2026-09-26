@@ -1,4 +1,4 @@
-import type { ImageMetadata } from "astro";
+import type { FigureSrc } from "../components/Figure.astro";
 import performativeValidity from "../assets/paper_diagrams/performative_validity.png";
 import conceptLearning from "../assets/paper_diagrams/concept_learning.png";
 import riskOfRecourse from "../assets/paper_diagrams/risk_of_recourse.png";
@@ -12,8 +12,9 @@ export interface Publication {
   status: "published" | "preprint";
   code?: string;
   additional?: string;
-  image?: ImageMetadata | `${string}.mp4`;
+  image?: FigureSrc;
 }
+
 export const listPublications: Publication[] = [
   {
     title:
