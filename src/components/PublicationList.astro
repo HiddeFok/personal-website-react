@@ -31,13 +31,11 @@ const yearRange = (talks: typeof shownTalks) => {
   [
     {
       id: "published",
-      eyebrow: `${published.length} peer-reviewed`,
       heading: "Published",
       pubs: published,
     },
     {
       id: "preprints",
-      eyebrow: `${preprints.length} under review`,
       heading: "Preprints",
       pubs: preprints,
     },
@@ -45,7 +43,6 @@ const yearRange = (talks: typeof shownTalks) => {
     .filter((group) => group.pubs.length > 0)
     .map((group) => (
       <section class="band" id={group.id}>
-        <p class="eyebrow">{group.eyebrow}</p>
         <h2>{group.heading}</h2>
         <ul class="item-list">
           {group.pubs.map((pub) => (
@@ -114,14 +111,25 @@ const yearRange = (talks: typeof shownTalks) => {
             [PDF]
           </a>
         </p>
-        <p>
-          This thesis shows that two properties people want from explainability methods work against
-          each other: attribution-based explanations that provide recourse cannot always be robust,
-          and acting on recourse can lower a model's accuracy. It also develops methods that combine
-          causal representation learning with concept learning, and improves the best known regret
-          bounds for bandit convex optimisation in both the stochastic and adversarial case.
-          Throughout, the aim is to be explicit about where these methods can be trusted, and where
-          they can't.
+        <p class="summary">
+          My dissertation consists of two parts. In the first part it presents several works that
+          expand the mathematical foundations explainable AI methods. In particular, it investigates
+          attribution methods, counterfactual methods and concept-based models. Attribution methods
+          indicate which input features are the most important to a particular model. What
+          importance means is often ambiguous. We propose one interpretation in Chapter 2, where we
+          interpret the attribution scores as a direction. The direction tells the user how to
+          change their features to achieve a certain goal. We show that such methods are not robust
+          with respect to the input: users with very similar attributes, might get drastically
+          different explanations. In the following chapters 3 and 4, we zoom in on the
+          counterfactual explanations. We demonstrate that following these explanations will change
+          the underlying data distribution. We show that this can result in a decrease in accuracy
+          of the model and even invalid the explanations themselves over time. In Chapter 5 we
+          propose a method and new framework that can be used to develop sample-efficient
+          concept-based models. By effectively leveraging the techniques used in Causal
+          Representation Learning, we are able to be more data efficient. Finally, in the second
+          part and the last chapter, we look at the bandit convex optimisation problem. We propose a
+          new algorithm that is able to solve this problem, which has improved regret bounds
+          compared to earlier algorithms, while being efficiently implementable.
         </p>
       </div>
     </li>
@@ -129,7 +137,6 @@ const yearRange = (talks: typeof shownTalks) => {
 </section>
 
 <section class="band" id="talks">
-  <p class="eyebrow">{shownTalks.length} talks, {talkGroups.length} topics</p>
   <h2>Talks</h2>
   <ul class="item-list">
     {

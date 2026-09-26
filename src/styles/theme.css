@@ -663,6 +663,9 @@ main.wrap {
     aspect-ratio: 1;
     object-fit: cover;
     object-position: 50% 30%;
+    /* offset orange square behind the photo */
+    box-shadow: 0.6rem 0.6rem 0 var(--orange);
+    margin-bottom: 1.4rem;
 }
 
 /* hanging figures share one height so the rows line up */
@@ -686,7 +689,8 @@ a.hang:hover .figure {
 }
 
 .figure--cover {
-    display: block;
+    display: flex;
+    align-items: center;
     position: absolute;
     top: 1rem;
     left: 1.5rem;
@@ -695,12 +699,15 @@ a.hang:hover .figure {
 }
 
 .figure--cover .figure {
-    height: 100%;
+    height: 60%;
 }
 
 /* avatar + contact icons */
 .profile {
     text-align: center;
+    background: var(--bg-alt);
+    border: 1px solid var(--border-soft);
+    padding: 1.75rem 1.25rem 1.5rem;
 }
 
 /* news: date hangs left, links run inline, tighter rows */
@@ -732,6 +739,11 @@ a.hang:hover .figure {
     margin-top: 0;
 }
 
+.summary {
+    font-size: 9pt;
+    line-height: 15pt;
+}
+
 /* ── Narrow screens ──────────────────────────────────────────────────────── */
 
 @media (max-width: 900px) {
@@ -760,7 +772,7 @@ a.hang:hover .figure {
     .figure--cover {
         position: static;
         width: 100%;
-        height: 20rem;
+        height: 10rem;
     }
 
     .band .item-list > li > .date {

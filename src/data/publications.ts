@@ -16,6 +16,18 @@ export interface Publication {
 }
 export const listPublications: Publication[] = [
   {
+    title:
+      "Sample-efficient Learning of Concepts with Theoretical Guarantees: from Data to Concepts without Interventions",
+    authors: ["HF", "Tim van Erven", "Sara Magliacane"],
+    journal:
+      "Advances in Neural Information Processing Systems (NeurIPS), vol. 38, pp. 111783–111843",
+    date: "2025",
+    link: "https://proceedings.neurips.cc/paper_files/paper/2025/hash/a23fa41edb52c314c058fd5ce97217d5-Abstract-Conference.html",
+    image: conceptLearning,
+    status: "published",
+    code: "https://github.com/HiddeFok/sample-efficient-learning-of-concepts",
+  },
+  {
     title: "Performative Validity of Recourse Explanations",
     authors: [
       "Gunnar König",
@@ -30,18 +42,7 @@ export const listPublications: Publication[] = [
     link: "https://proceedings.neurips.cc/paper_files/paper/2025/hash/cbbbd7db0a672d01bdb7313fbb4ae6a9-Abstract-Conference.html",
     image: performativeValidity,
     status: "published",
-  },
-  {
-    title:
-      "Sample-efficient Learning of Concepts with Theoretical Guarantees: from Data to Concepts without Interventions",
-    authors: ["HF", "Tim van Erven", "Sara Magliacane"],
-    journal:
-      "Advances in Neural Information Processing Systems (NeurIPS), vol. 38, pp. 111783–111843",
-    date: "2025",
-    link: "https://proceedings.neurips.cc/paper_files/paper/2025/hash/a23fa41edb52c314c058fd5ce97217d5-Abstract-Conference.html",
-    image: conceptLearning,
-    status: "published",
-    code: "https://github.com/HiddeFok/sample-efficient-learning-of-concepts",
+    code: "https://github.com/gcskoenig/performative-recourse-experiments",
   },
   {
     title: "Online Newton Method for Bandit Convex Optimisation",
