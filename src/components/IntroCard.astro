@@ -1,0 +1,76 @@
+---
+import Figure, { type FigureSrc } from "./Figure.astro";
+import conceptLearning from "../assets/paper_diagrams/concept_learning.png";
+
+interface Interest {
+  subject: string;
+  text: string;
+  image: FigureSrc;
+  href: string;
+}
+
+const interests: Interest[] = [
+  {
+    subject: "Mathematical Foundations of Explainable AI",
+    text: "My main focus of my research was expanding the mathematical understanding of algorithms for eXplainable AI (XAI) and Intepretable Machine Learnin (IML). In this vein we proved that attribution methods cannot have every property you would want it to have at once, that counterfactual methods carries several risks related to the changing of the conditional distribution, and introduced a new method to construct Concept-Based Models using techniques from Causal Representation Learning",
+    image: conceptLearning,
+    href: "/research#published",
+  },
+  {
+    subject: "Bandit Optimisation",
+    text: "Together with my collaborators, I was also able to contribute to the field of Bandit Convex Optimisation. We were able to introduce a new algorithm that proved to have the best known Regret bounds in the Stochastic and Adversarial case.",
+    image: "/gifs/Online_Newton_Step.mp4",
+    href: "/research#published",
+  },
+];
+---
+
+<section class="band">
+  <slot />
+  <div class="prose">
+    <h1>From ML Theory to Efficient AI</h1>
+    <p>
+      I am a researcher in Machine Learning, currently working as an AI Research Engineer at
+      <a href="https://www.plumerai.com" target="_blank" rel="noopener"> Plumerai </a>, where I work
+      on efficient deep learning for edge devices.
+    </p>
+
+    <p>
+      Before my current work, I completed my PhD at the
+      <a href="https://kdvi.uva.nl/" target="_blank" rel="noopener"> Korteweg-de Vries Institute</a> of
+      the University of Amsterdam, supervised by
+      <a href="http://www.timvanerven.nl/" target="_blank" rel="noopener"> dr. Tim van Erven</a>. My
+      research there focussed on the mathematical foundations of XAI and Bandit Convex Optimisation.
+      These topics and my contributions are briefly explained below.
+    </p>
+    <p>
+      For even more detail, you can visit my <a href="/research">Research page</a> to find links to my
+      published work. Most code for these papers, and some other projects can be found on my&nbsp;
+      <a href="/projects">Projects page</a>.
+    </p>
+    <a
+      class="btn btn--primary"
+      href="/files/CV_Hidde_Fokkema_public.pdf"
+      target="_blank"
+      rel="noopener"
+    >
+      CV
+    </a>
+  </div>
+</section>
+<section class="band">
+  <h2>Research interests</h2>
+  <ul class="item-list">
+    {
+      interests.map((interest) => (
+        <li>
+          <Figure src={interest.image} alt={interest.subject} href={interest.href} />
+          <div class="prose">
+            <strong>{interest.subject}</strong>
+            <p>{interest.text}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>

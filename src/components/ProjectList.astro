@@ -1,0 +1,49 @@
+---
+import { projects } from "../data/projects.ts";
+
+// colour follows the kind of tag, so the same tag looks the same on every row
+const tagColor: Record<string, string> = {
+  Python: "orange",
+  PyTorch: "orange",
+  "scikit-learn": "orange",
+  Astro: "orange",
+  TypeScript: "orange",
+  Docker: "orange",
+  Reproducibility: "green",
+  MMD: "blue",
+  "Online optimisation": "blue",
+};
+---
+
+<ul class="item-list">
+  {
+    projects.map((project) => (
+      <li>
+        <p class="meta hang tags">
+          {project.tags.map((tag) => (
+            <span class="tag" data-color={tagColor[tag] ?? "orange"}>
+              {tag}
+            </span>
+          ))}
+        </p>
+        <div class="prose">
+          <a href={project.repo} target="_blank" rel="noopener">
+            {project.name}
+          </a>
+          <p class="meta">
+            {project.blurb}
+            {project.paper && (
+              <>
+                {" "}
+                <a href={project.paper} target="_blank" rel="noopener">
+                  [Paper]
+                </a>
+              </>
+            )}
+          </p>
+          <p>{project.detail}</p>
+        </div>
+      </li>
+    ))
+  }
+</ul>

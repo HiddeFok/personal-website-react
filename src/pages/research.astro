@@ -1,0 +1,34 @@
+---
+import Base from "../layouts/Base.astro";
+import PublicationList from "../components/PublicationList.astro";
+import { phdThesis } from "../data/theses.ts";
+
+const jumps = [
+  { href: "#published", label: "Published" },
+  { href: "#thesis", label: "PhD thesis" },
+  { href: "#talks", label: "Talks" },
+  { href: "#earlier", label: "Earlier theses" },
+];
+---
+
+<Base
+  title="Research – Hidde Fokkema"
+  description="Publications, PhD thesis, and talks by Hidde Fokkema on explainable AI, algorithmic recourse, concept learning, and bandit convex optimisation."
+>
+  <Fragment slot="head">
+    <meta name="citation_title" content={phdThesis.title} />
+    <meta name="citation_author" content="Fokkema, Hidde" />
+    <meta name="citation_publication_date" content={phdThesis.year} />
+    <meta name="citation_dissertation_institution" content={phdThesis.institution} />
+    <meta name="citation_pdf_url" content={phdThesis.pdf} />
+    <meta name="citation_isbn" content={phdThesis.isbn} />
+  </Fragment>
+  <section class="band">
+    <p class="eyebrow">Papers, thesis, talks</p>
+    <h1>Research</h1>
+    <nav class="jump" aria-label="On this page">
+      {jumps.map((j) => <a href={j.href}>{j.label}</a>)}
+    </nav>
+  </section>
+  <PublicationList />
+</Base>

@@ -1,0 +1,29 @@
+---
+import Base from "../layouts/Base.astro";
+import ContactCard from "../components/ContactCard.astro";
+import IntroCard from "../components/IntroCard.astro";
+import NewsList from "../components/NewsList.astro";
+---
+
+<Base title="Hidde Fokkema – AI Research Engineer">
+  <IntroCard>
+    <ContactCard />
+  </IntroCard>
+  <section class="band">
+    <h2>Experience</h2>
+    <dl class="timeline">
+      <dt>2026 &ndash; present</dt>
+      <dd>Plumerai, AI Research Engineer</dd>
+      <dt>2025</dt>
+      <dd>Booking.com, ML Scientist (3 month research internship)</dd>
+      <dt>2021&ndash;2025</dt>
+      <dd>University of Amsterdam &mdash; PhD candidate</dd>
+      <dt>2018 &ndash; 2021</dt>
+      <dd>Amsterdam Data Collective &mdash; Data Science Consultant</dd>
+    </dl>
+  </section>
+  <section class="band">
+    <h2>News</h2>
+    <NewsList />
+  </section>
+</Base>

@@ -1,0 +1,160 @@
+---
+import Figure from "./Figure.astro";
+import { listPublications } from "../data/publications.ts";
+import { phdThesis, Theses } from "../data/theses.ts";
+import { listTalks } from "../data/talks.ts";
+
+const published = listPublications.filter((a) => a.status === "published");
+const preprints = listPublications.filter((a) => a.status === "preprint");
+
+const shownTalks = listTalks.filter((t) => t.show !== false);
+const groupedTalks = Object.groupBy(shownTalks, (t) => t.title);
+const talkGroups = Object.entries(groupedTalks)
+  .map(([title, talks]) => ({ title, talks: talks! }))
+  .sort((a, b) => {
+    const latest = (talks: typeof a.talks) =>
+      Math.max(...talks.map((t) => new Date(t.date).getTime()));
+    return latest(b.talks) - latest(a.talks);
+  });
+
+const yearRange = (talks: typeof shownTalks) => {
+  const years = talks.map((t) => new Date(t.date).getFullYear());
+  const lo = Math.min(...years);
+  const hi = Math.max(...years);
+  return lo === hi ? String(lo) : `${lo}–${hi}`;
+};
+---
+
+{
+  [
+    {
+      id: "published",
+      heading: "Published",
+      pubs: published,
+    },
+    {
+      id: "preprints",
+      heading: "Preprints",
+      pubs: preprints,
+    },
+  ]
+    .filter((group) => group.pubs.length > 0)
+    .map((group) => (
+      <section class="band" id={group.id}>
+        <h2>{group.heading}</h2>
+        <ul class="item-list">
+          {group.pubs.map((pub) => (
+            <li>
+              {pub.image && (
+                <Figure src={pub.image} alt={`Figure from "${pub.title}"`} href={pub.link} />
+              )}
+              <div class="prose">
+                <a href={pub.link} target="_blank" rel="noopener">
+                  {pub.title}
+                </a>
+                <p class="meta">
+                  <span class="date">{pub.date}</span> · {pub.journal}
+                  {pub.additional && <> · {pub.additional}</>}
+                  {pub.code && (
+                    <>
+                      {" · "}
+                      <a href={pub.code} target="_blank" rel="noopener">
+                        [Code]
+                      </a>
+                    </>
+                  )}
+                </p>
+                <p class="meta">
+                  {pub.authors.map((author, i) => (
+                    <>
+                      {i > 0 && ", "}
+                      {author === "HF" ? <strong>Hidde Fokkema</strong> : author}
+                    </>
+                  ))}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+}
+
+<section class="band" id="thesis">
+  <p class="eyebrow">Defended {phdThesis.defended}</p>
+  <h2>PhD Thesis</h2>
+  <ul class="item-list">
+    <li>
+      <Figure
+        class="figure--cover"
+        src={phdThesis.cover}
+        alt="Cover of the PhD thesis"
+        href={phdThesis.pdf}
+      />
+      <div class="prose">
+        <a href={phdThesis.record} target="_blank" rel="noopener">{phdThesis.title}</a>
+        <p class="meta">
+          {phdThesis.institution} ·
+          <a href={phdThesis.pdf} target="_blank" rel="noopener">[PDF]</a>
+        </p>
+        <p class="summary">{phdThesis.summary}</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section class="band" id="talks">
+  <h2>Talks</h2>
+  <ul class="item-list">
+    {
+      talkGroups.map((group) => (
+        <li>
+          <p class="meta date hang">{yearRange(group.talks)}</p>
+          <div class="prose">
+            <h3>{group.title}</h3>
+            <ul class="sub-list">
+              {group.talks.map((talk) => (
+                <li>
+                  <p class="meta">
+                    {talk.location}, {talk.date}
+                    {talk.links?.map((link) => (
+                      <>
+                        {" · "}
+                        <a href={link.href} target="_blank" rel="noopener">
+                          [{link.label}]
+                        </a>
+                      </>
+                    ))}
+                  </p>
+                  {talk.note && <p class="meta">{talk.note}</p>}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<section class="band" id="earlier">
+  <p class="eyebrow">Before the PhD</p>
+  <h2>Master's and Bachelor's theses</h2>
+  <ul class="item-list">
+    {
+      Theses.map((thesis) => (
+        <li>
+          <p class="meta date hang">{thesis.date}</p>
+          <div class="prose">
+            <a href={`/files/${thesis.link}`} target="_blank" rel="noopener">
+              {thesis.title}
+            </a>
+            <p class="meta">
+              {thesis.type} · supervised by {thesis.supervisors}
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>

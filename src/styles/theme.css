@@ -1,0 +1,789 @@
+/* ── Tokens ────────────────────────────────────────────────────────────────
+   Design language adapted from mistral.ai (light mode): cream surfaces, navy text,
+   vibrant orange/blue/green/yellow accents, square boxes with hairline dividers.
+   ──────────────────────────────────────────────────────────────────────── */
+
+:root {
+    /* surfaces */
+    --bg: #fafaf4; /* page */
+    --bg-alt: #f2f1e8; /* cards, wells */
+    --bg-deep: #e4e2d6; /* hover fills */
+    --border: #dcd8c8; /* hairlines */
+    --border-soft: #e4e2d6;
+
+    /* text */
+    --fg: #151524; /* body */
+    --fg-soft: #56566c; /* leads */
+    --fg-dim: #6f6f84; /* metadata (AA) */
+
+    /* accents; the darker variants are readable on cream */
+    --orange: #ff5229;
+    --orange-deep: #c23a10;
+    --orange-hover: #e85014;
+    --blue: #0082e6;
+    --blue-700: #0262bf;
+    --green: #318e68;
+    --green-900: #055737;
+    --yellow: #ffaf01;
+
+    /* semantic */
+    --link: var(--blue-700);
+    --link-hover: #cf4515;
+    --accent: var(--orange);
+    --accent-deep: var(--orange-deep);
+
+    --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    /* width of the hanging left column (avatar, figures, dates) */
+    --hang: 360px;
+
+    color-scheme: light;
+}
+
+/* ── Reset ───────────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+img {
+    height: auto;
+    display: block;
+}
+
+:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+::selection {
+    background: color-mix(in srgb, var(--orange) 22%, transparent);
+    color: var(--fg);
+}
+
+/* ── Base typography ─────────────────────────────────────────────────────── */
+
+body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: 15.5px;
+    line-height: 1.65;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(2.25rem, 5vw, 2.75rem);
+    color: var(--fg);
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-top: 0;
+    scroll-margin-top: 5.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1.75rem;
+}
+
+p + p {
+    margin-top: 0.9rem;
+}
+
+a {
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-decoration-thickness: 2px;
+}
+
+strong {
+    font-weight: 700;
+}
+
+/* ── Eyebrow labels: plain mono uppercase above a heading ────────────────── */
+
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-deep);
+    margin-top: 2.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.eyebrow + h1,
+.eyebrow + h2 {
+    margin-top: 0;
+}
+
+.band > .eyebrow:first-child {
+    margin-top: 0;
+}
+
+/* ── Header: flat nav bar with hairline dividers ─────────────────────────── */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.header-bar {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    height: 48px;
+    padding-inline: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding-inline: 1.5rem;
+    border-right: 1px solid var(--border-soft);
+    text-decoration: none;
+}
+
+.brand-mark {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: var(--orange);
+    flex: none;
+}
+
+.site-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.site-nav {
+    display: flex;
+    flex: 1;
+    align-items: stretch;
+}
+
+.site-nav a {
+    display: flex;
+    align-items: center;
+    padding-inline: 1rem;
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--fg-dim);
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.site-nav a + a {
+    border-left: 1px solid var(--border-soft);
+}
+
+.site-nav a:hover {
+    color: var(--fg);
+    background: var(--bg-alt);
+}
+
+.site-nav a.active {
+    color: var(--accent);
+}
+
+/* hamburger toggle, shown only on narrow screens */
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 4px 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-alt);
+    color: var(--fg);
+    cursor: pointer;
+    align-self: center;
+}
+
+.nav-toggle:hover {
+    background: var(--bg-deep);
+}
+
+.nav-toggle svg {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.35rem;
+    border-top: 1px solid var(--border-soft);
+    padding-block: 1.75rem;
+    color: var(--fg-dim);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+}
+
+/* ── Content blocks ──────────────────────────────────────────────────────── */
+
+.wrap {
+    width: 100%;
+    padding-inline: 1.5rem;
+}
+
+/* one continuous vertical hairline between the hanging column and the content */
+main.wrap {
+    flex: 1;
+    padding: 0;
+    background: linear-gradient(var(--border), var(--border)) no-repeat var(--hang) 0 / 1px 100%;
+}
+
+/* running text never exceeds a comfortable measure, whatever the column width */
+.prose {
+    max-width: 70ch;
+}
+
+.prose h1 {
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    margin-bottom: 0.9rem;
+}
+
+/* full-bleed sections divided by hairlines. Each band is a two-column grid: hanging items
+   (.hang, .figure, dt) on the left, everything else on the right. Lists pass the columns
+   through to their rows with subgrid. */
+.band {
+    display: grid;
+    grid-template-columns: calc(var(--hang) - 3rem) minmax(0, 1fr);
+    column-gap: 3rem;
+    align-items: start;
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.band > *,
+.band .item-list > li > *,
+.band > .timeline > dd {
+    grid-column: 2;
+}
+
+.band > .hang,
+.band .item-list > li > .hang,
+.band .item-list > li > .figure,
+.band > .timeline > dt {
+    grid-column: 1;
+}
+
+.band .item-list,
+.band .item-list > li,
+.band > .timeline,
+.band > details {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    align-items: start;
+}
+
+.band > details > summary {
+    grid-column: 2;
+    cursor: pointer;
+    margin-top: 1.25rem;
+}
+
+/* browsers wrap a <details>' body in an internal box; unwrap it so the list joins the grid */
+.band > details[open]::details-content {
+    display: contents;
+}
+
+.band > * + .item-list,
+.band .item-list + * {
+    margin-top: 1.25rem;
+}
+
+.band > details > .item-list {
+    margin-top: 0.6rem;
+}
+
+/* grouped talk titles sit beside their hanging year, not below extra headroom */
+.band .item-list h3 {
+    margin-top: 0;
+}
+
+/* generic record list: publications, talks, news, projects */
+
+.item-list > li + li {
+    margin-top: 1.25rem;
+    border-top: 1px solid var(--border-soft);
+    padding-top: 1.25rem;
+}
+
+.item-list li > a:first-child,
+.item-list li > div > a:first-child {
+    font-weight: 600;
+    font-size: 1.02rem;
+}
+
+/* interest subjects in IntroCard render as mini-headings */
+.item-list li > strong:first-child,
+.item-list li > div > strong:first-child {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+}
+
+/* dates, venues, authors, supervisors, [Slides] links */
+.meta {
+    color: var(--fg-dim);
+    font-size: 0.87rem;
+}
+
+.meta + .meta {
+    margin-top: 0.2rem;
+}
+
+.meta a {
+    color: var(--fg-dim);
+}
+.meta a:hover {
+    color: var(--link-hover);
+}
+
+/* news dates, years — mono accent */
+.date {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    color: var(--accent-deep);
+    text-transform: uppercase;
+}
+
+/* tag chips */
+.tag {
+    display: inline-block;
+    padding: 0.16em 0.7em;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    background: color-mix(in srgb, var(--orange) 10%, transparent);
+    color: var(--orange-deep);
+}
+
+.tag[data-color="blue"] {
+    background: color-mix(in srgb, var(--blue) 10%, transparent);
+    color: var(--blue-700);
+}
+.tag[data-color="green"] {
+    background: color-mix(in srgb, var(--green) 12%, transparent);
+    color: var(--green-900);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.35rem;
+    padding-top: 0.15em;
+}
+
+/* nested venue list under a grouped talk title */
+.sub-list {
+    margin-top: 0.5rem;
+    padding-left: 1.1rem;
+    border-left: 2px solid var(--orange);
+}
+
+.sub-list > li + li {
+    margin-top: 0.6rem;
+}
+
+/* About-page experience block: <dl> of year → role */
+.timeline {
+    row-gap: 0.55rem;
+    margin-top: 1.25rem;
+}
+
+.timeline dt {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    color: var(--accent-deep);
+    padding-top: 0.1em;
+}
+
+.timeline dd {
+    margin: 0;
+}
+
+.jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    margin-top: 0.9rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.jump a {
+    color: var(--fg-dim);
+    text-decoration: none;
+    border-bottom: 2px solid var(--border);
+}
+
+.jump a:hover {
+    color: var(--fg);
+    border-color: var(--orange);
+}
+
+.lead {
+    font-size: 1.08rem;
+    color: var(--fg-soft);
+    max-width: 68ch;
+    margin-top: 0.9rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.62rem 1.4rem;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.15s ease;
+}
+
+.btn--primary {
+    background: var(--orange);
+    color: #fff;
+}
+
+.btn--primary:hover {
+    background: var(--orange-hover);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.btn--primary:focus-visible {
+    outline-color: var(--fg);
+    outline-offset: -3px;
+}
+
+/* ── Contact card ────────────────────────────────────────────────────────── */
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.55rem;
+    margin-top: 1.1rem;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--border-soft);
+    background: var(--bg);
+    color: var(--fg-dim);
+    text-decoration: none;
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* per-network hover colours */
+.contact-btn[data-contact="scholar"]:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: #fff;
+}
+.contact-btn[data-contact="bluesky"]:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: #fff;
+}
+.contact-btn[data-contact="email"]:hover {
+    background: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--fg);
+}
+.contact-btn[data-contact="linkedin"]:hover {
+    background: var(--blue-700);
+    border-color: var(--blue-700);
+    color: #fff;
+}
+.contact-btn[data-contact="github"]:hover {
+    background: var(--fg);
+    border-color: var(--fg);
+    color: #fff;
+}
+
+.contact-btn svg {
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+.portrait {
+    width: 60%;
+    margin-inline: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: 50% 30%;
+    /* offset orange square behind the photo */
+    box-shadow: 0.6rem 0.6rem 0 var(--orange);
+    margin-bottom: 1.4rem;
+}
+
+/* hanging figures share one height so the rows line up */
+.figure {
+    display: block;
+    width: 100%;
+    height: 10rem;
+    object-fit: contain;
+    /* white figure backgrounds blend into the page colour */
+    mix-blend-mode: multiply;
+}
+
+a.hang:hover .figure {
+    opacity: 0.85;
+}
+
+/* the portrait thesis cover spans its whole band: its height follows the text beside it,
+   with a small gap to the band's top and bottom lines */
+.band:has(.figure--cover) {
+    position: relative;
+}
+
+.figure--cover {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    width: calc(var(--hang) - 3rem);
+    height: calc(100% - 2rem);
+}
+
+.figure--cover .figure {
+    height: 60%;
+}
+
+/* avatar + contact icons */
+.profile {
+    text-align: center;
+    background: var(--bg-alt);
+    border: 1px solid var(--border-soft);
+    padding: 1.75rem 1.25rem 1.5rem;
+}
+
+/* news: date hangs left, links run inline, tighter rows */
+.news > li + li {
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+}
+
+.band .item-list > li > .date {
+    padding-top: 0.2em;
+}
+
+/* inside a band, row separators only span the right column; full-width lines
+   are reserved for the borders between bands */
+.band .item-list > li + li {
+    border-top: none;
+    background: linear-gradient(var(--border-soft), var(--border-soft)) no-repeat right top /
+        calc(100% - var(--hang) + 1.5rem) 1px;
+}
+
+/* hanging years and dates hug the vertical line */
+.band > .timeline > dt,
+.band .item-list > li > .date {
+    text-align: right;
+}
+
+/* the text beside a hanging date starts on the same line */
+.band .item-list > li > .hang + * {
+    margin-top: 0;
+}
+
+.summary {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+}
+
+/* ── Narrow screens ──────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+    /* single column: drop the hanging grid and its vertical line */
+    main.wrap {
+        background: none;
+    }
+
+    .band,
+    .band .item-list,
+    .band .item-list > li,
+    .band > .timeline,
+    .band > details {
+        display: block;
+    }
+
+    .band .hang,
+    .band .figure {
+        margin-bottom: 1rem;
+    }
+
+    .profile {
+        max-width: var(--hang);
+    }
+
+    .figure--cover {
+        position: static;
+        width: 100%;
+        height: 10rem;
+    }
+
+    .band .item-list > li > .date {
+        margin-bottom: 0;
+    }
+
+    .band > .timeline > dt,
+    .band .item-list > li > .date {
+        text-align: left;
+    }
+
+    .tags {
+        justify-content: flex-start;
+    }
+
+    .band .item-list > li + li {
+        border-top: 1px solid var(--border-soft);
+        background: none;
+    }
+
+    /* hamburger replaces the nav bar */
+    .nav-toggle {
+        display: flex;
+    }
+
+    .site-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border-soft);
+        box-shadow: 0 24px 40px color-mix(in srgb, var(--fg) 8%, transparent);
+    }
+
+    .site-nav.open {
+        display: flex;
+    }
+
+    .site-nav a {
+        padding: 0.9rem 1.5rem;
+        border-left: none;
+    }
+
+    .site-nav a + a {
+        border-left: none;
+        border-top: 1px solid var(--border-soft);
+    }
+
+    .timeline dd {
+        margin-bottom: 0.6rem;
+    }
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}

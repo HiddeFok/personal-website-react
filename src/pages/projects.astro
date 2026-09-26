@@ -1,0 +1,20 @@
+---
+import Base from "../layouts/Base.astro";
+import ProjectList from "../components/ProjectList.astro";
+---
+
+<Base
+  title="Projects – Hidde Fokkema"
+  description="Open-source code by Hidde Fokkema: PyTorch and scikit-learn packages and reproducible experiment code for published papers."
+>
+  <section class="band">
+    <p class="eyebrow">Research, Open Source and Personal Projects</p>
+    <h1>Projects</h1>
+    <p class="lead">
+      Code I've written and maintain, for research projects I list the papers as well.
+    </p>
+  </section>
+  <section class="band">
+    <ProjectList />
+  </section>
+</Base>

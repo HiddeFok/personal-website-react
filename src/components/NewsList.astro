@@ -1,0 +1,25 @@
+---
+import { newsItems } from "../data/news.ts";
+import NewsItem from "./NewsItem.astro";
+
+const SHOWN = 5;
+const newsSorted = [...newsItems].sort((a, b) => b.date.localeCompare(a.date));
+const recent = newsSorted.slice(0, SHOWN);
+const older = newsSorted.slice(SHOWN);
+---
+
+<ul class="item-list news">
+  {recent.map((news) => <NewsItem news={news} />)}
+</ul>
+{
+  older.length > 0 && (
+    <details class="news-older">
+      <summary>{older.length} older updates</summary>
+      <ul class="item-list news">
+        {older.map((news) => (
+          <NewsItem news={news} />
+        ))}
+      </ul>
+    </details>
+  )
+}

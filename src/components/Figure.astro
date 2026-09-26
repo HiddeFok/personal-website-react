@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+// A video src must have a same-named .png poster next to it.
+export type FigureSrc = ImageMetadata | `${string}.mp4`;
+
+interface Props {
+  src: FigureSrc;
+  alt: string;
+  href?: string;
+  class?: string;
+}
+
+const { src, alt, href, class: cls } = Astro.props;
+const Wrapper = href ? "a" : "div";
+---
+
+<Wrapper
+  class:list={["hang", cls]}
+  href={href}
+  target={href ? "_blank" : undefined}
+  rel={href ? "noopener" : undefined}
+>
+  {
+    typeof src === "string" ? (
+      <video
+        class="figure"
+        src={src}
+        poster={src.replace(/\.mp4$/, ".png")}
+        aria-label={alt}
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      />
+    ) : (
+      <Image class="figure" src={src} alt={alt} width={Math.min(src.width, 800)} />
+    )
+  }
+</Wrapper>

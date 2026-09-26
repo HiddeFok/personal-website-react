@@ -2,33 +2,31 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
-
   build:
-
     runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build -f Dockerfile.prod -t personal-website:prod . 
+      - uses: actions/checkout@v7
+      - name: Build the Docker image
+        run: docker build -f Dockerfile.prod -t personal-website:prod .
 
-  run: 
-
+  run:
     needs: build
-
-    runs-on: self-hosted 
+    if: github.event_name = 'push'
+    runs-on: self-hosted
 
     steps:
-    - name: Stop currently running container
-      continue-on-error: true
-      run: docker-compose down
+      - name: Stop currently running container
+        continue-on-error: true
+        run: docker-compose down
 
-    # All settings and certifications are done on the server and the instructions are stored there in 
-    # a docker-compose.yaml file
-    - name: Run the new container 
-      run: docker-compose up -d 
+      # All settings and certifications are done on the server and the instructions are stored there in
+      # a docker-compose.yaml file
+      - name: Run the new container
+        run: docker compose up -d
+

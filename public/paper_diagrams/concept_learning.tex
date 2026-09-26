@@ -1,0 +1,129 @@
+    \begin{tikzpicture}[
+        neuron/.style={
+            circle, 
+            draw=black!60, 
+            very thick, 
+            fill=white, 
+            inner sep=0pt,
+            minimum size=4pt
+        },
+        output/.style={
+            circle, 
+            draw=black, 
+            very thick, 
+            fill=white, 
+            inner sep=0pt,
+            minimum size=20pt
+        },
+        concept/.style={
+            circle,
+            draw=black,
+            very thick,
+            inner sep=0pt,
+            minimum size=20pt
+        },
+        c_text/.style={
+            rectangle, 
+            rounded corners, 
+            draw=black, 
+            fill=pearTwo!30,
+            thick, 
+            anchor=west
+        },
+        >=stealth
+    ]
+
+    \draw[fill=red!50, rounded corners, dashed, very thick, opacity=0.6] 
+        (-2.5, 2) rectangle (3, -2);
+    \draw[fill=yellow!50, rounded corners, dashed, very thick, opacity=0.6] 
+        (4, 2) rectangle (9, -2);
+    \draw[fill=blue!50,rounded corners, dashed, very thick, opacity=0.6] 
+        (1.7, 2.2) rectangle (7.1, -2.2);
+    
+    \node[fill=red!50, rectangle, anchor=center] 
+        (exp1) at (-0.3, 2.7) {\small CRL on unlabelled data};
+    \node[fill=blue!50, rectangle, anchor=center] 
+        (exp2) at (4.5, 2.7) {\small Learning alignments with concept labels};
+    \node[fill=yellow!50, rectangle, anchor=center] 
+        (exp3) at (8.7, 2.7) {\small Label predictor};
+
+    \node[
+        rectangle, 
+        rounded corners, 
+        draw=black, 
+        very thick, 
+        fill=purple!70]
+        (pic) at (-1.1, 0) 
+        {\includegraphics[scale=0.8]{./figs/causal_ident/teapot.png}};
+
+    % Input layer (3 neurons)
+    \foreach \i in {1,2,3} {
+        \node[neuron] (I\i) at (0,0.6-0.3*\i) {};
+        \draw[->] (pic) -- (I\i);
+    }
+
+    % Hidden layer (6 neurons)
+    \foreach \i in {1,2,3,4,5,6} {
+        \node[neuron] (H\i) at (0.5,1.05-0.3*\i) {};
+    }
+
+    % Hidden layer (6 neurons)
+    \foreach \i in {1,2,3,4,5,6} {
+        \node[neuron] (H_2\i) at (1,1.05-0.3*\i) {};
+    }
+
+    % Output layer (4 neurons)
+    \foreach \i in {1,2,3,4} {
+        \node[output, fill=blue!50] (O\i) at (2.5,2.5 - 1*\i) {$M_\i$};
+    }
+
+    \foreach \i in {1,2,3,4} {
+        \node[concept, fill=red!50] (C\i) at (4.5,2.5-1*\i) {$C_\i$};
+    }
+
+    \node[c_text]
+        (concept_1) at (5.2, 1.5) {\scriptsize Color object};
+    \node[c_text]
+        (concept_2) at (5.2, 0.5) {\scriptsize Rot.\ object};   
+    \node[c_text]
+        (concept_3) at (5.2,-0.5) {\scriptsize Rot.\ spotlight};
+    \node[c_text]
+        (concept_4) at (5.2,-1.5) {\scriptsize Object};
+
+    \node[draw=black, circle, very thick, fill=orange] 
+        (Y) at (8, 0) {\large $Y$};
+
+    % Connections between input and hidden layer
+    \foreach \i in {1,2,3} {
+        \foreach \j in {1,2,3,4,5,6} {
+            \draw[->, opacity=0.4] (I\i) -- (H\j);
+        }
+    }
+
+    % Connections between input and hidden layer
+    \foreach \i in {1,2,3,4,5,6} {
+        \foreach \j in {1,2,3,4,5,6} {
+            \draw[->, opacity=0.4] (H\i) -- (H_2\j);
+        }
+    }
+
+    % Connections between hidden and output layer
+    \foreach \i in {1,2,3,4,5,6} {
+        \foreach \j in {1,2,3,4} {
+            \draw[->, opacity=0.4] (H_2\i) -- (O\j);
+        }
+    }
+
+    \foreach \i in {1, 2, 3, 4} {
+        \draw[->, thick] (concept_\i) -- (Y);
+    }  
+
+    \draw[->, dashed, color=red, very thick] (O1) -- (C3);
+    \draw[->, dashed, color=red, very thick] (O2) -- (C4);
+    \draw[->, dashed, color=red, very thick] (O3) -- (C2);
+    \draw[->, dashed, color=red, very thick] (O4) -- (C1);
+
+
+    \node (alpha) at ($(O4)!0.5!(C4)$) {\large $\alpha$};
+    \draw [shorten >= 0.2cm] (alpha) -- ($(O2)!0.55!(C4)$);
+\end{tikzpicture}

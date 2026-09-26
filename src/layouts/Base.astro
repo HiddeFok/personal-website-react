@@ -1,0 +1,145 @@
+---
+import "../styles/theme.css";
+import { personalInfo } from "../data/data.ts";
+import portrait from "../assets/portrait.jpg";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Hidde Fokkema, AI Research Engineer at Plumerai. PhD in machine learning theory from the University of Amsterdam: explainable AI and bandit optimisation.",
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(portrait.src, Astro.site);
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: personalInfo.name,
+  jobTitle: personalInfo.jobTitle,
+  worksFor: { "@type": "Organization", name: personalInfo.employer },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "University of Amsterdam" },
+  url: Astro.site?.href,
+  image: ogImage.href,
+  email: personalInfo.email,
+  sameAs: [personalInfo.scholar, personalInfo.github, personalInfo.linkedin, personalInfo.bluesky],
+};
+
+// Built URLs carry a trailing slash; strip it so comparisons are stable.
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+
+const navItems = [
+  { href: "/", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/research", label: "Research" },
+];
+
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path === href || path.startsWith(`${href}/`);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fafaf4" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content={String(portrait.width)} />
+    <meta property="og:image:height" content={String(portrait.height)} />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <slot name="head" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-bar">
+        <a class="brand" href="/">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="site-title">{personalInfo.name}</span>
+        </a>
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <nav class="site-nav" id="site-nav">
+          {
+            navItems.map((item) => (
+              <a href={item.href} class={isActive(item.href) ? "active" : undefined}>
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <slot />
+    </main>
+
+    <footer class="footer wrap">
+      <span>&copy; 2021&ndash;{new Date().getFullYear()} {personalInfo.name}</span>
+      <span>Amsterdam &middot; The Netherlands</span>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById("nav-toggle");
+      const nav = document.getElementById("site-nav");
+
+      toggle?.addEventListener("click", () => {
+        const open = nav?.classList.toggle("open") ?? false;
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.querySelectorAll<HTMLVideoElement>("video[autoplay]").forEach((v) => {
+          v.removeAttribute("autoplay");
+          v.pause();
+        });
+      }
+
+      // Close the menu before leaving, so a back-navigation restored from cache does not reopen it.
+      nav?.querySelectorAll("a").forEach((link) =>
+        link.addEventListener("click", () => {
+          nav.classList.remove("open");
+          toggle?.setAttribute("aria-expanded", "false");
+        }),
+      );
+    </script>
+  </body>
+</html>
